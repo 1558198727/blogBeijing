@@ -1,0 +1,10 @@
+mysql Win10安装MySQL Server 5.7.20失败，
+This application requires 
+Visual Studio 2013 Redistributable
+：（Visual Studio 2013 运行库）简书
+https://www.jianshu.com/p/13c7c316c2bb
+
+下载链接：
+https://link.jianshu.com/?t=http%3A%2F%2Fdownload.microsoft.com%2Fdownload%2F1%2F8%2F0%2F180FA2CE-506D-4032-AAD1-9D7636F85179%2Fvcredist_x64.exe
+
+================================================================================

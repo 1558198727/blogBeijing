@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Sequelize = require('sequelize');
-var db = require("../../untitled/model/mysql");
-var user = require("../../untitled/model/user");
+var db = require("../../blogProject/model/mysql");
+var user = require("../../blogProject/model/user");
 
 
 

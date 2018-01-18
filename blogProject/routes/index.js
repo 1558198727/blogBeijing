@@ -26,9 +26,10 @@ router.get('/', function(req, res, next) {
             console.log("文章ID："+item+'\n');
             // console.log( __filename );
         })
+        res.render("index",{data: article[0],title:"我的主页"});
     })
 
-    res.render("index",{title:"我的主页"});
+
 });
 
 

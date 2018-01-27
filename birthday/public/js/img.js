@@ -14,6 +14,9 @@ $(function () {
         } else {
 			$('.begin').text('比较简单，嘻嘻!');
 			$('.begin').fadeIn();
+			setTimeout(function () {
+               location.href="/Memories";
+            },1000);
             return;
         }
     };

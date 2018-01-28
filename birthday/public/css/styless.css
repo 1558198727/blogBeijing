@@ -469,7 +469,7 @@ html, body {
 }
 
 .link2 {
-    cursor: not-allowed;
+    /*cursor: not-allowed;*/
 }
 
 .bt1, .bt2 {

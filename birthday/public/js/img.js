@@ -12,11 +12,13 @@ $(function () {
                 i++;
             }, 4000);
         } else {
-			$('.begin').text('比较简单，嘻嘻!');
-			$('.begin').fadeIn();
+			$('.begin').html("生日快乐"+'<br>'+"犹豫了一下还是决定去顺几张照片"+'<br>'+"希望不要生气");
+
 			setTimeout(function () {
-               location.href="/Memories";
-            },1000);
+                $('.begin').css("left", "20%");
+                $('.begin').fadeIn();
+               // location.href="/Memories";
+            },5000);
             return;
         }
     };
@@ -31,7 +33,7 @@ $(function () {
         li.eq(i).css('z-index',i)
         var n= Math.floor((Math.random() * 30)+(-30));
         li.eq(i).css({transform:"rotate("+n+"deg)"})
-        li.eq(i).find('img').css({width:'250px',height:'350px'})
+        // li.eq(i).find('img').css({width:'250px',height:'350px'})
         li.eq(i).show();
         if (parseInt(li.eq(i).css('top'))<0){
             data.top=parseInt(Math.random() * 20 +5)+"%";

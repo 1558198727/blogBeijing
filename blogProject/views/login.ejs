@@ -1,35 +1,83 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/user.css" type="text/css" rel="stylesheet" />
+    <title>login</title>
 </head>
 <body>
-
-<div class="login-up">
-    <img class="login-logo" src="/images/u2.png">
-    <p>登录尚名校账号</p>
-</div>
-<div class="login-dowm">
-    <form class="login-form-name">
-        <label>手机号</label>
-        <input type="text" placeholder="请输入手机号" id="phoneNumber" value="">
-    </form>
-    <form class="login-form-password">
-        <label>密码</label>
-        <input type="password" placeholder="请输入密码" id="password" value="">
-    </form>
-    <a href="/users/forgetpassword" class="login-forget"><p>忘记密码</p></a>
-    <button type="submit" class="login-submit" onclick="sub1()">登录</button>
-</div>
+    <div class="user-body-bg"></div>
+    <div class="user-login-bg"></div>
+    <div class="user-bottom-bg"></div>
+    <div class="login-box">
+        <form action="" >
+            <label class="form-inline">
+                <div class="form-inline-font">
+                    Username :
+                </div>
+                <div class="form-inline-input">
+                    <input type="text"  id="phoneNumber" value="" maxlength="8"/>
+                    <!-- <input type="text" placeholder="请输入手机号" > -->
+                </div>
+            </label>
+            <label class="form-inline">
+                <div class="form-inline-font">
+                    Password :
+                </div>
+                <div class="form-inline-input">
+                    <input type="password"  id="password" value="" maxlength="16" />
+                    <!-- <input type="password" placeholder="请输入密码" > -->
+                </div>
+            </label>
+            <label class="form-inline">
+                <div class="form-inline-font">
+                    Verification :
+                </div>
+                <div class="form-inline-input">
+                    <div class="code-box" id="code-box">
+                        <input type="text"  class="code-input" />
+                        <p></p>
+                        <span>>>></span>
+                    </div>
+                </div>
+            </label>
+            
+            <div class="login-btn">
+                <div class="user-btn-link">
+                    <!--<a href="">密码找回</a> moveCode('4664');-->
+                </div>
+                <button type="submit" onclick="sub1()">submit</button>
+            </div>
+        </form>
+    </div>
 </body>
-<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/js/login.js"></script>
+<script>
+
+    window.addEventListener('load',function(){
+
+        //code是后台传入的验证字符串
+        var code = "jsaidaisd656",
+            codeFn = new moveCode();
+        
+        //获取当前的code值
+        //console.log(codeFn.getCode());
+
+        //改变code值
+        //code = '46asd546as5';
+        //codeFn.setCode(code);
+        
+        //重置为初始状态
+        //codeFn.resetCode();
+    });
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
 <script type="text/javascript">
-    var welcome=document.getElementsByClassName("welcome");
-    for(var i=0;i<welcome.length;i++)
-    {
-        welcome[i].style.display="none";
-    }
+
     /*var data={
         phoneNumber:document.getElementById("phoneNumber").value,
         password:document.getElementById("password").value
@@ -46,7 +94,7 @@
             dataType:"json",
             data:{
                 phoneNumber:$("#phoneNumber").val(),
-                password:$("#password").val(),
+                password:$("#password").val()
             },
             success:function(data){
                 console.log("data"+data.status)

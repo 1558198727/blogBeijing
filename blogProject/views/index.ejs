@@ -10,7 +10,9 @@
     <script src="/js/init.js"></script>
     <script src="/js/skel.min.js"></script>
     <script src="/js/init.js"></script>
-    <noscript>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css'>
 
@@ -24,12 +26,17 @@
         <link rel="stylesheet" type="text/css" href="plugin/h-ui/css/H-ui.min.css" />
         <link rel="stylesheet" type="text/css" href="plugin/Hui-iconfont/1.0.8/iconfont.min.css" />
         <link rel="stylesheet" type="text/css" href="plugin/pifu/pifu.css" />
+        <link rel="shortcut icon" href="./img/HeadPhoto.jpg">
 
-    </noscript>
+
     <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie/v9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
 
-
+<style type="text/css">
+    a,a:hover,a:link,a:visited,a:active{
+        text-decoration:none;
+    }
+</style>
 </head>
 <body class="loading">
 
@@ -48,8 +55,10 @@
                     <li><a href="https://github.com/1558198727" class="fa fa-github"><span>Github</span></a></li>
                     <li><a href="http://blog.csdn.net/l1558198727" class="fa fa-pencil-square-o"><span>CSDN</span></a></li>
 
-                    <li><a href="https://user.qzone.qq.com/1558198727?source=namecardhoverqzone" class="fa fa-qq"><span>QQ</span></a></li>
-                    <li><a href="" class="fa fa-weixin"><span>WeChat</span></a></li>
+                    <li ><a id="app"   data-toggle="popover" data-placement="top"    href="#" class="fa fa-qq"><span>QQ</span></a></li>
+                    <li><a  id="weixin"   data-toggle="popover" data-placement="top" href="#" class="fa fa-weixin"><span>WeChat</span></a></li>
+
+                    <!--<a id="app" style="background-image:url('./img/HeadPhoto.jpg')" class="btn" data-toggle="popover" data-placement="top"></a>-->
 
 
                     <!--<li><a href="https://mail.qq.com/" class="fa fa-key"><span>Email</span></a></li>-->
@@ -65,10 +74,42 @@
 
         <!-- Footer -->
         <footer id="footer">
-            <span class="copyright">&copy; Untitled. Design.</span>
+            <span class="copyright">&copy;
+
+
+<!--<a  tabindex="0" class="btn btn-lg btn-info text-warning " role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?" data-style>可消失的弹出框</a>-->
+
+           <!--<button id="myalert" type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">点我弹出/隐藏弹出框</button>-->
+
+
+
+
+
+            </span>
         </footer>
 
     </div>
+
+
+
 </div>
+<script >
+
+//        alert('ss');
+
+            $('#app').popover({
+                trigger:'hover',
+                html:true,
+                content:"<img src='./img/HeadPhoto.jpg'>"
+            });
+
+            $('#weixin').popover({
+                trigger : 'hover',
+                html:true,
+                content:"<img src='./img/HeadPhoto.jpg'>"
+            });
+
+
+</script>
 </body>
 </html>

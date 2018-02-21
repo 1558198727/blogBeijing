@@ -79,7 +79,7 @@ router.post('/users/login',function (req,res) {
 });
 
 router.get('/indexTwo', function(req, res, next) {
-    res.render('indexTwo', { title: 'Express' });
+    res.render('indexTwo', { title: 'Mian Page' });
 });
 
 module.exports = router;

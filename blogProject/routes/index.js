@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 var Sequelize = require('sequelize');
 var db = require("../../blogProject/model/mysql");
 var user = require("../../blogProject/model/user");
@@ -16,7 +17,16 @@ router.get('/users/login', function(req, res, next) {
 
 
 router.get('/', function(req, res, next) {
-    console.log('11111');
+    var date = new Date();
+    var file = "C:\\BlogLog.txt";
+    var write_date = "当前访问的时间为" + date + '\r\n';
+    console.log(write_date);
+    fs.appendFile(file, write_date, function(err){
+        if(err)
+            console.log("fail " + err);
+        else
+            console.log("写入文件ok");
+    });
     var  sql = 'SELECT * FROM user';
 //查
     db.sequelize.query(sql).then(function (article) {

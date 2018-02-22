@@ -1,113 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/css/user.css" type="text/css" rel="stylesheet" />
-    <title>login</title>
+    <title></title>
+    <!-- Meta tag Keywords -->
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="http://liyunhao.cn/users/login" data-redirecturi="http://liyunhao.cn/index" charset="utf-8"></script>
+
 </head>
 <body>
-    <div class="user-body-bg"></div>
-    <div class="user-login-bg"></div>
-    <div class="user-bottom-bg"></div>
-    <div class="login-box">
-        <form action="" >
-            <label class="form-inline">
-                <div class="form-inline-font">
-                    Username :
-                </div>
-                <div class="form-inline-input">
-                    <input type="text"  id="phoneNumber" value="" maxlength="8"/>
-                    <!-- <input type="text" placeholder="请输入手机号" > -->
-                </div>
-            </label>
-            <label class="form-inline">
-                <div class="form-inline-font">
-                    Password :
-                </div>
-                <div class="form-inline-input">
-                    <input type="password"  id="password" value="" maxlength="16" />
-                    <!-- <input type="password" placeholder="请输入密码" > -->
-                </div>
-            </label>
-            <label class="form-inline">
-                <div class="form-inline-font">
-                    Verification :
-                </div>
-                <div class="form-inline-input">
-                    <div class="code-box" id="code-box">
-                        <input type="text"  class="code-input" />
-                        <p></p>
-                        <span>>>></span>
-                    </div>
-                </div>
-            </label>
-            
-            <div class="login-btn">
-                <div class="user-btn-link">
-                    <!--<a href="">密码找回</a> moveCode('4664');-->
-                </div>
-                <button type="submit" onclick="sub1()">submit</button>
-            </div>
-        </form>
-    </div>
-</body>
-<script src="/js/login.js"></script>
-<script>
 
-    window.addEventListener('load',function(){
-
-        //code是后台传入的验证字符串
-        var code = "jsaidaisd656",
-            codeFn = new moveCode();
-        
-        //获取当前的code值
-        //console.log(codeFn.getCode());
-
-        //改变code值
-        //code = '46asd546as5';
-        //codeFn.setCode(code);
-        
-        //重置为初始状态
-        //codeFn.resetCode();
-    });
-</script>
+<div class="lib_tiv shadow">
+    <h3 class="logo">QQ登录</h3>
+    <span id="qqLoginBtn">gggg</span>
+</div>
 
 
-<script src="/js/jquery.min.js"></script>
+
 <script type="text/javascript">
 
-    /*var data={
-        phoneNumber:document.getElementById("phoneNumber").value,
-        password:document.getElementById("password").value
-
-    }*/
-    function sub1(){
-        var userName=$("#phoneNumber").val();
-        var passWord=$("#password").val();
-        alert("用户名"+userName+"\n"+"密码"+passWord);
-
-        $.ajax({
-            type:"POST",
-            url:"/users/login",
-            dataType:"json",
-            data:{
-                phoneNumber:$("#phoneNumber").val(),
-                password:$("#password").val()
-            },
-            success:function(data){
-                console.log("data"+data.status)
-                if(data.status===true){
-                    alert("登录成功！");
-                    location.href="/";
-                }
-                else{
-                    alert("登录失败！");
-                }
-            }
-
-        })
-    }
+/*  |xGv00|c41a0054e10e6c99d6396d40e369e1a0 */
+    //调用QC.Login方法，指定btnId参数将按钮绑定在容器节点中
+    QC.Login({
+            //btnId：插入按钮的节点id，必选
+            btnId:"qqLoginBtn",
+            //用户需要确认的scope授权项，可选，默认all
+            scope:"all",
+            //按钮尺寸，可用值[A_XL| A_L| A_M| A_S|  B_M| B_S| C_S]，可选，默认B_S
+            size: "A_XL"
+        }, function(reqData, opts){//登录成功
+            //根据返回数据，更换按钮显示状态方法
+            var dom = document.getElementById('qqLoginBtn'),
+                _logoutTemplate=[
+                    //头像
+                    '<span><img src="{figureurl}" class="{size_key}"/></span>',
+                    //昵称
+                    '<span>{nickname}</span>',
+                    //退出
+                    '<span><a href="javascript:QC.Login.signOut();">退出</a></span>'
+                ].join("");
+            dom && (dom.innerHTML = QC.String.format(_logoutTemplate, {
+                nickname : QC.String.escHTML(reqData.nickname), //做xss过滤
+                figureurl : reqData.figureurl
+            }));
+        }, function(opts){//注销成功
+            alert('QQ登录 注销成功');
+        }
+    );
 </script>
+
+
+</body>
 </html>

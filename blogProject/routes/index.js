@@ -12,7 +12,8 @@ var user = require("../../blogProject/model/user");
 /* GET login page. */
 
 router.get('/users/login', function(req, res, next) {
-    res.render('login', { title: '登录' });
+    console.log('/users/login');
+    res.render('login', { title: 'Mian Page' });
 });
 
 
@@ -82,4 +83,11 @@ router.get('/indexTwo', function(req, res, next) {
     res.render('indexTwo', { title: 'Mian Page' });
 });
 
+
+
+
+router.post('/users/loginCallBack',function (req,res) {
+
+    res.render('loginCallBack', { title: 'loginCallBack' });
+});
 module.exports = router;

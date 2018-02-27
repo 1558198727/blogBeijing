@@ -2,35 +2,44 @@
 
 
 $(document).ready(function(){
-
-		$(window).resize(function(){
+	var flag = 0;
+		function getWidth(){
 			if($(window).width() >= 767){
 				$(".sidebar").slideDown('350');
+				flag = 0;
 			}
 			else{
 				$(".sidebar").slideUp('350');
+				// $(".sidebar").slideDown('350');
+				flag = 1;
 			}
-		});
-	
+		};
+    $(window).scroll(function() {
+        getWidth()
+		if ($(this).scrollTop()>300 && flag) {
+
+            $(".sidebar").slideUp('350');
+            $('.navigation a').removeClass("flag");
+        }
+
+    });
 	 $(".navigation a").click(function(){
 	  
-		if(!$(this).hasClass("dropy")) {
-			// hide any open menus and remove all other classes
-			$(".sidebar").slideUp('350');
-			$(".navigation a").removeClass("dropy");
-			
-			// open our new menu and add the dropy class
+		if(!$(this).hasClass("flag")) {
+
 			$(".sidebar").slideDown('350');
-			$(this).addClass("dropy");
+			$(this).addClass("flag");
 		}
-		else if($(this).hasClass("dropy")) {
-			$(this).removeClass("dropy");
+		else if($(this).hasClass("flag")) {
+			$(this).removeClass("flag");
 			$(".sidebar").slideUp('350');
+
 		}
 	});
+
+
 });
 
-	
 	$('.service-item').waypoint(function(down) {
 		$(this).addClass('animation');
 		$(this).addClass('fadeInUp');
@@ -70,4 +79,5 @@ $(document).ready(function(){
 		});
 
 	  });
-  
+
+

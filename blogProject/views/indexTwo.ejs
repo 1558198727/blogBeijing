@@ -1,13 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html >
 <head>
-
-
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Title here -->
     <title></title>
+
     <!-- Description, Keywords and Author -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="CNIT_Team,cnit.pro">
     <meta name="keywords" content="CNIT_Team,cnit.pro">
     <meta name="author" content="CNIT_Team">
@@ -44,7 +41,12 @@
     <link rel="stylesheet" type="text/css" href="plugin/Hui-iconfont/1.0.8/iconfont.min.css" />
     <link rel="stylesheet" type="text/css" href="css/common.css" />
     <link rel="stylesheet" type="text/css" href="plugin/pifu/pifu.css" />
+    <!--时间轴-->
     <link href="css/timeLine-styles.css" media="all" rel="stylesheet">
+    <!--分类树-->
+    <link rel="stylesheet" type="text/css" href="css/tree/SimpleTree.css">
+    <!--进度条-->
+    <link href="css/loader.css" rel="stylesheet">
 
     <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie/v9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
@@ -91,7 +93,7 @@
 
             <li><a href="#.ChronologicalOrder" class="anchorLink"><i class="fa fa-files-o"></i> <span>归档</span></a></li>
             <li><a href="#.classByClass" class="anchorLink"><i class="fa fa-bars"></i> <span>分类</span></a></li>
-            <li><a href="#.photoes" class="anchorLink"><i class="fa fa-picture-o"></i> <span>相册</span></a></li>
+            <li><a href="#.photos" class="anchorLink"><i class="fa fa-picture-o"></i> <span>相册</span></a></li>
             <li><a href="#.aboutMe" class="anchorLink"><i class="fa fa-user"></i> <span>关于</span></a></li>
 
         </ul>
@@ -118,7 +120,7 @@
                 <div class="row">
                     <div class="col-md-12 ">
                         <h2>Yun Hao</h2>
-                        <p>大连理工大学软件学院&nbsp&nbsp·&nbsp&nbsp软件工程</p>
+                        <p>一个程序员&nbsp&nbsp·&nbsp&nbsp大连理工大学软件学院&nbsp&nbsp·&nbsp&nbsp软件工程</p>
 
                     </div>
 
@@ -147,7 +149,7 @@
                                             </a>
                                             <h4 class="title"><a href="#">个人博客应该选择什么样的域名和域名后缀</a></h4>
                                             <div class="date_hits">
-                                                <span>老王</span>
+                                                <span>---</span>
                                                 <span>2017-02-24</span>
                                                 <span><a href="#">程序人生</a></span>
                                                 <!--<p class="hits"><i class="Hui-iconfont" title="点击量">&#xe6c1;</i> 276° </p>-->
@@ -162,7 +164,7 @@
                                             </a>
                                             <h4 class="title"><a href="#">个人博客应该选择什么样的域名和域名后缀</a></h4>
                                             <div class="date_hits">
-                                                <span>老王</span>
+                                                <span>---</span>
                                                 <span>2017-02-24</span>
                                                 <span><a href="#">程序人生</a></span>
                                                 <p class="hits"><i class="Hui-iconfont" title="点击量">&#xe6c1;</i> 276° </p>
@@ -177,7 +179,7 @@
                                             </a>
                                             <h4 class="title"><a href="#">个人博客应该选择什么样的域名和域名后缀</a></h4>
                                             <div class="date_hits">
-                                                <span>老王</span>
+                                                <span>---</span>
                                                 <span>2017-02-24</span>
                                                 <span><a href="#">程序人生</a></span>
                                                 <p class="hits"><i class="Hui-iconfont" title="点击量">&#xe6c1;</i> 276° </p>
@@ -192,7 +194,7 @@
                                             </a>
                                             <h4 class="title"><a href="#">个人博客应该选择什么样的域名和域名后缀</a></h4>
                                             <div class="date_hits">
-                                                <span>老王</span>
+                                                <span>---</span>
                                                 <span>2017-02-24</span>
                                                 <span><a href="#">程序人生</a></span>
                                                 <p class="hits"><i class="Hui-iconfont" title="点击量">&#xe6c1;</i> 276° </p>
@@ -207,7 +209,7 @@
                                             </a>
                                             <h4 class="title"><a href="#">个人博客应该选择什么样的域名和域名后缀</a></h4>
                                             <div class="date_hits">
-                                                <span>老王</span>
+                                                <span>---</span>
                                                 <span>2017-02-24</span>
                                                 <span><a href="#">程序人生</a></span>
                                                 <p class="hits"><i class="Hui-iconfont" title="点击量">&#xe6c1;</i> 276° </p>
@@ -265,26 +267,26 @@
                             <div class="row">
                                 <div class="col-xs-12">
 
-                                        <div class="panel panel-info" style="">
+                                        <!--<div class="panel panel-info" style="">-->
 
-                                            <div class="panel-heading" style="background-color: #C053F9;border: none;">
-                                                <h4 class="panel-title" style="border: none;">
-                                                    <a  data-toggle="collapse" data-parent="#accordion" style="border: none;text-decoration: none;color: black;" href="#collapseThree">
-                                                        点击我进行展开，再次点击我进行折叠。第 3 部分
-                                                    </a>
-                                                </h4>
-                                            </div>
+                                            <!--<div class="panel-heading" style="background-color: #C053F9;border: none;">-->
+                                                <!--<h4 class="panel-title" style="border: none;">-->
+                                                    <!--<a  data-toggle="collapse" data-parent="#accordion" style="border: none;text-decoration: none;color: black;" href="#collapseThree">-->
+                                                        <!--点击我进行展开，再次点击我进行折叠。第 3 部分-->
+                                                    <!--</a>-->
+                                                <!--</h4>-->
+                                            <!--</div>-->
 
-                                            <div id="collapseThree" class="panel-collapse collapse" style="background-color: #0c59e9;">
-                                                <div class="panel-body" style="color: black">
-                                                    <ul>
-                                                        <li>fdsafsadf</li>
-                                                        <li>dsfsaf</li>
-                                                        <li>asdfsadf</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            <!--<div id="collapseThree" class="panel-collapse collapse" style="background-color: #0c59e9;">-->
+                                                <!--<div class="panel-body" style="color: black">-->
+                                                    <!--<ul>-->
+                                                        <!--<li>fdsafsadf</li>-->
+                                                        <!--<li>dsfsaf</li>-->
+                                                        <!--<li>asdfsadf</li>-->
+                                                    <!--</ul>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
 
 
 
@@ -435,92 +437,154 @@
                 </div>
                 <hr />
             </div>
-            <div class="service">
-                <h3>Service</h3>
+            <div class="testimonial">
+                <h3>Doms</h3>
                 <div class="bor hidden-xs"></div>
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                        <!-- Service item -->
-                        <div class="service-item animated">
-                            <i class="icon-camera skyblue"></i>
-                            <!-- Service item heading -->
-                            <h4><a href="#">官方微博</a></h4>
-                            <p><a href="http://t.qq.com/cnitpro">CNIT信息安全团队(www.cnit.pro)官方微博。</a>
-                                如有问(le)题(zi)请@CNIT信息安全团队,竭尽全力为您“服务”。
-                            </p>
-                        </div>
+                    <!--<div class="col-md-4">-->
+                        <!--&lt;!&ndash; testimonial content &ndash;&gt;-->
+                        <!--<div class="testimonial-content animated">-->
+                            <!--&lt;!&ndash; User's image , name and designation &ndash;&gt;-->
+                            <!--<h4><img src="img/user-xs.jpg" alt="" class="img-responsive img-circle"/>美术设计师<span>, Mei Gong</span></h4>-->
+                            <!--&lt;!&ndash; User's comment &ndash;&gt;.-->
+                            <!--<blockquote>-->
+                                <!--<p>我们需要一个“全能”的美术设计师，不需要技术牛，在线时间比较多、能做个图片什么的足矣，我们需要一个热情有活力的设计师，当然如果是妹子想来也是极好的。</p>-->
+                            <!--</blockquote>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-4">-->
+                        <!--<div class="testimonial-content animated">-->
+                            <!--<h4><img src="img/user-xs.jpg" alt="" class="img-responsive img-circle"/>Web开发or网络安全<span>,Cheng Xu Yuan</span></h4>-->
+                            <!--<blockquote>-->
+                                <!--<p>人品好，技术其次，爱攻城、爱钻研。要求：具备和其他成员交流的能力，能够完成团队分配任务，技术要求，自己觉得屌就可以啦！</p>-->
+                            <!--</blockquote>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-4">-->
+                        <!--<div class="testimonial-content animated">-->
+                            <!--<h4><img src="img/user-xs.jpg" alt="" class="img-responsive img-circle"/>网站运维<span>, Diao Si</span></h4>-->
+                            <!--<blockquote>-->
+                                <!--<p>在线时间长，热爱团队，懂一点点技术，有许多资源，都可以来加入我们的呦。</p>-->
+                            <!--</blockquote>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <div class="st_tree" style="width:400px;margin:0 auto;">
+
+                        <ul>
+
+                            <!--<li><a  ref="hyjm">欢迎界面</a></li>-->
+
+                            <li class="folder"><a  ref="xtgl">前端</a></li>
+
+                                <ul show="true">
+
+                                    <li><a  ref="yhgl">用户管理</a></li>
+
+                                    <li><a  ref="rzck">日志查看</a></li>
+
+                                </ul>
+
+                            <li class="folder"><a  ref="ckgl">后端</a></li>
+
+                                <ul>
+
+                                    <li><a  ref="kcgl">文件1</a></li>
+
+                                    <li><a  ref="shgl">文件2</a></li>
+
+                                    <li class="folder"><a  ref="fhgl">分类1</a></li>
+
+                                        <ul>
+
+                                            <li><a  ref="yhgl">分类11</a></li>
+
+                                            <li><a  ref="rzck">分类12</a></li>
+
+                                        </ul>
+
+                                </ul>
+
+                        </ul>
+
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                        <div class="service-item animated">
-                            <i class="icon-envelope nblue"></i>
-                            <h4><a href="#">联系方式</a></h4>
-                            <p>想加入我们带上自身条件发送至:admin@cnit.pro如果想查水表依然联系:admin@cnit.pro</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                        <div class="service-item animated">
-                            <i class="icon-download blue"></i>
-                            <h4><a href="#">交流论坛</a></h4>
-                            <p><a href="http://www.cnit.pro/about.html">关于我们</a>邀请码获取：微博、赞助、投稿都可以哦，怎么弄？自己看着办吧！</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-6">
-                        <div class="service-item animated">
-                            <i class="icon-gamepad green"></i>
-                            <h4><a href="#">NOT NULL</a></h4>
-                            <p>wo men shi yi ge zeng pai zheng neng liang de tuan dui ,  you fu  li shen me de dou bu yao wang ji wo men you</p>
-                        </div>
-                    </div>
+
+
+
+
+
+
+
                 </div>
             </div>
             <hr />
+
+
         </div>
 
         <div class="container">
-            <div class="photoes">
+            <div class="photos">
                 <div class="hero">
                     <div class="row">
                         <div class="col-md-12">
-                            <h2>photoes</h2>
-                            <p>目前共计有XX篇文章.</p>
+                            <h2>photos</h2>
+                            <p>Record life ， Keep moving.</p>
 
                         </div>
                     </div>
                 </div>
                 <hr />
             </div>
-            <div class="testimonial">
-                <h3>加入我们</h3>
+            <div class="service">
+                <h3>Service</h3>
                 <div class="bor hidden-xs"></div>
                 <div class="row">
-                    <div class="col-md-4">
-                        <!-- testimonial content -->
-                        <div class="testimonial-content animated">
-                            <!-- User's image , name and designation -->
-                            <h4><img src="img/user-xs.jpg" alt="" class="img-responsive img-circle"/>美术设计师<span>, Mei Gong</span></h4>
-                            <!-- User's comment -->.
-                            <blockquote>
-                                <p>我们需要一个“全能”的美术设计师，不需要技术牛，在线时间比较多、能做个图片什么的足矣，我们需要一个热情有活力的设计师，当然如果是妹子想来也是极好的。</p>
-                            </blockquote>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="testimonial-content animated">
-                            <h4><img src="img/user-xs.jpg" alt="" class="img-responsive img-circle"/>Web开发or网络安全<span>,Cheng Xu Yuan</span></h4>
-                            <blockquote>
-                                <p>人品好，技术其次，爱攻城、爱钻研。要求：具备和其他成员交流的能力，能够完成团队分配任务，技术要求，自己觉得屌就可以啦！</p>
-                            </blockquote>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="testimonial-content animated">
-                            <h4><img src="img/user-xs.jpg" alt="" class="img-responsive img-circle"/>网站运维<span>, Diao Si</span></h4>
-                            <blockquote>
-                                <p>在线时间长，热爱团队，懂一点点技术，有许多资源，都可以来加入我们的呦。</p>
-                            </blockquote>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="service-item animated">
+                            <i class=" nblue">
+                                <img src="img/photos/code1.jpg" >
+                            </i>
+                            <h4></h4>
+                            <h1></h1>
+                            <p>想加入我们带上自身条件发送至:admin@cnit.pro如果想查水表依然联系:admin@cnit.pro</p>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="service-item animated">
+                            <i class=" blue">
+                                <img src="img/photos/code2.jpg" >
+                            </i>
+                            <h4></h4>
+                            <p><a href="http://www.cnit.pro/about.html">关于我们</a>邀请码获取：微博、赞助、投稿都可以哦，怎么弄？自己看着办吧！</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="service-item animated">
+                            <i class=" green">
+                                <img src="img/photos/star.jpg" >
+                            </i>
+                            <h4><a href="#"></a></h4>
+                            <p>wo men shi yi ge zeng pai zheng neng liang de tuan dui ,  you fu  li shen me de dou bu yao wang ji wo men you</p>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="service-item animated" style="">
+                            <i  >
+                                <i class="fa fa-camera skyblue" ></i>
+                            </i>
+                            <h4></h4>
+                            <p><a href="http://t.qq.com/cnitpro">CNIT信息安全团队(www.cnit.pro)官方微博。</a>
+                                如有问(le)题(zi)请@CNIT信息安全团队,竭尽全力为您“服务”。
+                            </p>
+                        </div>
+                    </div>
+                <!--</div>-->
             </div>
             <hr />
         </div>
@@ -533,7 +597,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h2>aboutMe</h2>
-                            <p>目前共计有XX篇文章.</p>
+                            <p>个人资料加载中 <strong>···</strong></p>
 
                         </div>
                     </div>
@@ -541,43 +605,69 @@
                 <hr />
             </div>
 
+            <!--<div class="feature">-->
+                <!--<h3>Future</h3>-->
+                <!--<div class="bor hidden-xs"></div>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-3 col-xs-6">-->
+                        <!--&lt;!&ndash; Feature item &ndash;&gt;-->
+                        <!--<div class="feature-item animated">-->
+                            <!--<i class="fa fa-gears"></i>-->
+                            <!--&lt;!&ndash; Feature item heading and description &ndash;&gt;-->
+                            <!--<h4>抬头望天</h4>-->
+                            <!--<p>脚下踏的是坚实的土地.</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-3 col-xs-6">-->
+                        <!--<div class="feature-item animated">-->
+                            <!--<i class="fa fa-refresh"></i>-->
+                            <!--<h4>直视远方</h4>-->
+                            <!--<p>盼望的是遥远的未来.</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-3 col-xs-6">-->
+                        <!--<div class="feature-item animated">-->
+                            <!--<i class="fa fa-unlink"></i>-->
+                            <!--<h4>回眸一望 </h4>-->
+                            <!--<p>是逝去的记忆.</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-3 col-xs-6">-->
+                        <!--<div class="feature-item animated">-->
+                            <!--<i class="fa fa-puzzle-piece"></i>-->
+                            <!--<h4>未来的路</h4>-->
+                            <!--<p>梦在哪，路在哪！</p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<hr />-->
+
+
             <div class="feature">
-                <h3>Future</h3>
-                <div class="bor hidden-xs"></div>
+                <!--<h3>Future</h3>-->
+                <!--<div class="bor hidden-xs"></div>-->
                 <div class="row">
-                    <div class="col-md-3 col-xs-6">
+                    <div class="col-md-2 col-xs-2"></div>
+                    <div class="col-md-8 col-xs-8">
                         <!-- Feature item -->
-                        <div class="feature-item animated">
-                            <i class="icon-gears"></i>
-                            <!-- Feature item heading and description -->
-                            <h4>抬头望天</h4>
-                            <p>脚下踏的是坚实的土地.</p>
+                        <div id="loader" class="loader">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped">
+                                    <div class="progress-value"></div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="feature-item animated">
-                            <i class="icon-refresh"></i>
-                            <h4>直视远方</h4>
-                            <p>盼望的是遥远的未来.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="feature-item animated">
-                            <i class="icon-unlink"></i>
-                            <h4>回眸一望 </h4>
-                            <p>是逝去的记忆.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="feature-item animated">
-                            <i class="icon-puzzle-piece"></i>
-                            <h4>未来的路</h4>
-                            <p>梦在哪，路在哪！</p>
-                        </div>
-                    </div>
+                    <div class="col-md-2 col-xs-2"></div>
+
                 </div>
             </div>
             <hr />
+           
+
+
         </div>
             <!-- Features End -->
 
@@ -585,18 +675,7 @@
 
         </div>
 
-            <!-- Footer -->
-            <footer>
-                <div class="row">
-                    <div class="col-md-12">
-                        <hr />
-                        <br />
-                        <!-- You should not remove the footer link back. -->
-                        <p class="text-center">CNIT &copy; by CNIT.PRO  </p>
-                        <br />
-                    </div>
-                </div>
-            </footer>
+
 
         </div>
 
@@ -627,10 +706,17 @@
 <script src="js/html5shiv.js"></script>
 <!-- Custom JS -->
 <script src="js/custom.js"></script>
+<!--<script  src="js/tree/jquery-1.6.min.js"></script>-->
+<script src='js/tree/SimpleTree.js'></script>
+<!--tree-->
 
 <!--<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>-->
 <!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
 <script type="text/javascript" src="js/timeLine-main.js"></script>
+<!--进度条-->
+<script type="text/javascript" src="js/loader/loader.js">
+
+</script>
 </body>
 
 <script>
@@ -643,17 +729,18 @@
             $("title").html("诶，又好了");
             setTimeout(function () {
                 $("title").html("<%=title%>");
-            },1000)
+            },500)
 
         };
 
         //当前窗口失去焦点
         window.onblur = function() {
-            $("title").html("居然崩溃了！！！");
+            $("title").html("居然崩溃了！");
             //暂停动画或视频
         };
 
     }
 
-</script>
+</script >
+
 </html>

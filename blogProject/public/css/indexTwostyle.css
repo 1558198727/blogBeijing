@@ -653,8 +653,8 @@ hr{
 .service .service-item {
 	margin: 0 auto;
 	margin-bottom: 20px;
-	width: 100%;
-	max-width: 270px;
+	/*width: 100%;*/
+	/*max-width: 270px;*/
 	opacity:0;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	-webkit-animation-delay: 0.2s;
@@ -671,8 +671,9 @@ hr{
 
 .service .service-item  i{
 	display: inline-block;
-	width: 100%;
-	height: 150px;
+	/*margin:  0 auto;*/
+	/*width: 100%;*/
+	/*height: 150px;*/
 	line-height: 150px;
 	font-size: 50px;
 	color: #fff;
@@ -681,6 +682,15 @@ hr{
 	box-shadow: 0 0 3px #9E8B8B;
 }
 
+.service .service-item  i img{
+	width: 800px;
+	height: 600px;
+}
+.service .service-item  i i{
+	width: 800px;
+	height: 400px;
+	padding-top:100px ;
+}
 .service .service-item i.skyblue{
 	background: #11abf3;
 }
@@ -1521,6 +1531,88 @@ hr{
 	.carousel-caption .caption-content  a{
 		display: none;
 	}
+
+
+	.service .service-item {
+		margin: 0 auto;
+		margin-bottom: 20px;
+		/*width: 100%;*/
+		/*max-width: 270px;*/
+		opacity:0;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+		-webkit-animation-delay: 0.2s;
+		-o-animation-delay: 0.2s;
+		-moz-animation-delay: 0.2s;
+		-ms-animation-delay: 0.2s;
+		animation-delay: 0.2s;
+	}
+
+	.service .service-item.animation{
+		opacity: 1;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	}
+
+	.service .service-item  i{
+		display: inline-block;
+		/*margin:  0 auto;*/
+		/*width: 200%;*/
+		/*height: 180px;*/
+		line-height: 150px;
+		font-size: 50px;
+		color: #fff;
+		border: 2px solid #fff;
+		border-radius: 3px;
+		box-shadow: 0 0 3px #9E8B8B;
+	}
+
+	.service .service-item  i img{
+		width: 300px;
+		height: 180px;
+	}
+	.service .service-item  i i{
+		width: 300px;
+		height: 180px;
+	}
+	.service .service-item i.skyblue{
+		background: #11abf3;
+	}
+
+	.service .service-item i.nblue{
+		background: #32cb32;
+	}
+
+	.service .service-item i.blue{
+		background: #f74260;
+	}
+
+	.service .service-item i.green{
+		background: #c052f9;
+	}
+
+	.service .service-item  h4{
+		padding: 5px 0 7px 0;
+		font-size: 18px;
+		display: inline-block;
+		border-bottom: 1px dashed #ccc;
+	}
+
+	.service .service-item  h4 a{
+		color: #666;
+	}
+
+	.service .service-item  h4 a:hover{
+		text-decoration: none;
+	}
+
+	.service .service-item  p{
+		font-size: 14px;
+		line-height: 22px;
+		font-style: italic;
+		color: #8a7777;
+	}
+
+
+
 }
 
 @media (max-width: 1050px){
@@ -1546,4 +1638,9 @@ hr{
 	.carousel-caption{
 		padding-bottom: 70px;
 	}
+
+
+
+
+
 }

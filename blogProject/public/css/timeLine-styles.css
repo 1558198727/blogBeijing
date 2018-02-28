@@ -462,7 +462,7 @@ blockquote {
       margin-left: 40px;
       position: relative;
 
-      background-color: #5BBCD5;
+      background-color: #ddd;
       color: #333333; }
       .timeline .timeline-row .timeline-content:after {
         content: "";

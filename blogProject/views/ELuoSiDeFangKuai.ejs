@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/ELuoSiDeFangKuai/style.css">
+
+</head>
+<body>
+<div class="game" id="game">
+
+
+
+</div>
+<div class="next" id="next"></div>
+<div class="info">
+    <div>已用时：<span id="time">0</span>s</div>
+    <div>已得分：<span id="score">0</span>分</div>
+</div>
+</body>
+
+<script type="text/javascript" src="js/ELuoSiDeFangKuai/square.js"></script>
+<script type="text/javascript" src="js/ELuoSiDeFangKuai/squareFactory.js"></script>
+<script type="text/javascript" src="js/ELuoSiDeFangKuai/game.js"></script>
+<script type="text/javascript" src="js/ELuoSiDeFangKuai/local.js"></script>
+<script type="text/javascript" src="js/ELuoSiDeFangKuai/remote.js"></script>
+<script type="text/javascript" src="js/ELuoSiDeFangKuai/script.js"></script>
+<script>
+    window.onload = function () {
+        $("title").html("<%=title%>");
+
+
+//当前窗口得到焦点
+        window.onfocus = function() {
+            $("title").html("诶，又好了");
+            setTimeout(function () {
+                $("title").html("<%=title%>");
+            },500)
+
+        };
+
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！");
+            //暂停动画或视频
+        };
+
+    }
+
+</script >
+</html>

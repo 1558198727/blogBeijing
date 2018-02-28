@@ -94,4 +94,9 @@ router.post('/users/loginCallBack',function (req,res) {
 
     res.render('loginCallBack', { title: 'loginCallBack' });
 });
+
+router.get('/ELuoSiDeFangKuai',function (req,res) {
+
+    res.render('ELuoSiDeFangKuai', { title: 'ELuoSiDeFangKuai' });
+});
 module.exports = router;

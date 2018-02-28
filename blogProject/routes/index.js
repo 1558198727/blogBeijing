@@ -83,6 +83,10 @@ router.get('/indexTwo', function(req, res, next) {
     res.render('indexTwo', { title: 'Mian Page' });
 });
 
+router.get('/blogDetail', function(req, res, next) {
+    res.render('blogDetail', { title: 'blogDetail' });
+});
+
 
 
 

@@ -5,10 +5,10 @@ a:hover{
 	text-decoration: none;
 }
 .container:after { /*优化container高度*/
-	content:""; 
-	display: block; 
-	clear: both; 
-} 
+	content:"";
+	display: block;
+	clear: both;
+}
 /*导航条*/
 .navbar.navbar-fixed-top {
     border-bottom: 1px #222 solid;
@@ -363,7 +363,9 @@ ul.infos p {
 	.index_arc{margin-bottom: 15px;}
 	.index_arc li{line-height: 28px;}
 	.index_arc li.pageNav-wrap a{max-width: 100%;}
-	
+    .index_arc .index_arc_item{
+        height: 9rem;
+    }
 	.index_recd li a {max-width: 60%;}
 
     /*评论头像*/

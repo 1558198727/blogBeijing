@@ -4,9 +4,7 @@ var fs = require('fs');
 var Sequelize = require('sequelize');
 var db = require("../../blogProject/model/mysql");
 var user = require("../../blogProject/model/user");
-
-
-
+var blog = require("../../blogProject/model/blog");
 
 
 /* GET login page. */
@@ -78,12 +76,46 @@ router.post('/users/login',function (req,res) {
     })
 
 });
-
+// indexTwo
 router.get('/indexTwo', function(req, res, next) {
-    res.render('indexTwo', { title: 'Mian Page' });
+    blog.findAll().then(function(result){
+        console.log('query all blog');
+        // for (var i = 0, usr; usr = result[i++];) {
+        //     console.log('nae=' + usr.name + ', password=' + usr.password + ', mail=' + usr.mail);
+        // }
+        console.log("所有文章："+JSON.stringify(result));
+        res.render('indexTwo', { title: 'indexTwo' ,data:result});
+    });
+
 });
 
+// 博文书写页面
+router.get('/writeBlog', function(req, res, next) {
+    console.log("data.title");
+    res.render('writeBlog', { title: 'writeBlog' });
+});
+
+router.post('/writeBlog', function(req, res, next) {
+   var title = req.body.title;
+   var content = req.body.content;
+   var date = req.body.date;
+
+   console.log("title " + title);
+   console.log("content " + content);
+   console.log("date " + date);
+   // 写入数据库
+   blog.create({
+       // blogId: 1,
+       blogTitle:title,
+       blogDate :date,
+       blogContent:content
+   });
+    res.render('blogDetail', { title: 'writeBlog' });
+});
+
+// 博文详情
 router.get('/blogDetail', function(req, res, next) {
+
     res.render('blogDetail', { title: 'blogDetail' });
 });
 

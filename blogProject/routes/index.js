@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
         article.forEach(function(item){
             console.log("文章ID："+item+'\n');
             // console.log( __filename );
-        })
+        });
         res.render("index",{data: article[0],title:"我的主页"});
     })
 
@@ -115,8 +115,23 @@ router.post('/writeBlog', function(req, res, next) {
 
 // 博文详情
 router.get('/blogDetail', function(req, res, next) {
+    var  Id = req.query.Id;
+    console.log("Id:"+Id);
+    blog.findAll(
+        {
+            where: {
+                blogId: Id
+            }
+        }
+    ).then(function(result){
+        console.log('query all blog');
+        // for (var i = 0, usr; usr = result[i++];) {
+        //     console.log('nae=' + usr.name + ', password=' + usr.password + ', mail=' + usr.mail);
+        // }
+        console.log("文章详情："+JSON.stringify(result));
+        res.render('blogDetail', { title: 'blogDetail' ,data:result});
+    });
 
-    res.render('blogDetail', { title: 'blogDetail' });
 });
 
 

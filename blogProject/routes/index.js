@@ -135,8 +135,6 @@ router.get('/blogDetail', function(req, res, next) {
 });
 
 
-
-
 router.post('/users/loginCallBack',function (req,res) {
 
     res.render('loginCallBack', { title: 'loginCallBack' });
@@ -146,4 +144,12 @@ router.get('/ELuoSiDeFangKuai',function (req,res) {
 
     res.render('ELuoSiDeFangKuai', { title: 'ELuoSiDeFangKuai' });
 });
+
+//微信公众号接入
+router.get('/MP_verify_f5uGgVqxPYgaldMq.txt',function (req,res) {
+
+    res.render('MP_verify_f5uGgVqxPYgaldMq', { title: 'MP_verify_f5uGgVqxPYgaldMq' });
+});
+
+
 module.exports = router;

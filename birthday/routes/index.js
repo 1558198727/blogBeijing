@@ -29,7 +29,7 @@ router.get('/BirthdayCake', function(req, res, next) {
         else
             console.log("写入文件ok");
     });
-    res.render('BirthdayCake', { title: 'BirthdayCake' });
+    res.render('index', { title: 'index' });
 });
 
 router.get('/image', function(req, res, next) {
@@ -42,7 +42,7 @@ router.get('/image', function(req, res, next) {
             console.log("写入文件ok");
     });
     console.log("img");
-    res.render('image', { title: 'img' });
+    res.render('index', { title: 'index' });
 });
 
 router.get('/Memories', function(req, res, next) {
@@ -55,7 +55,7 @@ router.get('/Memories', function(req, res, next) {
             console.log("写入文件ok");
     });
     console.log("Memories");
-    res.render('index', { title: 'Memories' });
+    res.render('index', { title: 'index' });
 });
 
 

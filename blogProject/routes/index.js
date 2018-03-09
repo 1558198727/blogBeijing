@@ -17,7 +17,7 @@ router.get('/users/login', function(req, res, next) {
 
 router.get('/', function(req, res, next) {
     var date = new Date();
-    var file = "D:\\BlogLog.txt";
+    var file = "C:\\BlogLog.txt";
     var write_date = "当前访问的时间为" + date + '\r\n';
     console.log(write_date);
     fs.appendFile(file, write_date, function(err){

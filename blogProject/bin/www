@@ -20,6 +20,8 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+//socketIo ?????????
 io.getSocketio(server);
 
 

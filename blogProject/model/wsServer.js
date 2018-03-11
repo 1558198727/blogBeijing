@@ -87,9 +87,4 @@ socketIo.getSocketio = function(server){ // http(s) server
 
 };
 
-
-
-
-
-
 module.exports= socketIo;

@@ -22,3 +22,7 @@ ALTER TABLE table_name AUTO_INCREMENT= 1;
 Sequelize 使用where：
 https://itbilu.com/nodejs/npm/VJIR1CjMb.html
 =================================================================================
+俄罗斯方块：
+在一个web端口上跑websocket：在Node.js和Express框架上添加socket.io支持
+http://blog.csdn.net/xingyanchao/article/details/79367517
+=================================================================================

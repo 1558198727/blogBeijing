@@ -6,7 +6,6 @@ var db = require("../../blogProject/model/mysql");
 var user = require("../../blogProject/model/user");
 var blog = require("../../blogProject/model/blog");
 
-
 /* GET login page. */
 
 router.get('/users/login', function(req, res, next) {
@@ -17,7 +16,7 @@ router.get('/users/login', function(req, res, next) {
 
 router.get('/', function(req, res, next) {
     var date = new Date();
-    var file = "C:\\BlogLog.txt";
+    var file = "D:\\BlogLog.txt";
     var write_date = "当前访问的时间为" + date + '\r\n';
     console.log(write_date);
     fs.appendFile(file, write_date, function(err){
@@ -141,7 +140,7 @@ router.post('/users/loginCallBack',function (req,res) {
 });
 
 router.get('/ELuoSiDeFangKuai',function (req,res) {
-
+    // wsServer.start();
     res.render('ELuoSiDeFangKuai', { title: 'ELuoSiDeFangKuai' });
 });
 

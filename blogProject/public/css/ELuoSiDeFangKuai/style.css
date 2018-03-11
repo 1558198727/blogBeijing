@@ -1,11 +1,21 @@
+.square{
+    width: 400px;
+    height: 600px;
+    float: left;
+}
+
+.Title{
+    font-size: 30px;
+    margin: 20px auto;
+}
+
 .game{
     width: 200px;
     height: 400px;
-    position: absolute;
-    left: 20px;
-    top: 20px;
+    position: relative;
+
     /*margin: 0 auto;*/
-    /*float: left;*/
+    float: left;
     background-color: #F2FAFF;
     border-left: 1px solid blue;
     border-right: 1px solid blue;
@@ -15,19 +25,19 @@
 .next{
     width: 80px;
     height: 80px;
-    position: absolute;
-    top: 20px;
-    left: 250px;
-    /*margin-left: 20px;*/
+    position: relative;
+    float:left;
+    margin-left: 40px;
     background-color: #F2FAFF;
     border: 1px solid blue;
 }
 .info{
 
-    position: absolute;
-    top: 140px;
-    left: 250px;
-    border: 1px solid blue;
+    float: left;
+    width: 80px;
+    margin-top: 10px;
+    margin-left: 40px;
+    /*border: 1px solid blue;*/
 
 }
 .none,.current,.done{

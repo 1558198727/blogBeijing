@@ -83,7 +83,7 @@ socketIo.getSocketio = function(server){ // http(s) server
             delete(socketMap[socket.clientNum]);
         })
     });
-    console.log("scoket server listening on port" + "socket"+"!")
+    console.log("scoket server listening on socket !")
 
 };
 

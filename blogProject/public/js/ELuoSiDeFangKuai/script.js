@@ -1,4 +1,4 @@
-var socket = io("ws://liyunhao.cn:80");
+var socket = io("ws://localhost:80");
 
 var local = new Local(socket);
 // local.start();

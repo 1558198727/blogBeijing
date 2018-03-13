@@ -29,6 +29,46 @@ var Local = function (socket) {
             }
         }
     };
+
+    // 通过按钮操作
+    // var control_fall1 = document.getElementById('control-fall1');
+    // var control_fall2 = document.getElementById('control-fall2');
+    // var control_up = document.getElementById('control-up');
+    // var control_left = document.getElementById('control-left');
+    // var control_down = document.getElementById('control-down');
+    // var control_right = document.getElementById('control-right');
+    
+    var control_fall1 = function () {
+        game.fall();
+        socket.emit("fall");
+    };
+    var control_fall2 = function(){
+        game.fall();
+        socket.emit("fall");
+    };
+    var control_up = function(){
+        game.rotate();
+        socket.emit("rotate");
+    };
+    var control_left = function(){
+        game.left();
+        socket.emit("left");
+    };
+    var control_down = function(){
+        game.down();
+        socket.emit("down");
+    };
+    var control_right = function(){
+        game.right();
+        socket.emit("right");
+    };
+
+
+
+
+    
+
+
     //移动
     var move = function () {
         timeFunc();
@@ -129,6 +169,8 @@ var Local = function (socket) {
     // this.start = start;
     socket.on('start',function(){
         document.getElementById("waiting").innerHTML = '';
+        // document.getElementById("waitingDiv").style.display = "none";
+        // document.getElementById("controlBtn").className = "col-xs-12";
         start();
     });
     socket.on("lose",function(){
@@ -146,4 +188,11 @@ var Local = function (socket) {
         console.log("addTailLines");
         socket.emit("addTailLines",data);
     });
+
+    this.control_fall1 =control_fall1; 
+    this.control_fall2 =control_fall2;
+    this.control_up=control_up;
+    this.control_left=control_left;
+    this.control_down=control_down;
+    this.control_right=control_right;
 };

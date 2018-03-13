@@ -2,43 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>单人俄罗斯方块</title>
+    <title>双人俄罗斯方块</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/ELuoSiDeFangKuai/style.css">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!--font-awesome-->
+    <!--<link href="css/fontawesome.css" rel="stylesheet">-->
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
 </head>
-<body>
+<body class="body">
 <!-- <div>请用方向键和空格键进行操作</div> -->
-<div id="waiting"></div>
-<div class="square" id="local">
-    <div class="Title">我的游戏区域</div>
-    <div class="game" id="local_game"></div>
-    <div class="next" id="local_next"></div>
-    <div class="info">
-        <div>已用时：<span id="local_time">0</span>s</div>
-        <div>已得分：<span id="local_score">0</span>分</div>
-        <div id="local_gameOver"> </div>
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="local-square" id="local">
+                <div class="Title">我的游戏区域</div>
+                <div class="game" id="local_game"></div>
+                <div class="next" id="local_next"></div>
+                <div class="info">
+                    <div>已用时：<span id="local_time">0</span>s</div>
+                    <div>已得分：<span id="local_score">0</span>分</div>
+                    <div id="local_gameOver"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="remote-square" id="remote">
+                <div class="Title">对方游戏区域</div>
+                <div class="game" id="remote_game"></div>
+                <div class="next" id="remote_next"></div>
+                <div class="info">
+                    <div>已用时：<span id="remote_time">0</span>s</div>
+                    <div>已得分：<span id="remote_score">0</span>分</div>
+                    <div id="remote_gameOver"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-xs-6" id="waitingDiv">
+            <div class="h1" id="waiting"></div>
+        </div>
+        <div class="col-xs-6" id="controlBtn">
+            <button id="control-fall1" class="btn btn-facebook"><i class="ownBtn glyphicon glyphicon-cloud-download"></i></button>
+            <button id="control-up" class="btn btn-primary"><i class="ownBtn glyphicon glyphicon-triangle-top"></i></button>
+            <button id="control-fall2" class="btn btn-facebook"><i class="ownBtn glyphicon glyphicon-cloud-download"></i></button>
+            <br>
+            <br>
+            <button id="control-left" class="btn btn-primary"><i class="ownBtn glyphicon glyphicon-triangle-left"></i></button>
+            <button id="control-down" class="btn btn-primary"><i class="ownBtn glyphicon glyphicon-triangle-bottom"></i></button>
+            <button id="control-right" class="btn btn-primary"><i class="ownBtn glyphicon glyphicon-triangle-right"></i></button>
+
+        </div>
     </div>
 </div>
 
-<div class="square" id="remote">
-    <div class="Title">对方游戏区域</div>
-    <div class="game" id="remote_game"></div>
-    <div class="next" id="remote_next"></div>
-    <div class="info">
-        <div>已用时：<span id="remote_time">0</span>s</div>
-        <div>已得分：<span id="remote_score">0</span>分</div>
-        <div id="remote_gameOver"> </div>
-
-
-    </div>
-</div>
 </body>
 <script src="js/ELuoSiDeFangKuai/socket.io-2.0.4.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/ELuoSiDeFangKuai/square.js"></script>
 <script type="text/javascript" src="js/ELuoSiDeFangKuai/squareFactory.js"></script>
 <script type="text/javascript" src="js/ELuoSiDeFangKuai/game.js"></script>
 <script type="text/javascript" src="js/ELuoSiDeFangKuai/local.js"></script>
 <script type="text/javascript" src="js/ELuoSiDeFangKuai/remote.js"></script>
 <script type="text/javascript" src="js/ELuoSiDeFangKuai/script.js"></script>
+<script type="text/javascript">
+$("#control-down").click(function () {
+    local.control_down();
+})
+$("#control-up").click(function () {
 
+    local.control_up();
+})
+$("#control-left").click(function () {
+    local.control_left();
+})
+
+$("#control-right").click(function () {
+    local.control_right();
+})
+$("#control-fall1").click(function () {
+
+    local.control_fall1();
+})
+$("#control-fall2 ").click(function () {
+    local.control_fall2();
+})
+</script>
 </html>

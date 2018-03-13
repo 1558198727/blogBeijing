@@ -5,9 +5,10 @@ var Sequelize = require('sequelize');
 var db = require("../../blogProject/model/mysql");
 var user = require("../../blogProject/model/user");
 var blog = require("../../blogProject/model/blog");
+// 文件读写
+var file = "C:\\BlogLog.txt";
 
 /* GET login page. */
-
 router.get('/users/login', function(req, res, next) {
     console.log('/users/login');
     res.render('login', { title: 'Mian Page' });
@@ -16,8 +17,7 @@ router.get('/users/login', function(req, res, next) {
 
 router.get('/', function(req, res, next) {
     var date = new Date();
-    var file = "D:\\BlogLog.txt";
-    var write_date = "当前访问的时间为" + date + '\r\n';
+    var write_date = "当前访问的时间为" + date + '\r\n'+"index" +'\r\n';
     console.log(write_date);
     fs.appendFile(file, write_date, function(err){
         if(err)
@@ -43,6 +43,18 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/users/login',function (req,res) {
+    var date = new Date();
+    var write_date = "当前访问的时间为" + date + '\r\n'+"user/login" +'\r\n';
+    console.log(write_date);
+    fs.appendFile(file, write_date, function(err){
+        if(err)
+            console.log("fail " + err);
+        else
+            console.log("写入文件ok");
+    });
+
+
+
     console.log("login");
     console.log("phoneNumber:"+req.body.phoneNumber);
     console.log("password:"+req.body.password);
@@ -77,6 +89,18 @@ router.post('/users/login',function (req,res) {
 });
 // indexTwo
 router.get('/indexTwo', function(req, res, next) {
+    var date = new Date();
+    var write_date = "当前访问的时间为" + date + '\r\n'+"indexTwo" +'\r\n';
+    console.log(write_date);
+    fs.appendFile(file, write_date, function(err){
+        if(err)
+            console.log("fail " + err);
+        else
+            console.log("写入文件ok");
+    });
+
+
+
     blog.findAll().then(function(result){
         console.log('query all blog');
         // for (var i = 0, usr; usr = result[i++];) {
@@ -90,6 +114,16 @@ router.get('/indexTwo', function(req, res, next) {
 
 // 博文书写页面
 router.get('/writeBlog', function(req, res, next) {
+    var date = new Date();
+    var write_date = "当前访问的时间为" + date + '\r\n'+"writeBlog" +'\r\n';
+    console.log(write_date);
+    fs.appendFile(file, write_date, function(err){
+        if(err)
+            console.log("fail " + err);
+        else
+            console.log("写入文件ok");
+    });
+
     console.log("data.title");
     res.render('writeBlog', { title: 'writeBlog' });
 });
@@ -114,6 +148,18 @@ router.post('/writeBlog', function(req, res, next) {
 
 // 博文详情
 router.get('/blogDetail', function(req, res, next) {
+    var date = new Date();
+    var write_date = "当前访问的时间为" + date + '\r\n'+"blogDetail" +'\r\n';
+    console.log(write_date);
+    fs.appendFile(file, write_date, function(err){
+        if(err)
+            console.log("fail " + err);
+        else
+            console.log("写入文件ok");
+    });
+
+
+
     var  Id = req.query.Id;
     console.log("Id:"+Id);
     blog.findAll(
@@ -140,6 +186,17 @@ router.post('/users/loginCallBack',function (req,res) {
 });
 
 router.get('/ELuoSiDeFangKuai',function (req,res) {
+    var date = new Date();
+    var write_date = "当前访问的时间为" + date + '\r\n'+"ELuoSiDeFangKuai" +'\r\n';
+    console.log(write_date);
+    fs.appendFile(file, write_date, function(err){
+        if(err)
+            console.log("fail " + err);
+        else
+            console.log("写入文件ok");
+    });
+
+
     // wsServer.start();
     res.render('ELuoSiDeFangKuai', { title: 'ELuoSiDeFangKuai' });
 });

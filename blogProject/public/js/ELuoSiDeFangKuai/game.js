@@ -53,9 +53,18 @@ var Game = function () {
             var div = [];
             for(var j = 0;j < data[0].length; j++){
                 var newNode = document.createElement('div');
+
                 newNode.className = 'none';
-                newNode.style.top = (i*20) + 'px';
-                newNode.style.left = (j*20) + 'px';
+                var windowWidth = $(window).width();
+                if(windowWidth < 640){
+                    newNode.style.top = (i*10) + 'px';
+                    newNode.style.left = (j*10) + 'px';
+                }
+                if(windowWidth >= 640){
+                    newNode.style.top = (i*20) + 'px';
+                    newNode.style.left = (j*20) + 'px';
+                }
+
                 container.appendChild(newNode);
                 div.push(newNode);
             }

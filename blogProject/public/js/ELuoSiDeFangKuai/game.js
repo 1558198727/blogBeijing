@@ -283,7 +283,7 @@ var Game = function () {
         }else{
             resultDiv.innerHTML = "你输了";
         }
-    }
+    };
 
     //底部增加干扰行
     var addTailLines = function(lines){
@@ -298,7 +298,7 @@ var Game = function () {
             cur.origin.y = 0;
         }
         reFreshDiv(gameData,gameDivs);
-    }
+    };
     //初始化
     var init = function (doms,type,dir) {
         gameDiv = doms.gameDiv;
@@ -323,7 +323,9 @@ var Game = function () {
     this.right = right;
     this.rotate = rotate;
     this.fall = function () {
-        while (down());
+        while( down() ){
+
+        };
     };
     this.fixed = fixed;
     this.showNext = showNext;

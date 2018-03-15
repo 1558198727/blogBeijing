@@ -26,7 +26,12 @@ var Local = function (socket) {
             }else if(e.keyCode ===32){//space
                 game.fall();
                 socket.emit("fall");
+            }else if (e.keyCode === 72){
+                // alert("dd");
+                getChangTiao();
+
             }
+
         }
     };
 
@@ -93,7 +98,11 @@ var Local = function (socket) {
                 socket.emit("lose");
             }else{
                 var t = generateType();
-                var d = generateDir()
+                var d = generateDir();
+                if(isChangTiao){
+                    t = 0;
+                    d = 1;
+                }
                 game.showNext(t,d);
                 socket.emit('next',{type:t,dir:d});
             }
@@ -113,7 +122,7 @@ var Local = function (socket) {
             lines.push(line);
         }
         return lines;
-    }
+    };
     //计时函数
     var timeFunc = function () {
         timeCouter ++;
@@ -152,7 +161,7 @@ var Local = function (socket) {
         game.init(doms,type,dir);
         socket.emit('init',{type:type,dir:dir});
         var t = generateType();
-        var d = generateDir()
+        var d = generateDir();
         game.showNext(t,d);
         socket.emit('next',{type:t,dir:d});
         timer = setInterval(move ,time);
@@ -164,6 +173,12 @@ var Local = function (socket) {
             timer = null;
         }
         document.onkeydown = null;
+    };
+
+    //作弊函数
+    var isChangTiao = false;
+    var getChangTiao = function () {
+        isChangTiao = !isChangTiao;
     };
     //导出API
     // this.start = start;
@@ -195,4 +210,5 @@ var Local = function (socket) {
     this.control_left=control_left;
     this.control_down=control_down;
     this.control_right=control_right;
+    this.getChangTiao = getChangTiao;
 };

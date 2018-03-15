@@ -247,7 +247,7 @@ var Square7 = function () {
 };
 Square7.prototype=Square.prototype;
 
-var SquareFactory = function () {}
+var SquareFactory = function () {};
     SquareFactory.prototype.make = function ( index ,dir ) {
         var s;
         index ++;

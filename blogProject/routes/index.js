@@ -11,7 +11,7 @@ var file = "C:\\BlogLog.txt";
 /* GET login page. */
 router.get('/users/login', function(req, res, next) {
     console.log('/users/login');
-    res.render('login', { title: 'Mian Page' });
+    res.render('login', { title: '首页 | 李云皓的博客' });
 });
 
 
@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
             console.log("文章ID："+item+'\n');
             // console.log( __filename );
         });
-        res.render("index",{data: article[0],title:"我的主页"});
+        res.render("index",{data: article[0],title:"首页 | 李云皓的博客"});
     })
 
 
@@ -107,7 +107,7 @@ router.get('/indexTwo', function(req, res, next) {
         //     console.log('nae=' + usr.name + ', password=' + usr.password + ', mail=' + usr.mail);
         // }
         console.log("所有文章："+JSON.stringify(result));
-        res.render('indexTwo', { title: 'indexTwo' ,data:result});
+        res.render('indexTwo', { title: '主页 | 李云皓的博客' ,data:result});
     });
 
 });
@@ -125,7 +125,7 @@ router.get('/writeBlog', function(req, res, next) {
     });
 
     console.log("data.title");
-    res.render('writeBlog', { title: 'writeBlog' });
+    res.render('writeBlog', { title: '写博客 | 李云皓的博客' });
 });
 
 router.post('/writeBlog', function(req, res, next) {
@@ -174,7 +174,7 @@ router.get('/blogDetail', function(req, res, next) {
         //     console.log('nae=' + usr.name + ', password=' + usr.password + ', mail=' + usr.mail);
         // }
         console.log("文章详情："+JSON.stringify(result));
-        res.render('blogDetail', { title: 'blogDetail' ,data:result});
+        res.render('blogDetail', { title: '博文详情 | 李云皓的博客' ,data:result});
     });
 
 });
@@ -198,7 +198,7 @@ router.get('/ELuoSiDeFangKuai',function (req,res) {
 
 
     // wsServer.start();
-    res.render('ELuoSiDeFangKuai', { title: 'ELuoSiDeFangKuai' });
+    res.render('ELuoSiDeFangKuai', { title: '俄罗斯方块 | 李云皓的博客' });
 });
 
 //微信公众号接入

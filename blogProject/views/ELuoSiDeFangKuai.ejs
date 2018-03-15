@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>双人俄罗斯方块</title>
+    <title><%=title%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="css/ELuoSiDeFangKuai/style.css">
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
@@ -14,6 +14,7 @@
     <!--<link href="css/fontawesome.css" rel="stylesheet">-->
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+    <link rel="shortcut icon" href="./img/HeadPhoto.jpg">
 </head>
 <body class="body">
 <!-- <div>请用方向键和空格键进行操作</div> -->
@@ -98,5 +99,28 @@ $("#control-right").click(function () {
 //$("#control-fall2 ").click(function () {
 //    local.control_fall2();
 //})
+</script>
+
+<script>
+    window.onload = function () {
+        $("title").html("<%=title%>");
+
+//当前窗口得到焦点
+        window.onfocus = function() {
+            $("title").html("诶，又好了");
+            setTimeout(function () {
+                $("title").html("<%=title%>");
+            },300)
+
+        };
+
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！！！");
+            //暂停动画或视频
+        };
+
+    }
+
 </script>
 </html>

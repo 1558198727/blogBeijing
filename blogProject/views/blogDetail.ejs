@@ -203,7 +203,7 @@
 <script src="js/jquery.arbitrary-anchor.js"></script>
 <!-- jQuery way points -->
 <script src="js/custom.js"></script>
-<script>
+<script type="text/javascript">
     window.onload = function () {
         $("title").html("<%=title%>");
 
@@ -212,7 +212,7 @@
             $("title").html("诶，又好了");
             setTimeout(function () {
                 $("title").html("<%=title%>");
-            },200)
+            },300)
 
         };
 

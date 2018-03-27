@@ -1,30 +1,32 @@
 var express = require('express');
 var router = express.Router();
-var fs = require('fs');
 var Sequelize = require('sequelize');
 var db = require("../../blogProject/model/mysql");
 var user = require("../../blogProject/model/user");
 var blog = require("../../blogProject/model/blog");
-// 文件读写
-var file = "C:\\BlogLog.txt";
+var fsWrite = require("../../blogProject/model/fsWrite");
 
 /* GET login page. */
-router.get('/users/login', function(req, res, next) {
-    console.log('/users/login');
-    res.render('login', { title: '首页 | 李云皓的博客' });
+router.get('/qqLogin', function(req, res, next) {
+
+    fsWrite.WriteBlogLog("qqLogin");
+    res.render('qqLogin', { title: '首页 | 李云皓的博客' });
 });
 
+router.get('/users/login', function(req, res, next) {
+    fsWrite.WriteBlogLog("/users/login");
+
+    var access_token = req.query.access_token;
+
+    var expires_in = req.query.expires_in;
+    console.log("access_token" + access_token);
+    console.log("expires_in" + expires_in);
+    res.render('users_login', { title: '首页 | 李云皓的博客',expires_in:expires_in ,access_token:access_token});
+});
 
 router.get('/', function(req, res, next) {
-    var date = new Date();
-    var write_date = "当前访问的时间为" + date + '\r\n'+"index" +'\r\n';
-    console.log(write_date);
-    fs.appendFile(file, write_date, function(err){
-        if(err)
-            console.log("fail " + err);
-        else
-            console.log("写入文件ok");
-    });
+    fsWrite.WriteBlogLog("index");
+
     var  sql = 'SELECT * FROM user';
 //查
     db.sequelize.query(sql).then(function (article) {
@@ -43,15 +45,7 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/users/login',function (req,res) {
-    var date = new Date();
-    var write_date = "当前访问的时间为" + date + '\r\n'+"user/login" +'\r\n';
-    console.log(write_date);
-    fs.appendFile(file, write_date, function(err){
-        if(err)
-            console.log("fail " + err);
-        else
-            console.log("写入文件ok");
-    });
+    fsWrite.WriteBlogLog("/users/login_post");
 
 
 
@@ -89,17 +83,7 @@ router.post('/users/login',function (req,res) {
 });
 // indexTwo
 router.get('/indexTwo', function(req, res, next) {
-    var date = new Date();
-    var write_date = "当前访问的时间为" + date + '\r\n'+"indexTwo" +'\r\n';
-    console.log(write_date);
-    fs.appendFile(file, write_date, function(err){
-        if(err)
-            console.log("fail " + err);
-        else
-            console.log("写入文件ok");
-    });
-
-
+    fsWrite.WriteBlogLog("indexTwo");
 
     blog.findAll().then(function(result){
         console.log('query all blog');
@@ -114,15 +98,7 @@ router.get('/indexTwo', function(req, res, next) {
 
 // 博文书写页面
 router.get('/writeBlog', function(req, res, next) {
-    var date = new Date();
-    var write_date = "当前访问的时间为" + date + '\r\n'+"writeBlog" +'\r\n';
-    console.log(write_date);
-    fs.appendFile(file, write_date, function(err){
-        if(err)
-            console.log("fail " + err);
-        else
-            console.log("写入文件ok");
-    });
+    fsWrite.WriteBlogLog("writeBlog");
 
     console.log("data.title");
     res.render('writeBlog', { title: '写博客 | 李云皓的博客' });
@@ -148,17 +124,7 @@ router.post('/writeBlog', function(req, res, next) {
 
 // 博文详情
 router.get('/blogDetail', function(req, res, next) {
-    var date = new Date();
-    var write_date = "当前访问的时间为" + date + '\r\n'+"blogDetail" +'\r\n';
-    console.log(write_date);
-    fs.appendFile(file, write_date, function(err){
-        if(err)
-            console.log("fail " + err);
-        else
-            console.log("写入文件ok");
-    });
-
-
+    fsWrite.WriteBlogLog("blogDetail");
 
     var  Id = req.query.Id;
     console.log("Id:"+Id);
@@ -180,22 +146,13 @@ router.get('/blogDetail', function(req, res, next) {
 });
 
 
-router.post('/users/loginCallBack',function (req,res) {
+router.get('/users/loginCallBack',function (req,res) {
 
     res.render('loginCallBack', { title: 'loginCallBack' });
 });
 
 router.get('/ELuoSiDeFangKuai',function (req,res) {
-    var date = new Date();
-    var write_date = "当前访问的时间为" + date + '\r\n'+"ELuoSiDeFangKuai" +'\r\n';
-    console.log(write_date);
-    fs.appendFile(file, write_date, function(err){
-        if(err)
-            console.log("fail " + err);
-        else
-            console.log("写入文件ok");
-    });
-
+    fsWrite.WriteBlogLog("ELuoSiDeFangKuai");
 
     // wsServer.start();
     res.render('ELuoSiDeFangKuai', { title: '俄罗斯方块 | 李云皓的博客' });

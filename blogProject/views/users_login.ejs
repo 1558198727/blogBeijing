@@ -9,7 +9,7 @@
 </head>
 <body>
 
-登录成功，点击跳转！！！
+登录成功！！！
 
 
 <script type="text/javascript">
@@ -38,19 +38,20 @@
                         gender:"男",
                         province:"辽宁",
                         city:"大连",
-                        figureurl:"http://qzapp.qlogo.cn/qzapp/101470662/AB118BA4C9026D00191C76099B23FA75/30",
-//                        figureurl_1:"http://qzapp.qlogo.cn/qzapp/101470662/AB118BA4C9026D00191C76099B23FA75/50",
-//                        figureurl_2":http://qzapp.qlogo.cn/qzapp/101470662/AB118BA4C9026D00191C76099B23FA75/100",
-//                        figureurl_qq_1:"http://thirdqq.qlogo.cn/qqapp/101470662/AB118BA4C9026D00191C76099B23FA75/40",
-//                        figureurl_qq_2:"http://thirdqq.qlogo.cn/qqapp/101470662/AB118BA4C9026D00191C76099B23FA75/100",
-                        openId:"AB118BA4C9026D00191C76099B23FA75",
-                        accessToken:"D445F008D077378AE708A1364F0C1280"
+                        figureurl:paras.figureurl,
+                        figureurl_1:paras.figureurl_1,
+                        figureurl_2:paras.figureurl_2,
+                        figureurl_qq_1:paras.figureurl_qq_1,
+                        figureurl_qq_2:paras.figureurl_qq_2,
+                        openId:paras.openId,
+                        accessToken:paras.accessToken
                     },
                     success: function (data){
 //                        alert(data);
 //                    $("#qqLoginBtn").innerHTML = data;
-//                        location.href = "/";
-                        history.go(-2);
+                        alert("跳回登录之前的页面" + "<%=session.lastpage %>");
+                        location.href = "<%=session.lastpage %>";
+//                        history.go(-2);
 //                        window.parent.reload();//刷新父页面，
 //                        top.window.close();//关闭ifraem
                     }

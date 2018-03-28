@@ -11,18 +11,33 @@ var fsWrite = require("../model/fsWrite");
 
 router.get('/', function(req, res, next) {
     fsWrite.WriteBlogLog("index");
-
-    var  sql = 'SELECT * FROM user';
+    // req.session.id = 11;
+    // var sessionId = req.session.id;
+    // console.log( "sessionId " + sessionId);
+    // var  sql = 'SELECT * FROM user';
 //查
-    db.sequelize.query(sql).then(function (article) {
-        // console.log("文章ID："+article.userId);
-        console.log("文章ID1："+JSON.stringify(article[0]));
-        article.forEach(function(item){
-            console.log("文章ID："+item+'\n');
-            // console.log( __filename );
-        });
-        res.render("index",{data: article[0],title:"首页 | 李云皓的博客"});
-    })
+//     db.sequelize.query(sql).then(function (article) {
+//         // console.log("文章ID："+article.userId);
+//         console.log("文章ID1："+JSON.stringify(article[0]));
+//         article.forEach(function(item){
+//             console.log("文章ID："+item+'\n');
+//             // console.log( __filename );
+//         });
+//     req.session.id = 23;
+//     var sess = req.session;//用这个属性获取session中保存的数据，而且返回的JSON数据
+    console.log("之前");
+    var lastpage  = "/";
+    req.session.lastpage = lastpage;
+    console.log("req.session " + JSON.stringify(req.session));
+    console.log("之后");
+    // res.redirect(req.session.lastpidage).catch(function (err) {
+    //     console.log("err"+err);
+    //     res.send("出错");
+    // });//从session中读取
+    // console.log("req.session " + JSON.stringify(sess));
+
+    res.render("index",{title:"首页 | 李云皓的博客"});
+    // });
 
 
 });
@@ -69,7 +84,7 @@ router.get('/', function(req, res, next) {
 // indexTwo
 router.get('/indexTwo', function(req, res, next) {
     fsWrite.WriteBlogLog("indexTwo");
-
+    req.session.lastpage = "/indexTwo";
     blog.findAll().then(function(result){
         console.log('query all blog');
         // for (var i = 0, usr; usr = result[i++];) {
@@ -138,7 +153,7 @@ router.get('/blogDetail', function(req, res, next) {
 
 router.get('/ELuoSiDeFangKuai',function (req,res) {
     fsWrite.WriteBlogLog("ELuoSiDeFangKuai");
-
+    req.session.lastpage = "/ELuoSiDeFangKuai";
     // wsServer.start();
     res.render('ELuoSiDeFangKuai', { title: '俄罗斯方块 | 李云皓的博客' });
 });

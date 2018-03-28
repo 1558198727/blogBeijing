@@ -29,17 +29,17 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-    // fsWrite.WriteBlogLog("/users/login");
 
-    var nickname = req.body.nickname;
-    var gender = req.body.gender;
-    var province = req.body.province;
-    var city = req.body.city;
-    var figureurl = req.body.figureurl;
-    var openId = req.body.openId;
-    var accessToken = req.body.accessToken;
-    //
-    console.log("nickname" + nickname + "gender" + gender + "accessToken" + accessToken);
+    var userInfo = req.body;
+    console.log(JSON.stringify(userInfo));
+    req.session.gender = userInfo.gender;
+    req.session.province = userInfo.province;
+    req.session.city = userInfo.city;
+    req.session.figureurl = userInfo.figureurl;
+    req.session.openId = userInfo.openId;
+    req.session.accessToken = userInfo.accessToken;
+    fsWrite.WriteUsersInfo(userInfo);
+    // console.log("nickname" + nickname + "gender" + gender + "accessToken" + accessToken);
     res.send({data: 'ELuoSiDeFangKuai'});
 });
 

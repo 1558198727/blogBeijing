@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en">
+<head>
+    <title><%=title%></title>
+    <!-- Meta tag Keywords -->
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101470662" charset="utf-8"></script>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+
+登录成功，点击跳转！！！
+
+
+<script type="text/javascript">
+    //从页面收集OpenAPI必要的参数。get_user_info不需要输入参数，因此paras中没有参数
+    var paras = {};
+
+    //用JS SDK调用OpenAPI
+    QC.api("get_user_info", paras)
+    //指定接口访问成功的接收函数，s为成功返回Response对象
+        .success(function(allinfo){
+            QC.Login.getMe(function(openId, accessToken){
+//                alert(["当前登录用户的", "openId为："+openId, "accessToken为："+accessToken].join("\n"));
+                paras = allinfo.data;
+                paras.openId = openId;
+                paras.accessToken = accessToken;
+//                alert("获取用户信息成功！当前用户所有信息为："+JSON.stringify(paras));
+//              alert("获取用户信息成功！当前用户所有信息为："+ typeof allinfo.data);
+                //console.log(JSON.stringify(paras));
+
+                $.ajax({
+                    type: "POST",
+                    url: "/users/login",
+                    dataType: "json",
+                    data: {
+                        nickname:"『莫理风尘』",
+                        gender:"男",
+                        province:"辽宁",
+                        city:"大连",
+                        figureurl:"http://qzapp.qlogo.cn/qzapp/101470662/AB118BA4C9026D00191C76099B23FA75/30",
+//                        figureurl_1:"http://qzapp.qlogo.cn/qzapp/101470662/AB118BA4C9026D00191C76099B23FA75/50",
+//                        figureurl_2":http://qzapp.qlogo.cn/qzapp/101470662/AB118BA4C9026D00191C76099B23FA75/100",
+//                        figureurl_qq_1:"http://thirdqq.qlogo.cn/qqapp/101470662/AB118BA4C9026D00191C76099B23FA75/40",
+//                        figureurl_qq_2:"http://thirdqq.qlogo.cn/qqapp/101470662/AB118BA4C9026D00191C76099B23FA75/100",
+                        openId:"AB118BA4C9026D00191C76099B23FA75",
+                        accessToken:"D445F008D077378AE708A1364F0C1280"
+                    },
+                    success: function (data){
+//                        alert(data);
+//                    $("#qqLoginBtn").innerHTML = data;
+//                        location.href = "/";
+                        history.go(-2);
+//                        window.parent.reload();//刷新父页面，
+//                        top.window.close();//关闭ifraem
+                    }
+                    ,error:function(xhr){
+//                        alert(xhr.responseText);
+                        console.log(xhr.responseText);
+                    }
+                })
+
+            });
+
+//     获取的所有信息
+//            {
+//                "ret":0,"msg":"","is_lost":0,"nickname":"『莫理风尘』","gender":"男","province":"辽宁",
+//                "city":"大连",
+//                "year":"1997",
+//                "figureurl":"http://qzapp.qlogo.cn/qzapp/101470662/AB118BA4C9026D00191C76099B23FA75/30",
+//                "figureurl_1":"http://qzapp.qlogo.cn/qzapp/101470662/AB118BA4C9026D00191C76099B23FA75/50",
+//                "figureurl_2":"http://qzapp.qlogo.cn/qzapp/101470662/AB118BA4C9026D00191C76099B23FA75/100",
+//                "figureurl_qq_1":"http://thirdqq.qlogo.cn/qqapp/101470662/AB118BA4C9026D00191C76099B23FA75/40",
+//                "figureurl_qq_2":"http://thirdqq.qlogo.cn/qqapp/101470662/AB118BA4C9026D00191C76099B23FA75/100",
+//                "is_yellow_vip":"0","vip":"0","yellow_vip_level":"0","level":"0","is_yellow_year_vip":"0"
+//                "openId":"AB118BA4C9026D00191C76099B23FA75","accessToken":"D445F008D077378AE708A1364F0C1280"}
+
+        })
+        //指定接口访问失败的接收函数，f为失败返回Response对象
+        .error(function(f){
+            //失败回调
+            alert("获取用户信息失败！");
+        })
+        //指定接口完成请求后的接收函数，c为完成请求返回Response对象
+        .complete(function(c){
+            //完成请求回调
+            alert("登录成功，点击确实定跳转！ 获取用户信息完成！");
+//            window.close();
+//            setTimeout(function () {
+//                    location.href = "/ELuoSiDeFangKuai";
+//                }
+//                ,1000);
+//            window.open("http://liyunhao.cn/ELuoSiDeFangKuai");
+
+
+            //打开一个新的ifraem，然后在这ifraem里进行登录跳转，判断成功后使用
+
+        });
+
+
+
+</script>
+
+</body>
+</html>

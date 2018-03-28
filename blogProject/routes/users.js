@@ -29,17 +29,30 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-
+    // nickname:"『莫理风尘』",
+    //     gender:"男",
+    //     province:"辽宁",
+    //     city:"大连",
+    //     figureurl:paras.figureurl,
+    //     figureurl_1:paras.figureurl_1,
+    //     figureurl_2:paras.figureurl_2,
+    //     figureurl_qq_1:paras.figureurl_qq_1,
+    //     figureurl_qq_2:paras.figureurl_qq_2,
+    //     openId:paras.openId,
+    //     accessToken:paras.accessToken
     var userInfo = req.body;
     console.log(JSON.stringify(userInfo));
+    req.session.isLogin = true;
+    req.session.nickname = userInfo.nickname;
     req.session.gender = userInfo.gender;
     req.session.province = userInfo.province;
     req.session.city = userInfo.city;
     req.session.figureurl = userInfo.figureurl;
+    req.session.figureurl_qq_2 = userInfo.figureurl_qq_2;
     req.session.openId = userInfo.openId;
     req.session.accessToken = userInfo.accessToken;
     fsWrite.WriteUsersInfo(userInfo);
-    // console.log("nickname" + nickname + "gender" + gender + "accessToken" + accessToken);
+    console.log("session:" + JSON.stringify(req.session));
     res.send({data: 'ELuoSiDeFangKuai'});
 });
 

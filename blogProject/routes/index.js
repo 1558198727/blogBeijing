@@ -154,6 +154,7 @@ router.get('/blogDetail', function(req, res, next) {
 router.get('/ELuoSiDeFangKuai',function (req,res) {
     fsWrite.WriteBlogLog("ELuoSiDeFangKuai");
     req.session.lastpage = "/ELuoSiDeFangKuai";
+    // req.session.isLogin = false;
     // wsServer.start();
     res.render('ELuoSiDeFangKuai', { title: '俄罗斯方块 | 李云皓的博客' });
 });

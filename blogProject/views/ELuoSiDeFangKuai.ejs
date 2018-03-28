@@ -33,7 +33,7 @@
                     <div id="local_gameOver"> </div>
                 </div>
                 <div class="playerInfo" style="margin-top: 200px">
-                    <img src="<%=session.figureurl%>" width="100px" height="100px" >
+                    <img src="<%=session.figureurl_qq_2 %>" width="100px" height="100px" >
                     <h4>『莫理风尘』</h4>
                 </div>
 
@@ -105,6 +105,15 @@ $("#control-right").click(function () {
 //$("#control-fall2 ").click(function () {
 //    local.control_fall2();
 //})
+    var nickname = "<%=session.nickname %>";
+    console.log(nickname + "已经通过QQ登录");
+//    alert(nick);
+    alert("<%=session.isLogin%>");
+    <!--if( ""  ){-->
+//        alert("已经登录");
+//    }
+//}
+
 </script>
 
 <script>

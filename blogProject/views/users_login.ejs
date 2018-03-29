@@ -28,16 +28,17 @@
 //                alert("获取用户信息成功！当前用户所有信息为："+JSON.stringify(paras));
 //              alert("获取用户信息成功！当前用户所有信息为："+ typeof allinfo.data);
 //                console.log("从Connect.qq.com获取的用户数据 " + JSON.stringify(paras));
+//                alert("从Connect.qq.com获取的用户数据 " + JSON.stringify(paras));
 
                 $.ajax({
                     type: "POST",
                     url: "/users/login",
                     dataType: "json",
                     data: {
-                        nickname:"『莫理风尘』",
-                        gender:"男",
-                        province:"辽宁",
-                        city:"大连",
+                        nickname:paras.nickname,
+                        gender:paras.gender,
+                        province:paras.province,
+                        city:paras.city,
                         figureurl:paras.figureurl,
                         figureurl_1:paras.figureurl_1,
                         figureurl_2:paras.figureurl_2,
@@ -49,7 +50,7 @@
                     success: function (data){
 //                        alert(data);
 //                    $("#qqLoginBtn").innerHTML = data;
-                        alert("跳回登录之前的页面" + "<%=session.lastpage %>");
+                        <!--alert("跳回登录之前的页面" + "<%=session.lastpage %>");-->
                         location.href = "<%=session.lastpage %>";
 //                        history.go(-2);
 //                        window.parent.reload();//刷新父页面，
@@ -85,7 +86,7 @@
         //指定接口完成请求后的接收函数，c为完成请求返回Response对象
         .complete(function(c){
             //完成请求回调
-            alert("登录成功，点击确实定跳转！ 获取用户信息完成！");
+//            alert("登录成功，点击确实定跳转！ 获取用户信息完成！");
 //            window.close();
 //            setTimeout(function () {
 //                    location.href = "/ELuoSiDeFangKuai";

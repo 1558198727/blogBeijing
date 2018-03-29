@@ -1,9 +1,15 @@
 var socket_io = require("socket.io");
-
 var socketIo = {};
-socketIo.getSocketio = function(server){ // http(s) server
 
-    var io = socket_io.listen(server);
+
+socketIo.getWWWServer = function (server) {
+    socketIo.SocketioStart(server);
+};
+
+
+socketIo.SocketioStart = function(server){ // http(s) server
+    var  io = socket_io.listen(server);
+    // var io = socket_io.listen(wwwServer);
 
 // var PORT = 3000;
 //客户端计数
@@ -83,7 +89,7 @@ socketIo.getSocketio = function(server){ // http(s) server
             delete(socketMap[socket.clientNum]);
         })
     });
-    console.log("scoket server listening on socket !")
+    console.log("scoket server listening on WWWWServer!");
 
 };
 

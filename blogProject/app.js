@@ -10,6 +10,8 @@ var session = require('express-session');//引入session模块
 //系统默认路由
 var index = require('./routes/index');
 var users = require('./routes/users');
+//自定义路由
+var games = require('./routes/games');
 
 var app = express();
 
@@ -46,6 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/games', games);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -66,30 +69,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-// Use the session middleware
-// app.use(session({
-//     resave: true,
-//     saveUninitialized: false,
-//     secret: 4444,
-//     cookie: {maxAge: 30 * 24 * 60 * 60 * 1000}
-// }));
-
-// 只需要用express app的use方法将session挂载在‘/’路径即可，这样所有的路由都可以访问到session。
-//可以给要挂载的session传递不同的option参数，来控制session的不同特性
-// app.get('/', function(req, res, next) {
-//     var sess = req.session;//用这个属性获取session中保存的数据，而且返回的JSON数据
-//     if (sess.views) {
-//         sess.views++;
-//         res.setHeader('Content-Type', 'text/html');
-//         res.write('<p>欢迎第 ' + sess.views + '次访问       ' + 'expires in:' + (sess.cookie.maxAge / 1000) + 's</p>');
-//
-//         console.log('<p>欢迎第 ' + sess.views + '次访问       ' + 'expires in:' + (sess.cookie.maxAge / 1000) + 's</p>');
-//         res.end();
-//     } else {
-//         sess.views = 1;
-//         res.end('welcome to the session demo. refresh!')
-//     }
-// });
 module.exports = app;
 
 

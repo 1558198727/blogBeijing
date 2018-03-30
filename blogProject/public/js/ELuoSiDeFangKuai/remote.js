@@ -1,6 +1,6 @@
 var Romote = function (socket) {
     // 游戏对象
-    var game;
+    var game = new Game();;
 
     //绑定按钮事件
     var bindEvents = function(){
@@ -46,20 +46,22 @@ var Romote = function (socket) {
             // game.addScore();
         });
 
-    }
+    };
     var start = function(type, dir){
         var doms = {
             gameDiv : document.getElementById('remote_game'),
             nextDiv : document.getElementById('remote_next'),
             timeDiv : document.getElementById('remote_time'),
             scoreDiv:document.getElementById('remote_score'),
-            resultDiv:document.getElementById('remote_gameOver')
+            resultDiv:document.getElementById('remote_gameOver'),
+            headPhoto:document.getElementById('remote_headPhoto'),
+            nickName:document.getElementById('remote_nickName')
         };
-        game = new Game();
+        // game = new Game();
         game.init(doms,type,dir);
 
-    }
+    };
     // this.start = start;
     // this.bindEvents = bindEvents;
     bindEvents();
-}
+};

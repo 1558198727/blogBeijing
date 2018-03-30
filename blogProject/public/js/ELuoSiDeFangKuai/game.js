@@ -9,6 +9,9 @@ var Game = function () {
     var scoreDiv;
 
     var resultDiv;
+
+    var headPhotoDiv;
+    var nicknameDiv;
     var score = 0;
     //游戏矩阵
     var gameData = [
@@ -299,6 +302,16 @@ var Game = function () {
         }
         reFreshDiv(gameData,gameDivs);
     };
+
+
+    var showRemoteInfo = function (data) {
+        console.log("data" + JSON.stringify(data));
+        headPhotoDiv = document.getElementById('remote_headPhoto');
+        nicknameDiv = document.getElementById('remote_nickName');
+        headPhotoDiv.setAttribute('src',data.headUrl);
+        nicknameDiv.innerHTML = data.nickname;
+
+    };
     //初始化
     var init = function (doms,type,dir) {
         gameDiv = doms.gameDiv;
@@ -306,6 +319,8 @@ var Game = function () {
         timeDiv = doms.timeDiv;
         scoreDiv = doms.scoreDiv;
         resultDiv = doms.resultDiv;
+        headPhotoDiv = doms.headPhoto;
+        nicknameDiv = doms.nickname;
         // cur =  SquareFactory.prototype.make(type,dir);
         next = SquareFactory.prototype.make(type,dir);
         initDiv(gameDiv,gameData,gameDivs);
@@ -325,7 +340,7 @@ var Game = function () {
     this.fall = function () {
         while( down() ){
 
-        };
+        }
     };
     this.fixed = fixed;
     this.showNext = showNext;
@@ -335,4 +350,5 @@ var Game = function () {
     this.addScore = addScore;
     this.gameOver = gameOver;
     this.addTailLines = addTailLines;
+    this.showRemoteInfo = showRemoteInfo;
 };

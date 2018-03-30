@@ -35,8 +35,8 @@
                     <div id="local_gameOver"> </div>
                 </div>
                 <div class="playerInfo" style="margin-top: 200px">
-                    <img src="<%=session.figureurl_qq_2 %>" width="100px" height="100px" >
-                    <h4>『莫理风尘』</h4>
+                    <img id="local_headPhoto" src="<%=session.figureurl_qq_2 %>" width="100px" height="100px" >
+                    <h4 id="remote_nickName"><%=session.nickname %></h4>
                 </div>
 
             </div>
@@ -50,6 +50,11 @@
                     <div>已用时：<span id="remote_time">0</span>s</div>
                     <div>已得分：<span id="remote_score">0</span>分</div>
                     <div id="remote_gameOver"> </div>
+                </div>
+
+                <div class="playerInfo" style="margin-top: 200px">
+                    <img src="" id="remote_headPhoto" width="100px" height="100px" >
+                    <h4 id="remote_nickName"></h4>
                 </div>
             </div>
         </div>
@@ -107,14 +112,6 @@ $("#control-right").click(function () {
 //$("#control-fall2 ").click(function () {
 //    local.control_fall2();
 //})
-    var nickname = "<%=session.nickname %>";
-    console.log(nickname + "已经通过QQ登录");
-//    alert(nick);
-    <!--alert("<%=session.isLogin%>");-->
-    <!--if( ""  ){-->
-//        alert("已经登录");
-//    }
-//}
 
 </script>
 
@@ -139,5 +136,44 @@ $("#control-right").click(function () {
 
     }
 
+</script>
+
+
+<script type="text/javascript">
+
+    var nickname = "<%=session.nickname%>";
+    var isLogin = "<%=session.isLogin%>";
+    var headUrl = "<%=session.figureurl_qq_2%>" ;
+
+    if( isLogin === "true"){
+//        alert(nickname + "已经通过QQ登录");
+         socket.emit("ILoginByQQ");
+//        {nickname:nickname,headUrl:headUrl}
+         console.log("已经发送登录消息ILoginByQQ");
+    }else{
+        alert("请登录！" + "islogin" +isLogin);
+    }
+    socket.on("ILoginByQQ",function () {
+        console.log("收到ILoginByQQ");
+        socket.emit("ILoginByQQToo");
+    });
+
+    socket.on("ILoginByQQToo",function () {
+        console.log("收到ILoginByQQToo");
+        socket.emit("ISendMyInfo",{nickname:nickname,headUrl:headUrl});
+    });
+
+    socket.on("ISendMyInfo",function (data) {
+        console.log("收到ISendMyInfo");
+        document.getElementById("remote_headPhoto").src = data.headUrl;
+        document.getElementById("remote_nickName").src = data.nickname;
+        socket.emit("ISendMyInfoToo",{nickname:nickname,headUrl:headUrl});
+    });
+    socket.on("ISendMyInfoToo",function (data) {
+        console.log("收到ISendMyInfoToo");
+        document.getElementById("remote_headPhoto").src = data.headUrl;
+        document.getElementById("remote_nickName").src = data.nickname;
+//        socket.emit("ISendMyInfoToo",{nickname:nickname,headUrl:headUrl});
+    });
 </script>
 </html>

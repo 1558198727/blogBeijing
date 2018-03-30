@@ -1,6 +1,6 @@
 var Local = function (socket) {
     //游戏对象
-    var game;
+    var game = new Game();
     //时间间隔
     var time = 200;
     //定时器
@@ -152,9 +152,11 @@ var Local = function (socket) {
             nextDiv : document.getElementById('local_next'),
             timeDiv : document.getElementById('local_time'),
             scoreDiv:document.getElementById('local_score'),
-            resultDiv:document.getElementById('local_gameOver')
+            resultDiv:document.getElementById('local_gameOver'),
+            headPhoto:document.getElementById('remote_headPhoto'),
+            nickName:document.getElementById('remote_nickName')
         };
-        game = new Game();
+        // game = new Game();
         binKeyEvent();
         var type = generateType();
         var dir = generateDir();
@@ -203,6 +205,7 @@ var Local = function (socket) {
         console.log("addTailLines");
         socket.emit("addTailLines",data);
     });
+
 
     this.control_fall1 =control_fall1; 
     this.control_fall2 =control_fall2;

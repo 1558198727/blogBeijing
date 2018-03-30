@@ -11,17 +11,17 @@ socketIo.SocketioStart = function(server){ // http(s) server
     var  io = socket_io.listen(server);
     // var io = socket_io.listen(wwwServer);
 
-// var PORT = 3000;
-//客户端计数
+    // var PORT = 3000;
+    //客户端计数
     var clientCount = 0;
-//存储客户端socket
+    //存储客户端socket
     var socketMap = {};
 
-// app.listen(80);
+    // app.listen(80);
 
     var bindListener = function(socket,event){
         socket.on(event,function(data){
-            if(socket.clientNum % 2 == 0){
+            if(socket.clientNum % 2 === 0){
                 if(socketMap[socket.clientNum-1]){
                     socketMap[socket.clientNum-1].emit(event,data);
                 }
@@ -41,9 +41,9 @@ socketIo.SocketioStart = function(server){ // http(s) server
         // socket.nickName = 'user ' + clientCount;
         console.log("已经连接");
         socketMap[clientCount] = socket;
-        if(clientCount % 2 == 1){
-            socket.emit("waiting","waiting for another person");
-            console.log("waiting for another person");
+        if(clientCount % 2 === 1){
+            socket.emit("waiting","等待下一位玩家进入");
+            console.log("等待下一位玩家进入");
         }else{
             if(socketMap[clientCount-1]){
                 socket.emit("start");
@@ -70,13 +70,31 @@ socketIo.SocketioStart = function(server){ // http(s) server
         bindListener(socket,"lose");
         bindListener(socket,"bottomLines");
         bindListener(socket,"addTailLines");
+        bindListener(socket,"ILoginByQQ");
+        bindListener(socket,"ILoginByQQToo");
+        bindListener(socket,"ISendMyInfo");
+        bindListener(socket,"ISendMyInfoToo");
+
+
+        socket.on("loginbyQQ",function(data){
+            if(socket.clientNum % 2 === 0){
+                if(socketMap[socket.clientNum-1]){
+                    socketMap[socket.clientNum-1].emit("loginbyQQ",data);
+                }
+
+            }else{
+                // if(socketMap[socket.clientNum+1]){
+                //     socketMap[socket.clientNum+1].emit(event,data);
+                // }
+            }
+        });
         // io.emit('enter',socket.nickName + " comes in");
         socket.on('message',function (str) {
-            io.emit('message',socket.nickName + 'says: ' +str)
+            io.emit('message',socket.nickName + 'says: ' +str);
         });
 
         socket.on('disconnect',function () {
-            if(socket.clientNum % 2 == 0){
+            if(socket.clientNum % 2 === 0){
                 if(socketMap[socket.clientNum-1]){
                     socketMap[socket.clientNum-1].emit("leave");
                 }
@@ -86,7 +104,7 @@ socketIo.SocketioStart = function(server){ // http(s) server
                     socketMap[socket.clientNum+1].emit("leave");
                 }
             }
-            delete(socketMap[socket.clientNum]);
+            // delete(socketMap[socket.clientNum]);
         })
     });
     console.log("scoket server listening on WWWWServer!");

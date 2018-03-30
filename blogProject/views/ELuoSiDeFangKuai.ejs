@@ -166,13 +166,13 @@ $("#control-right").click(function () {
     socket.on("ISendMyInfo",function (data) {
         console.log("收到ISendMyInfo");
         document.getElementById("remote_headPhoto").src = data.headUrl;
-        document.getElementById("remote_nickName").src = data.nickname;
+        document.getElementById("remote_nickName").innerHTML = data.nickname;
         socket.emit("ISendMyInfoToo",{nickname:nickname,headUrl:headUrl});
     });
     socket.on("ISendMyInfoToo",function (data) {
         console.log("收到ISendMyInfoToo");
         document.getElementById("remote_headPhoto").src = data.headUrl;
-        document.getElementById("remote_nickName").src = data.nickname;
+        document.getElementById("remote_nickName").innerHTML = data.nickname;
 //        socket.emit("ISendMyInfoToo",{nickname:nickname,headUrl:headUrl});
     });
 </script>

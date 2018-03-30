@@ -6,12 +6,15 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');//cookie
 var session = require('express-session');//引入session模块
 
+
 // var redisStore = require("connect-redis")(express);
 //系统默认路由
 var index = require('./routes/index');
 var users = require('./routes/users');
+
 //自定义路由
 var games = require('./routes/games');
+var doc = require('./routes/doc');
 
 var app = express();
 
@@ -49,6 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/games', games);
+app.use('/doc', doc);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

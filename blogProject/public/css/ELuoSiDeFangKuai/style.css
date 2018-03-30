@@ -6,6 +6,10 @@
     background-color: #117a8b;
     /*background-color: #F2FAFF;*/
 }
+
+.left-empty{
+    display: none;
+}
 .remote-square{
     width: 400px;
     height: 550px;
@@ -17,13 +21,13 @@
     height: 550px;
     float: left;
 }
-.Title{
+.local-Title{
     font-size: 30px;
     margin: 20px auto;
     color: white;
 }
 
-.game{
+.local-game{
     width: 202px;
     height: 402px;
     position: relative;
@@ -36,7 +40,7 @@
     border-bottom: 1px solid black;
     border-top: none;
 }
-.next{
+.local-next{
     width: 82px;
     height: 82px;
     position: relative;
@@ -45,7 +49,7 @@
     background-color: #ddd;
     border: 1px solid black;
 }
-.info{
+.local-info{
     color: white;
     float: left;
     width: 80px;
@@ -55,6 +59,81 @@
     /*border: 1px solid blue;*/
 
 }
+
+.local-playerInfo{
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 30px;
+    /*background-color: black;*/
+    z-index: 100;
+}
+
+.local-playerInfo img{
+    width:100px;
+    height:100px;
+}
+
+
+
+
+.remote-Title{
+    font-size: 30px;
+    margin: 20px 20px 20px 200px;
+    color: white;
+}
+
+.remote-game{
+    width: 202px;
+    height: 402px;
+    position: relative;
+    background-color: #ddd;
+    /*margin: 0 auto;*/
+    float: right;
+    /*background-color: #F2FAFF;*/
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: none;
+}
+.remote-next{
+    width: 82px;
+    height: 82px;
+    position: relative;
+    float:left;
+    margin-left: 40px;
+    background-color: #ddd;
+    border: 1px solid black;
+}
+.remote-info{
+    color: white;
+    float: right;
+    width: 80px;
+
+    margin-top: 10px;
+    margin-left: 40px;
+    /*border: 1px solid blue;*/
+
+}
+
+.remote-playerInfo{
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 30px;
+    /*background-color: black;*/
+    z-index: 100;
+}
+.remote-playerInfo img{
+    width:100px;
+    height:100px;
+}
+
+
+
+
 .none,.current,.done{
     width: 20px;
     height: 20px;
@@ -93,7 +172,7 @@
 .btn{
     border-radius: 40px;
 }
-#controlBtn{
+.controlBtns{
     display: none;
 }
 .btn-circle {
@@ -124,26 +203,21 @@
 
 @media screen and (max-width:640px) {
     .local-square{
-        margin-left: 30px;
-        width: 200px;
-        height: 350px;
-        float: left;
-    }
-    .remote-square{
-
+        /*margin-left: 30px;*/
         width: 200px;
         height: 350px;
         float: left;
     }
 
 
-    .Title{
+
+    .local-Title{
         font-size: 20px;
         margin: 20px auto;
         color: white;
     }
 
-    .game{
+    .local-game{
         width: 102px;
         height: 202px;
         position: relative;
@@ -156,29 +230,130 @@
         border-bottom: 1px solid black;
         border-top: none;
     }
-    .next{
+    .local-next{
 
         display: none;
         width: 82px;
         height: 82px;
         position: relative;
         float:left;
-        margin-left: 40px;
+        /*margin-left: 40px;*/
         background-color: #ddd;
         border: 1px solid black;
     }
-    .info{
+    .local-info{
         color: white;
         float: left;
-        width: 90px;
+        width: 80px;
 
-        margin-top: 10px;
-        margin-left: 20px;
+        /*margin-top: 10px;*/
+        margin-left: 10px;
         /*border: 1px solid blue;*/
 
     }
-    #controlBtn{
+
+    .local-playerInfo{
+        width:70px;
+        height: 50px;
+        float: left;
+        margin-top: 0px;
+        margin-left: 0px;
+        /*background-color: black;*/
+        /*z-index: 100;*/
+    }
+
+    .local-playerInfo img{
+        margin-left: 0px;
+        padding-left: 10px;
+        float: left;
+        width: 50px;
+        height: 40px;
+    }
+    .local-playerInfo h4{
+        width: 60px;
+        font-size: 5px;
+    }
+/*对方游戏池*/
+
+    .remote-square{
+        margin-left: 70px;
+        width: 120px;
+        height: 350px;
+        float: left;
+    }
+    .remote-Title{
+        font-size: 20px;
+        margin: 20px 0px 20px -5px;
+        color: white;
+    }
+
+    .remote-game{
+        width: 102px;
+        height: 202px;
+        position: relative;
+        background-color: #ddd;
+        /*margin: 0 auto;*/
+        float: left;
+        /*background-color: #F2FAFF;*/
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        border-top: none;
+    }
+    .remote-next{
+
+        display: none;
+        width: 82px;
+        height: 82px;
+        position: relative;
+        float:left;
+        /*margin-left: 40px;*/
+        background-color: #ddd;
+        border: 1px solid black;
+    }
+    .remote-info{
+        color: white;
+        float: left;
+        width: 80px;
+
+        margin-top: 110px;
+        margin-left: -180px;
+        /*border: 1px solid blue;*/
+
+    }
+
+    .remote-playerInfo{
+        width:70px;
+        height: 50px;
+        float: left;
+        margin-top: 150px;
+        margin-left: -190px;
+        /*background-color: black;*/
+        /*z-index: 100;*/
+    }
+
+    .remote-playerInfo img{
+        margin-left: 0px;
+        padding-left: 10px;
+        float: left;
+        width: 50px;
+        height: 40px;
+    }
+    .remote-playerInfo h4{
+        width: 60px;
+        font-size: 5px;
+    }
+
+
+
+
+
+
+
+
+    .controlBtns{
         display:block;
+        float: left;
     }
     .none,.current,.done{
         width: 10px;
@@ -212,7 +387,7 @@
     }
 
     .ownBtn{
-        font-size: 30px;
+        font-size: 80px;
     }
 
     .btn-circle {

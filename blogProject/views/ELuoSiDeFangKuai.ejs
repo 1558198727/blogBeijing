@@ -24,40 +24,45 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-1 left-empty"></div>
+        <div class="col-xs-4">
             <div class="local-square" id="local">
-                <div class="Title">我的游戏区域</div>
-                <div class="game" id="local_game"></div>
-                <div class="next" id="local_next"></div>
-                <div class="info">
-                    <div>已用时：<span id="local_time">0</span>s</div>
-                    <div>已得分：<span id="local_score">0</span>分</div>
+                <div class="local-Title">我的游戏区域</div>
+                <div class="local-game" id="local_game"></div>
+                <div class="local-next" id="local_next"></div>
+                <div class="local-info">
+                    <div>用时：<span id="local_time">0</span>s</div>
+                    <div>得分：<span id="local_score">0</span>分</div>
                     <div id="local_gameOver"> </div>
                 </div>
-                <div class="playerInfo" style="margin-top: 200px">
-                    <img id="local_headPhoto" src="<%=session.figureurl_qq_2 %>" width="100px" height="100px" >
-                    <h4 id="remote_nickName"><%=session.nickname %></h4>
+                <div class="local-playerInfo" >
+                    <img id="local_headPhoto" src="<%=session.figureurl_qq_2 %>" >
+                    <h4 id="local_nickName"><%=session.nickname %></h4>
                 </div>
 
             </div>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-4">
             <div class="remote-square" id="remote">
-                <div class="Title">对方游戏区域</div>
-                <div class="game" id="remote_game"></div>
-                <div class="next" id="remote_next"></div>
-                <div class="info">
-                    <div>已用时：<span id="remote_time">0</span>s</div>
-                    <div>已得分：<span id="remote_score">0</span>分</div>
+                <div class="remote-Title">对方游戏区域</div>
+
+                <div class="remote-game" id="remote_game"></div>
+
+                <div class="remote-next" id="remote_next"></div>
+                <div class="remote-info">
+                    <div>用时：<span id="remote_time">0</span>s</div>
+                    <div>得分：<span id="remote_score">0</span>分</div>
                     <div id="remote_gameOver"> </div>
                 </div>
 
-                <div class="playerInfo" style="margin-top: 200px">
+                <div class="remote-playerInfo">
                     <img src="" id="remote_headPhoto" width="100px" height="100px" >
                     <h4 id="remote_nickName"></h4>
                 </div>
+
             </div>
         </div>
+        <div class="col-xs-2"></div>
     </div>
     <div class="row" >
         <div class="col-xs-12" id="waitingDiv">
@@ -65,19 +70,24 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-2"></div>
-        <div class="col-xs-8" id="controlBtn">
+        <!--<div class="col-xs-2"></div>-->
+        <div class="col-xs-12 controlBtns" id="">
             <button id="control-fall1" class="btn btn-facebook"><i class="ownBtn glyphicon glyphicon-cloud-download"></i></button>
             <button id="control-up" class="btn btn-primary"><i class="ownBtn glyphicon glyphicon-triangle-top"></i></button>
             <button id="control-fall2" class="btn btn-facebook"><i class="ownBtn glyphicon glyphicon-cloud-download"></i></button>
-            <br>
-            <br>
+        </div>
+        <!--<div class="col-xs-2"></div>-->
+    </div>
+    <div class="row">
+        <!--<div class="col-xs-2"></div>-->
+        <div class="col-xs-12 controlBtns" id="">
             <button id="control-left" class="btn btn-primary"><i class="ownBtn glyphicon glyphicon-triangle-left"></i></button>
             <button id="control-down" class="btn btn-primary"><i class="ownBtn glyphicon glyphicon-triangle-bottom"></i></button>
             <button id="control-right" class="btn btn-primary"><i class="ownBtn glyphicon glyphicon-triangle-right"></i></button>
 
         </div>
-        <div class="col-xs-2"></div>
+        <!--<div class="col-xs-2"></div>-->
+    </div>
     </div>
 </div>
 
@@ -163,17 +173,27 @@ $("#control-right").click(function () {
         socket.emit("ISendMyInfo",{nickname:nickname,headUrl:headUrl});
     });
 
+
+
     socket.on("ISendMyInfo",function (data) {
         console.log("收到ISendMyInfo");
         document.getElementById("remote_headPhoto").src = data.headUrl;
         document.getElementById("remote_nickName").innerHTML = data.nickname;
         socket.emit("ISendMyInfoToo",{nickname:nickname,headUrl:headUrl});
+//        socket = io("ws://liyunhao.cn:80");
+
+
     });
     socket.on("ISendMyInfoToo",function (data) {
         console.log("收到ISendMyInfoToo");
         document.getElementById("remote_headPhoto").src = data.headUrl;
         document.getElementById("remote_nickName").innerHTML = data.nickname;
+
+        socket.emit("allReady");
+        console.log("allReady We can start!");
 //        socket.emit("ISendMyInfoToo",{nickname:nickname,headUrl:headUrl});
     });
+//    socket.on("allReady")
+
 </script>
 </html>

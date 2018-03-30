@@ -1,6 +1,3 @@
-/**
- * Created by zhangchong on 2017/7/1.
- */
 
 var Sequelize = require("sequelize")
 var mysql = require("./mysql")

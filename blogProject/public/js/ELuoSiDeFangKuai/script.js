@@ -1,8 +1,7 @@
 var socket = io("ws://liyunhao.cn:80");
-
-var local = new Local(socket);
-// local.start();
-var remote = new Romote(socket);
+//
+local = new Local(socket);
+remote = new Romote(socket);
 // remote.start(2,2);
 // remote.bindEvents();
 socket.on("waiting",function (str) {

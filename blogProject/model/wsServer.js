@@ -46,9 +46,9 @@ socketIo.SocketioStart = function(server){ // http(s) server
             console.log("等待下一位玩家进入");
         }else{
             if(socketMap[clientCount-1]){
-                socket.emit("start");
-                socketMap[clientCount-1].emit('start');
-                console.log("can start");
+                // socket.emit("start");
+                // socketMap[clientCount-1].emit('start');
+                console.log("两人都打开了游戏界面");
             }else{
                 socket.emit("leave");
             }
@@ -76,17 +76,10 @@ socketIo.SocketioStart = function(server){ // http(s) server
         bindListener(socket,"ISendMyInfoToo");
 
 
-        socket.on("loginbyQQ",function(data){
-            if(socket.clientNum % 2 === 0){
-                if(socketMap[socket.clientNum-1]){
-                    socketMap[socket.clientNum-1].emit("loginbyQQ",data);
-                }
-
-            }else{
-                // if(socketMap[socket.clientNum+1]){
-                //     socketMap[socket.clientNum+1].emit(event,data);
-                // }
-            }
+        socket.on("allReady",function(data){
+            console.log("wsServer: you two can start now!");
+            socket.emit("start");
+            socketMap[clientCount-1].emit('start');
         });
         // io.emit('enter',socket.nickName + " comes in");
         socket.on('message',function (str) {

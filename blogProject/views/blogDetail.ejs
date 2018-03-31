@@ -36,7 +36,7 @@
         <!-- Logo of company -->
         <div class="logo text-center" style="width: 15rem;height: 18rem;margin: 3rem auto auto auto;">
             <h1><a href="/">
-                    <img src="img/HeadPhoto.jpg" style="width: 80px; height: 80px;border-radius: 4px" alt=""/>
+                    <img src="../img/HeadPhoto.jpg" style="width: 80px; height: 80px;border-radius: 4px" alt=""/>
                 </a></h1>
             <p style="margin-top: 2rem;">Dalian University of Technology</p>
 
@@ -102,15 +102,15 @@
                     <div class="row">
                         <!--<div class="col-xs-1"></div>-->
 
-                        <div class="col-xs-6">
+                        <div class=".col-xs-12 .col-sm-6 .col-md-6">
 
                             <div class="panel panel-default  mb-20">
                                 <div class="panel-body pt-10 pb-10">
-                                    <h2 class="c_titile">我的个人博客之——阿里云空间选择</h2>
-                                    <p class="box_c"><span class="d_time">发布时间：2017-02-05</span><span>编辑：<a href="mailto:wfyv@qq.com">wilco</a></span><span>阅读（88646）</span></p>
+                                    <h2 class="c_titile"><%=blogTitle%></h2>
+                                    <p class="box_c"><span class="d_time"><%=blogDate%></span><span>编辑：<a href="">wilco</a></span><span>阅读（88646）</span></p>
                                     <ul class="infos">
-                                        <%- doc%>
 
+                                        <%- doc%>
                                     </ul>
 
                                     <div class="keybq">
@@ -118,8 +118,8 @@
                                     </div>
 
                                     <div class="nextinfo">
-                                        <p class="last">上一篇：<a href="#">免费收录网站搜索引擎登录口大全</a></p>
-                                        <p class="next">下一篇：<a href="#">javascript显示年月日时间代码</a></p>
+                                        <p class="last">上一篇：<a href="#" id="<%=prevBlogId%>"><%=prevBlogTitle%></a></p>
+                                        <p class="next">下一篇：<a href="#" id="<%=nextBlogId%>"><%=nextBlogTitle%></a></p>
                                     </div>
 
                                 </div>
@@ -141,8 +141,6 @@
         <!-- Start Hero -->
 
         <!-- Features End -->
-
-
 
     </div>
 
@@ -173,7 +171,7 @@
 <!-- jquery Anchor JS -->
 <script src="../js/jquery.arbitrary-anchor.js"></script>
 <!-- jQuery way points -->
-<script src="../js/custom.js"></script>
+<!--<script src="../js/custom.js"></script>-->
 <script type="text/javascript">
     window.onload = function () {
         $("title").html("");
@@ -195,6 +193,13 @@
 
     }
 
+</script>
+
+<script>
+    $(".nextinfo").children("p").click(function () {
+        var Id = $(this).children("a").attr("id");
+        location.href ="/blogDetail/?" + "Id="+ Id;
+    })
 </script>
 
 </html>

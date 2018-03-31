@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var sequelize=new Sequelize(
+var sequelize = new Sequelize(
     'yunBlog',
     'root',
     'Liyunhao0826',

@@ -1,8 +1,8 @@
 /**
  * Created by yaohan on 2018/1/13.
  */
-var Sequelize = require("sequelize")
-var mysql = require("./mysql")
+var Sequelize = require("sequelize");
+var mysql = require("./mysql");
 var sequelize = mysql.sequelize;
 var blog = sequelize.define('blog', {
         blogId:{ //自增长视频Id,主键,整型

@@ -3,27 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/blogDetail/default.min.css">
+    <script src="../js/blogDetail//highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <link rel="stylesheet" href="/css/doc.css">
+    <!--<link rel="stylesheet" href="/css/doc.css">-->
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css'>
+
+    <link rel="shortcut icon" href="./img/HeadPhoto.jpg">
+    <link href="../css/indexTwostyle.css" rel="stylesheet">
+
+    <!--<link rel="stylesheet" type="text/css" href="../css/common.css" />-->
+
+
+
 </head>
+
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#"> Markdown</a>
-        </div>
-        <button type="button" class="btn btn-primary navbar-btn navbar-right" id="download"><span class="glyphicon glyphicon-download-alt"></span> Download</button>
+
+<div class="outer">
+
+    <!-- Sidebar Start-->
+    <!-- Menu for tablets and mobile -->
+
+    <div class="navigation" >
+        <a >Menu</a>
     </div>
-</nav>
-<div class="container" id="doc-page">
-    <%- doc %>
+    <div class="sidebar" style="position: fixed;background-color: lightskyblue;" >
+        <!-- Logo of company -->
+        <div class="logo text-center" style="width: 15rem;height: 18rem;margin: 3rem auto auto auto;">
+            <h1><a href="/">
+                    <img src="img/HeadPhoto.jpg" style="width: 80px; height: 80px;border-radius: 4px" alt=""/>
+                </a></h1>
+            <p style="margin-top: 2rem;">Dalian University of Technology</p>
+
+
+        </div>
+
+        <div class="sidebar-search">
+            <form>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Text to search">
+                    <span class="input-group-btn">
+								<button class="btn btn-danger" type="button"><i class="fa fa-search"></i></button>
+							</span>
+                </div>
+            </form>
+        </div>
+        <!-- Navigation menu list -->
+        <ul class="list-unstyled list">
+
+
+
+            <li><a href="/indexTwo#.headHome" class="anchorLink"><i class="fa fa-home scolor" style="color: white;"></i> <span>主页</span></a></li>
+
+            <li><a href="/indexTwo#.ChronologicalOrder" class="anchorLink"><i class="fa fa-files-o"></i> <span>归档</span></a></li>
+            <li><a href="/indexTwo#.classByClass" class="anchorLink"><i class="fa fa-bars"></i> <span>分类</span></a></li>
+            <li><a href="/indexTwo#.photoes" class="anchorLink"><i class="fa fa-picture-o"></i> <span>相册</span></a></li>
+            <li><a href="/indexTwo#.aboutMe" class="anchorLink"><i class="fa fa-user"></i> <span>关于</span></a></li>
+
+        </ul>
+        <!-- Social media links -->
+        <div class="social">
+            <a href="/users/qqLogin" class="facebook"><i class="fa fa-qq"></i></a>
+            <!--<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>-->
+            <a href="#" class="twitter"><i class="fa fa-weixin"></i></a>
+            <a href="#" class="google"><i class="fa fa-weibo"></i></a>
+            <a href="games/ELuoSiDeFangKuai" class="linkedin"><i class="fa fa-gamepad"></i></a>
+        </div>
+    </div>
+
+    <!-- Sidebar End -->
+
+    <!-- Main Start -->
+
+    <div class="main">
+        <div class="container">
+
+            <div class="headHome">
+
+                <div class="hero" >
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <h2>Yun Hao</h2>
+                            <p>大连理工大学软件学院&nbsp&nbsp·&nbsp&nbsp软件工程</p>
+
+                        </div>
+
+                    </div>
+                </div>
+                <hr />
+            </div>
+
+
+            <div id="carousel-example-generic" class="carousel slide carousel-fade" style="padding-top: 60px;height:60rem">
+
+                <div class="container">
+                    <div class="row">
+                        <!--<div class="col-xs-1"></div>-->
+
+                        <div class="col-xs-12">
+
+                            <div data-spy="scroll" data-target="#navbar-example" data-offset="0" style="height:40rem;overflow:auto; position: relative;margin-left: -3rem;padding-right: 1rem">
+
+
+                                <div class="art_content">
+                                    <ul class="index_arc" >
+                                        <li class="index_arc_item">
+                                            <a href="#" class="pic">
+                                                <img class="lazyload" src="temp/art.jpg" alt="应该选" />
+                                            </a>
+                                            <h4 class="title"><a href="#">data[0].blogTitle</a></h4>
+                                            <div class="date_hits">
+                                                <span></span>
+                                                <span>data.blogDate</span>
+                                                <span><a href="#">程序人生</a></span>
+                                                <!--<p class="hits"><i class="Hui-iconfont" title="点击量">&#xe6c1;</i> 276° </p>-->
+                                                <!--<p class="commonts"><i class="Hui-iconfont" title="点击量">&#xe622;</i> <span class="cy_cmt_count">20</span></p>-->
+                                            </div>
+                                            <div class="desc"></div>
+                                            <%- doc%>
+                                        </li>
+
+
+
+
+
+
+
+
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--<div class="col-xs-1"></div>-->
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- Wrapper for slides End -->
+
+
+
+        <!-- Start Hero -->
+
+        <!-- Features End -->
+
+
+
+    </div>
+
+    <!-- Footer -->
+
 </div>
-<div class="footer">
-    <span>© 2017 Gavin</span>
+
+
+
+</div>	<!-- This end div for main class -->
 </div>
+
+<div class="clearfix"></div>
+
+
+<!-- Scroll to top -->
+<!--<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>-->
+
+
+<!-- Javascript files -->
+<!-- jQuery -->
+
 </body>
+
+<script src="../js/jquery.js"></script>
+<!-- Bootstrap JS -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- jquery Anchor JS -->
+<script src="../js/jquery.arbitrary-anchor.js"></script>
+<!-- jQuery way points -->
+<script src="../js/custom.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        $("title").html("");
+
+//当前窗口得到焦点
+        window.onfocus = function() {
+            $("title").html("诶，又好了");
+            setTimeout(function () {
+                $("title").html("");
+            },300)
+
+        };
+
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！！！");
+            //暂停动画或视频
+        };
+
+    }
+
 </script>
+
 </html>

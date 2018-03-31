@@ -64,27 +64,27 @@ router.post('/writeBlog', function(req, res, next) {
 });
 
 // 博文详情
-router.get('/blogDetail', function(req, res, next) {
-    fsWrite.WriteBlogLog("blogDetail");
-
-    var  Id = req.query.Id;
-    console.log("Id:"+Id);
-    blog.findAll(
-        {
-            where: {
-                blogId: Id
-            }
-        }
-    ).then(function(result){
-        console.log('query all blog');
-        // for (var i = 0, usr; usr = result[i++];) {
-        //     console.log('nae=' + usr.name + ', password=' + usr.password + ', mail=' + usr.mail);
-        // }
-        console.log("文章详情："+JSON.stringify(result));
-        res.render('blogDetail', { title: '博文详情 | 李云皓的博客' ,data:result});
-    });
-
-});
+// router.get('/blogDetail', function(req, res, next) {
+//     fsWrite.WriteBlogLog("blogDetail");
+//
+//     var  Id = req.query.Id;
+//     console.log("Id:"+Id);
+//     blog.findAll(
+//         {
+//             where: {
+//                 blogId: Id
+//             }
+//         }
+//     ).then(function(result){
+//         console.log('query all blog');
+//         // for (var i = 0, usr; usr = result[i++];) {
+//         //     console.log('nae=' + usr.name + ', password=' + usr.password + ', mail=' + usr.mail);
+//         // }
+//         console.log("文章详情："+JSON.stringify(result));
+//         res.render('blogDetail', { title: '博文详情 | 李云皓的博客' ,data:result});
+//     });
+//
+// });
 
 
 router.get('/users/loginCallBack',function (req,res) {

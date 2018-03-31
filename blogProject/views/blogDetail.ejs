@@ -1,37 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!-- Title here -->
-    <title></title>
-    <!-- Description, Keywords and Author -->
-    <meta name="description" content="CNIT_Team,cnit.pro">
-    <meta name="keywords" content="CNIT_Team,cnit.pro">
-    <meta name="author" content="CNIT_Team">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/blogDetail/default.min.css">
+    <script src="../js/blogDetail//highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!--<link rel="stylesheet" href="/css/doc.css">-->
 
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css'>
 
     <link rel="shortcut icon" href="./img/HeadPhoto.jpg">
+    <link href="../css/indexTwostyle.css" rel="stylesheet">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="css/indexTwostyle.css" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="css/common.css" />
-
+    <link rel="stylesheet" type="text/css" href="../css/blogDetail/common.css" />
 
 
 
@@ -105,7 +90,6 @@
                         <div class="col-md-12 ">
                             <h2>Yun Hao</h2>
                             <p>大连理工大学软件学院&nbsp&nbsp·&nbsp&nbsp软件工程</p>
-
                         </div>
 
                     </div>
@@ -113,47 +97,34 @@
                 <hr />
             </div>
 
-
             <div id="carousel-example-generic" class="carousel slide carousel-fade" style="padding-top: 60px;height:60rem">
-
                 <div class="container">
                     <div class="row">
                         <!--<div class="col-xs-1"></div>-->
 
-                        <div class="col-xs-12">
+                        <div class="col-xs-6">
 
-                            <div data-spy="scroll" data-target="#navbar-example" data-offset="0" style="height:40rem;overflow:auto; position: relative;margin-left: -3rem;padding-right: 1rem">
-
-
-                                <div class="art_content">
-                                    <ul class="index_arc" >
-                                        <li class="index_arc_item">
-                                            <a href="#" class="pic">
-                                                <img class="lazyload" src="temp/art.jpg" alt="应该选" />
-                                            </a>
-                                            <h4 class="title"><a href="#"><%=data[0].blogTitle%></a></h4>
-                                            <div class="date_hits">
-                                                <span></span>
-                                                <span><%=data[0].blogDate%></span>
-                                                <span><a href="#">程序人生</a></span>
-                                                <!--<p class="hits"><i class="Hui-iconfont" title="点击量">&#xe6c1;</i> 276° </p>-->
-                                                <!--<p class="commonts"><i class="Hui-iconfont" title="点击量">&#xe622;</i> <span class="cy_cmt_count">20</span></p>-->
-                                            </div>
-                                            <div class="desc"><%=data[0].blogContent%></div>
-                                        </li>
-
-
-
-
-
-
-
-
+                            <div class="panel panel-default  mb-20">
+                                <div class="panel-body pt-10 pb-10">
+                                    <h2 class="c_titile">我的个人博客之——阿里云空间选择</h2>
+                                    <p class="box_c"><span class="d_time">发布时间：2017-02-05</span><span>编辑：<a href="mailto:wfyv@qq.com">wilco</a></span><span>阅读（88646）</span></p>
+                                    <ul class="infos">
+                                        <%- doc%>
 
                                     </ul>
-                                </div>
 
+                                    <div class="keybq">
+                                        <p><span>关键字</span>：<a class="label label-default">个人博客</a><a class="label label-default">阿里云</a><a class="label label-default">空间</a></p>
+                                    </div>
+
+                                    <div class="nextinfo">
+                                        <p class="last">上一篇：<a href="#">免费收录网站搜索引擎登录口大全</a></p>
+                                        <p class="next">下一篇：<a href="#">javascript显示年月日时间代码</a></p>
+                                    </div>
+
+                                </div>
                             </div>
+
                         </div>
 
                         <!--<div class="col-xs-1"></div>-->
@@ -196,22 +167,22 @@
 
 </body>
 
-<script src="js/jquery.js"></script>
+<script src="../js/jquery.js"></script>
 <!-- Bootstrap JS -->
-<script src="js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <!-- jquery Anchor JS -->
-<script src="js/jquery.arbitrary-anchor.js"></script>
+<script src="../js/jquery.arbitrary-anchor.js"></script>
 <!-- jQuery way points -->
-<script src="js/custom.js"></script>
+<script src="../js/custom.js"></script>
 <script type="text/javascript">
     window.onload = function () {
-        $("title").html("<%=title%>");
+        $("title").html("");
 
 //当前窗口得到焦点
         window.onfocus = function() {
             $("title").html("诶，又好了");
             setTimeout(function () {
-                $("title").html("<%=title%>");
+                $("title").html("");
             },300)
 
         };
@@ -225,4 +196,5 @@
     }
 
 </script>
+
 </html>

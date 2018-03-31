@@ -10,11 +10,20 @@ router.get("/:docName", function(req, res, next){
             console.log("文件不存在！");
             res.send("文件不存在！");
         }else{
-            console.log(data);
+            console.log("这个是data："+ data);
             htmlStr = marked(data.toString());
-            res.render('doc', {doc: htmlStr});
+            console.log("这个是htmlStr："+ htmlStr);
+            // console.log(htmlStr);
+            res.render('blogDetail', {doc: htmlStr});
         }
     });
+    // res.end();
 });
 
+
+router.get("/", function(req, res){
+
+    res.render("index",{title:"首页 | 李云皓的博客"});
+
+});
 module.exports = router;

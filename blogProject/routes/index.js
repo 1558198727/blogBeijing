@@ -45,6 +45,8 @@ router.get('/writeBlog', function(req, res, next) {
     res.render('writeBlog', { title: '写博客 | 李云皓的博客' });
 });
 
+
+
 router.post('/writeBlog', function(req, res, next) {
    var title = req.body.title;
    var content = req.body.content;
@@ -60,7 +62,15 @@ router.post('/writeBlog', function(req, res, next) {
        blogDate :date,
        blogContent:content
    });
-    res.render('blogDetail', { title: 'writeBlog' });
+    res.send({ title: 'writeBlog' });
+});
+
+
+router.get('/writeBlogByMarkDown', function(req, res, next) {
+    fsWrite.WriteBlogLog("writeBlog");
+
+    console.log("data.title");
+    res.render('writeBlogByMarkDown', { title: '写博客 | 李云皓的博客' });
 });
 
 // 博文详情

@@ -5,6 +5,17 @@ var marked = require('marked');
 var blog = require("../model/blog");
 var fsWrite = require("../model/fsWrite");
 // var Sequelize = require('sequelize');
+
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    gfm: true,
+    tables: false,
+    breaks: false,
+    pedantic: false,
+    sanitize: true,
+    smartLists: true,
+    smartypants: false
+});
 router.get("/", function(req, res, next){
 // :docName
     fsWrite.WriteBlogLog("blogDetail");
@@ -71,7 +82,7 @@ router.get("/", function(req, res, next){
         blogDate = result[0].blogDate;
         blogTitle = result[0].blogTitle;
         console.log('name:' + blogTitle);
-        fs.readFile(__dirname+'/../public/doc/'+ blogTitle +'.md', function(err, data){
+        fs.readFile(__dirname+'/../public/doc/'+ blogTitle +'.txt', function(err, data){
             if(err){
                 console.log("文件不存在！");
                 res.send("文件不存在！");

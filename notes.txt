@@ -26,3 +26,9 @@ https://itbilu.com/nodejs/npm/VJIR1CjMb.html
 在一个web端口上跑websocket：在Node.js和Express框架上添加socket.io支持
 http://blog.csdn.net/xingyanchao/article/details/79367517
 =================================================================================
+2018 03 31
+markdown：
+没有将md存在数据里面，将md放在public的doc文件夹下面，数据库里面只存了文件名，
+以及文章的ID，根据ID标识文章
+根据文件名去doc文件夹里面找到该文件再渲染为html文件
+===================================================================================

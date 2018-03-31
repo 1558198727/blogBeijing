@@ -43,10 +43,12 @@ function export_raw(name, data) {
 }
 
 function toText(fileName) {
-    export_raw(fileName, document.getElementById("inputText").value)
+    // export_raw(fileName, document.getElementById("inputText").value)
+    // var inputVal = document.getElementById("inputText").value;
+
 }
 function toHTML(fileName) {
-	export_raw(fileName ,generateHTML(document.getElementById('outputText').innerHTML));
+	// export_raw(fileName ,generateHTML(document.getElementById('outputText').innerHTML));
 }
 
 function generateHTML(source) {

@@ -21,31 +21,28 @@ router.get("/", function(req, res, next){
     fsWrite.WriteBlogLog("blogDetail");
     var  Id = req.query.Id;
     console.log("Id: " + Id);
-    var blogTitle;
-    var blogDate;
-    var nextBlogTitle;
-    var nextBlogId;
-    var prevBlogTitle;
-    var prevBlogId;
+    var currBlog ={};
+    var nextBlog={};
+    var prevBlog = {};
 
-    prevBlogId = parseInt(Id) - 1;
-    nextBlogId = parseInt(Id) + 1;
+    prevBlog.Id = parseInt(Id) - 1;
+    nextBlog.Id = parseInt(Id) + 1;
 
-    //
+
     blog.findAll(
         {
             where: {
-                blogId: prevBlogId
+                blogId: prevBlog.Id
             }
         }
     ).then(function(result){
         if(result.length === 0){
-            prevBlogId = 1;
-            prevBlogTitle = "已经到顶！";
+            prevBlog.Id = 1;
+            prevBlog.Title = "已经到顶！";
         }
         else {
             console.log("prevBlogTitle" + result[0].blogTitle);
-            prevBlogTitle = result[0].blogTitle;
+            prevBlog.Title = result[0].blogTitle;
         }
 
     });
@@ -53,20 +50,19 @@ router.get("/", function(req, res, next){
     blog.findAll(
         {
             where: {
-                blogId: nextBlogId
+                blogId: nextBlog.Id
             }
         }
     ).then(function(result){
         if(result.length === 0){
             // console.log("error" + error);
-            nextBlogId = parseInt(nextBlogId) - 1;
-            nextBlogTitle = "已经到底！";
+            nextBlog.Id = parseInt(nextBlogId) - 1;
+            nextBlog.Title = "已经到底！";
         }
         else {
             console.log("nextBlogTitle" + result[0].blogTitle);
-            nextBlogTitle = result[0].blogTitle;
+            nextBlog.Title = result[0].blogTitle;
         }
-
     });
 
     blog.findAll(
@@ -79,21 +75,28 @@ router.get("/", function(req, res, next){
 
         console.log('query all blog');
         console.log("文章详情："+JSON.stringify(result));
-        blogDate = result[0].blogDate;
-        blogTitle = result[0].blogTitle;
-        console.log('name:' + blogTitle);
-        fs.readFile(__dirname+'/../public/doc/'+ blogTitle +'.txt', function(err, data){
-            if(err){
-                console.log("文件不存在！");
-                res.send("文件不存在！");
-            }else{
-                // console.log("这个是data："+ data);
-                htmlStr = marked(data.toString());
-                // console.log("这个是htmlStr："+ htmlStr);
-                // console.log(htmlStr);
-                res.render('blogDetail', {doc: htmlStr,blogTitle:blogTitle,nextBlogTitle:nextBlogTitle,nextBlogId:nextBlogId,prevBlogTitle:prevBlogTitle,prevBlogId:prevBlogId,blogDate:blogDate,title:"博文详情 | 李云皓的博客"});
-            }
-        });
+        currBlog.Date = result[0].blogDate;
+        currBlog.Title = result[0].blogTitle;
+        htmlStr = marked(result[0].blogContent.toString()) ;
+        currBlog.Content =htmlStr;
+        console.log('当前博客' + JSON.stringify(currBlog));
+        // console.log('下一篇博客' + JSON.stringify(nextBlog));
+        // console.log('前一篇博客' + JSON.stringify(prevBlog));
+
+                res.render('blogDetail',{currBlog:currBlog,nextBlog:nextBlog,prevBlog:prevBlog,title:"博文详情 | 李云皓的博客"});
+
+        // fs.readFile(__dirname+'/../public/doc/'+ blogTitle +'.txt', function(err, data){
+        //     if(err){
+        //         console.log("文件不存在！");
+        //         res.send("文件不存在！");
+        //     }else{
+        //         // console.log("这个是data："+ data);
+        //         htmlStr = marked(data.toString());
+        //         // console.log("这个是htmlStr："+ htmlStr);
+        //         // console.log(htmlStr);
+        //         res.render('blogDetail', {doc: htmlStr,blogTitle:blogTitle,nextBlogTitle:nextBlogTitle,nextBlogId:nextBlogId,prevBlogTitle:prevBlogTitle,prevBlogId:prevBlogId,blogDate:blogDate,title:"博文详情 | 李云皓的博客"});
+        //     }
+        // });
     });
 
 });

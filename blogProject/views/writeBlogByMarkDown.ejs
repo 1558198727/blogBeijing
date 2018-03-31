@@ -13,7 +13,7 @@
 <div class="input-group">
     <span class="input-group-addon" id="basic-addon1">@</span>
     <input type="text" class="form-control" id="title" placeholder="title" aria-describedby="basic-addon1">
-    <input type="text" class="form-control" id="content" placeholder="content" aria-describedby="basic-addon1">
+    <input type="text" class="form-control" id="annotation" placeholder="content" aria-describedby="basic-addon1">
     <button class="btn btn-primary" id="commit">提交</button>
 </div>
 
@@ -78,6 +78,9 @@
     window.onload = function () {
 
 
+//        var inputVal = document.getElementById("inputText").value;
+//        var html = document.getElementById('outputText').html();
+
         $("#commit").click(function () {
             var date = new Date();
 //            var data ={
@@ -89,16 +92,17 @@
 //            alert("date"+":"+data.date+"\n"+"title" +":"+data.title+"\n"+"content" +":"+data.content );
             $.ajax({
                 type: "POST",
-                url: "./writeBlog",
+                url: "./writeBlogByMarkDown",
                 dataType: "json",
                 data: {
                     date :date,
                     title : $("#title").val(),
-                    content : $("#content").val()
+                    annotation:$("#annotation").val(),
+                    content : $("#inputText").val()
                 },
                 success: function (data){
                     alert("发表成功");
-                    location.href = "/indexTwo";
+//                    location.href = "/indexTwo";
                 },
                 error:function (data) {
                     console.log("出错了");

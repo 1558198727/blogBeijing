@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title><%=title%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="../css/ELuoSiDeFangKuai/style.css">
+    <link rel="stylesheet" href="../ELuoSiDeFangKuai/css/style.css">
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -21,6 +21,8 @@
 <body class="body">
 <!-- <div>请用方向键和空格键进行操作</div> -->
 <a class="btn bg-success" href="/users/qqLogin"> QQ登录</a>
+<a class="btn bg-success" onclick="location.reload()"> 刷新</a>
+<a class="btn bg-success" href="/"> 首页</a>
 <div class="container">
 
     <div class="row">
@@ -92,14 +94,14 @@
 </div>
 
 </body>
-<script src="../js/ELuoSiDeFangKuai/socket.io-2.0.4.js"></script>
-<script type="text/javascript" src="../js/jquery.min.js"></script>
-<script type="text/javascript" src="../js/ELuoSiDeFangKuai/square.js"></script>
-<script type="text/javascript" src="../js/ELuoSiDeFangKuai/squareFactory.js"></script>
-<script type="text/javascript" src="../js/ELuoSiDeFangKuai/game.js"></script>
-<script type="text/javascript" src="../js/ELuoSiDeFangKuai/local.js"></script>
-<script type="text/javascript" src="../js/ELuoSiDeFangKuai/remote.js"></script>
-<script type="text/javascript" src="../js/ELuoSiDeFangKuai/script.js"></script>
+<script src="../ELuoSiDeFangKuai/js/socket.io-2.0.4.js"></script>
+<script type="text/javascript" src="../indexTwo/js/jquery.js"></script>
+<script type="text/javascript" src="../ELuoSiDeFangKuai/js/square.js"></script>
+<script type="text/javascript" src="../ELuoSiDeFangKuai/js/squareFactory.js"></script>
+<script type="text/javascript" src="../ELuoSiDeFangKuai/js/game.js"></script>
+<script type="text/javascript" src="../ELuoSiDeFangKuai/js/local.js"></script>
+<script type="text/javascript" src="../ELuoSiDeFangKuai/js/remote.js"></script>
+<script type="text/javascript" src="../ELuoSiDeFangKuai/js/script.js"></script>
 <script type="text/javascript">
 $("#control-down").click(function () {
     local.control_down();
@@ -145,7 +147,6 @@ $("#control-right").click(function () {
         };
 
     }
-
 </script>
 
 
@@ -161,7 +162,7 @@ $("#control-right").click(function () {
 //        {nickname:nickname,headUrl:headUrl}
          console.log("已经发送登录消息ILoginByQQ");
     }else{
-        alert("请登录！" + "islogin" +isLogin);
+//        alert("请登录！" + "islogin" +isLogin);
     }
     socket.on("ILoginByQQ",function () {
         console.log("收到ILoginByQQ");
@@ -173,15 +174,12 @@ $("#control-right").click(function () {
         socket.emit("ISendMyInfo",{nickname:nickname,headUrl:headUrl});
     });
 
-
-
     socket.on("ISendMyInfo",function (data) {
         console.log("收到ISendMyInfo");
         document.getElementById("remote_headPhoto").src = data.headUrl;
         document.getElementById("remote_nickName").innerHTML = data.nickname;
         socket.emit("ISendMyInfoToo",{nickname:nickname,headUrl:headUrl});
 //        socket = io("ws://liyunhao.cn:80");
-
 
     });
     socket.on("ISendMyInfoToo",function (data) {

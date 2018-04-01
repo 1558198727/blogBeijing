@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>jQuery+css3仿QQ登录界面代码</title>
+    <title><%=title%></title>
     <link href="../QQDesktop/css/style.css" rel="stylesheet" type="text/css">
     <script src="../QQDesktop/js/jquery.js"></script>
     <script src="../QQDesktop/js/index.js"></script>
@@ -11,7 +11,7 @@
 
 <body>
 <div class="qq-exe"><img src="../../QQDesktop/images/QQ-ICON.png"><input type="text" value="腾讯QQ" placeholder="腾讯QQ"></div>
-
+<div class="ELuoSi-exe"><img src="../../QQDesktop/images/ELuoSiDeFangKuaiExe.jpg"><input type="text" value="俄罗斯方块" placeholder="俄罗斯方块"></div>
 <div class="win-bg"><img src="../../QQDesktop/images/win-bg.png"></div>
 
 <div class="qq-login">
@@ -41,6 +41,7 @@
             <span class="qq-top-01 min"><img src="../../QQDesktop/images/qq-top-01.png"></span>
         </div>
         <div class="qq-top-name">
+            <!--<span>懒人之家</span>-->
             <span>懒人之家</span>
             <dl><dd><img src="../../QQDesktop/images/zai.png"></dd><dt><img src="../../QQDesktop/images/lv.png"></dt><dt><img src="../../QQDesktop/images/svip.png"></dt></dl>
         </div>
@@ -237,9 +238,109 @@
 </body>
 
 <script>
-    $('.qq-exe img').dblclick(function(){
-        $('.qq-login').css('display','block').removeClass('mins')
-        location.href = "/users/qqLogin";
-    })
+
+    $(document).ready(function(){
+        <!--alert("<%=session.isLogin%>");-->
+        if("<%=session.isLogin%>" === "true"){
+            $('.qq-login').css('display','block').removeClass('mins');
+            $('.login-head').children("img").attr("src","<%=session.figureurl_qq_2 %>");
+            $('.login-txt').children("input")[0].value ="<%=session.nickname %>" ;
+            $('.login-txt').children("input")[1].value ="123456" ;
+            <!--alert("<%=session.nickname%>");-->
+        }
+
+        $('.qq-xuan li').click(function(){
+            $(this).addClass('qq-xuan-li').siblings().removeClass('qq-xuan-li')
+        })
+        $('.qq-hui-txt').hover(function(){
+            var aa = $(this).html()
+            $('.qq-hui-txt').attr('title',aa)
+        })
+        $('.login-close').click(function(){
+            $(this).parent().parent().css('display','none')
+        })
+        $('.qq-hui li').dblclick(function(){
+            $('.qq-chat').css('display','block').removeClass('mins')
+            $('.qq-chat-t-name').html($(this).find('span').html())
+            $('.qq-chat-t-head img').attr('src',$(this).find('img').attr('src'))
+            $('.qq-chat-you span').html($(this).find('span').html())
+            $('.qq-chat-you i').html($(this).find('.qq-hui-name i').html())
+            $('.qq-chat-ner').html($(this).find('.qq-hui-txt').html())
+            $("#qq-chat-text").trigger("focus")
+            $('.my').remove()
+        })
+        //QQ被双击
+        $('.qq-exe img').dblclick(function(){
+//            $('.qq-login').css('display','block').removeClass('mins')
+            location.href = "/users/qqLogin";
+        })
+        //俄罗斯方块被双击
+        $('.ELuoSi-exe img').dblclick(function(){
+//            $('.qq-login').css('display','block').removeClass('mins')
+            if("<%=session.isLogin%>" === "true") {
+                location.href = "/games/ELuoSiDeFangKuai";
+            }else{
+                alert("请先登录！");
+            }
+
+        })
+        // $('.qq-exe img').dblclick(function(){
+//           $('.qq-login').css('display','block').removeClass('mins')
+        //     location.href = "/users/qqLogin";
+        // })
+        $('.login-but').click(function(){
+            if($('.login-txt').find('input').val() == ''){
+                alert('请输入账号或者密码')
+            }else if($('login-txt input').val() != ''){
+                $('.qq').css('display','block').removeClass('mins')
+                $('.qq-login').css('display','none')
+                $('.qq-top-name').children("span").html("<%=session.nickname%>");
+            }
+        })
+        $('.login-txt input').keydown(function(e){
+            if(e.keyCode == 13){
+                if($('.login-txt').find('input').val() == ''){
+                    alert('请输入账号或者密码')
+                }else if($('login-txt input').val() != ''){
+                    $('.qq').css('display','block').removeClass('mins')
+                    $('.qq-login').css('display','none')
+                }
+            }
+        })
+        $('.close').click(function(){
+            $(this).parent().parent().parent().css('display','none')
+        })
+        $('.min').click(function(){
+            $(this).parent().parent().parent().addClass('mins')
+        })
+        $('.qq .close').click(function(){
+            $('.qq-chat').css('display','none')
+        })
+        $('#qq-chat-text').keydown(function(e){
+            if(e.keyCode == 27){
+                $('.qq-chat').css('display','none')
+            }
+        })
+        $('.fasong').click(function(){
+            if($('#qq-chat-text').val()==''){
+                alert("发送内容不能为空,请输入内容")
+            }else if($('#qq-chat-text').val()!=''){
+                var name = $('.qq-top-name span').html()
+                var ner = $('#qq-chat-text').val()
+                var ners = ner.replace(/\n/g,'<br>')
+                var now=new Date()
+                var t_div = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+' '+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+                $('.qq-chat-txt ul').append('<li class="my"><div class="qq-chat-my"><span>'+name+'</span><i>'+t_div+'</i></div><div class="qq-chat-ner">'+ners+'</div></li>')
+                $(".qq-chat-txt").scrollTop($(".qq-chat-txt")[0].scrollHeight);
+                $('#qq-chat-text').val('').trigger("focus")
+            }
+        })
+        $('.close-chat').click(function(){
+            $('.qq-chat').css('display','none')
+        })
+        $(".qq-hui").niceScroll({
+            touchbehavior:false,cursorcolor:"#ccc",cursoropacitymax:1,cursorwidth:6,horizrailenabled:true,cursorborderradius:3,autohidemode:true,background:'none',cursorborder:'none'
+        });
+    });
 </script>
 </html>

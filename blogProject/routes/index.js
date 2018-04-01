@@ -84,7 +84,7 @@ router.post('/writeBlogByMarkDown', function(req, res, next) {
         blogDate :newBlog.date,
         blogContent:newBlog.content
     });
-    console.log("newBlog: " +JSON.stringify(newBlog));
+    console.log("写入的newBlog: " +JSON.stringify(newBlog));
     res.send({ title: '写博客 | 李云皓的博客' });
 });
 

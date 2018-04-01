@@ -11,7 +11,10 @@ var blog = sequelize.define('blog', {
             autoIncrement:true
         },
         blogTitle: { //视频作者ID
-            type:Sequelize.STRING(255),
+            type:Sequelize.STRING(255)
+        },
+        blogAnnotation:{
+            type:Sequelize.STRING(300)
         },
         blogDate:{//视频封面图片URL
             type:Sequelize.DATE

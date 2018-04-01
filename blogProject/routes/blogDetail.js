@@ -85,7 +85,7 @@ router.get("/", function(req, res, next){
 
                 res.render('blogDetail',{currBlog:currBlog,nextBlog:nextBlog,prevBlog:prevBlog,title:"博文详情 | 李云皓的博客"});
 
-        // fs.readFile(__dirname+'/../public/doc/'+ blogTitle +'.txt', function(err, data){
+        // fs.readFile(__dirname+'/../public/doc/'+ blogTitle +'.md', function(err, data){
         //     if(err){
         //         console.log("文件不存在！");
         //         res.send("文件不存在！");

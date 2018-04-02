@@ -259,31 +259,65 @@
         $('.login-close').click(function(){
             $(this).parent().parent().css('display','none')
         })
-        $('.qq-hui li').dblclick(function(){
-            $('.qq-chat').css('display','block').removeClass('mins')
-            $('.qq-chat-t-name').html($(this).find('span').html())
-            $('.qq-chat-t-head img').attr('src',$(this).find('img').attr('src'))
-            $('.qq-chat-you span').html($(this).find('span').html())
-            $('.qq-chat-you i').html($(this).find('.qq-hui-name i').html())
-            $('.qq-chat-ner').html($(this).find('.qq-hui-txt').html())
-            $("#qq-chat-text").trigger("focus")
-            $('.my').remove()
-        })
-        //QQ被双击
-        $('.qq-exe img').dblclick(function(){
-//            $('.qq-login').css('display','block').removeClass('mins')
-            location.href = "/users/qqLogin";
-        })
-        //俄罗斯方块被双击
-        $('.ELuoSi-exe img').dblclick(function(){
-//            $('.qq-login').css('display','block').removeClass('mins')
-            if("<%=session.isLogin%>" === "true") {
-                location.href = "/games/ELuoSiDeFangKuai";
-            }else{
-                alert("请先登录！");
-            }
 
-        })
+
+        var windowWidth = $(window).width();
+        if(windowWidth < 640) {
+
+            $('.qq-hui li').click(function () {
+//                alert("beidiaji");
+                $('.qq-chat').css('display', 'block').removeClass('mins')
+                $('.qq-chat-t-name').html($(this).find('span').html())
+                $('.qq-chat-t-head img').attr('src', $(this).find('img').attr('src'))
+                $('.qq-chat-you span').html($(this).find('span').html())
+                $('.qq-chat-you i').html($(this).find('.qq-hui-name i').html())
+                $('.qq-chat-ner').html($(this).find('.qq-hui-txt').html())
+                $("#qq-chat-text").trigger("focus")
+                $('.my').remove()
+            })
+            //QQ被双击
+            $('.qq-exe img').click(function () {
+//            $('.qq-login').css('display','block').removeClass('mins')
+                location.href = "/users/qqLogin";
+            })
+            //俄罗斯方块被双击
+            $('.ELuoSi-exe img').click(function () {
+//            $('.qq-login').css('display','block').removeClass('mins')
+                if ("<%= session.isLogin %>" === "true") {
+                    location.href = "/games/ELuoSiDeFangKuai";
+                } else {
+                    alert("请先登录！");
+                }
+
+            })
+        }else {
+
+            $('.qq-hui li').dblclick(function(){
+                $('.qq-chat').css('display','block').removeClass('mins')
+                $('.qq-chat-t-name').html($(this).find('span').html())
+                $('.qq-chat-t-head img').attr('src',$(this).find('img').attr('src'))
+                $('.qq-chat-you span').html($(this).find('span').html())
+                $('.qq-chat-you i').html($(this).find('.qq-hui-name i').html())
+                $('.qq-chat-ner').html($(this).find('.qq-hui-txt').html())
+                $("#qq-chat-text").trigger("focus")
+                $('.my').remove()
+            })
+            //QQ被双击
+            $('.qq-exe img').dblclick(function(){
+//            $('.qq-login').css('display','block').removeClass('mins')
+                location.href = "/users/qqLogin";
+            })
+            //俄罗斯方块被双击
+            $('.ELuoSi-exe img').dblclick(function(){
+//            $('.qq-login').css('display','block').removeClass('mins')
+                if("<%=session.isLogin%>" === "true") {
+                    location.href = "/games/ELuoSiDeFangKuai";
+                }else{
+                    alert("请先登录！");
+                }
+
+            })
+        }
         // $('.qq-exe img').dblclick(function(){
 //           $('.qq-login').css('display','block').removeClass('mins')
         //     location.href = "/users/qqLogin";

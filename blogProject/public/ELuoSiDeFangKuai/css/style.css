@@ -371,14 +371,14 @@
     }
     .current{
 
-        background: url(./Eimg/fangkuai.png);
+        background: url(../Eimg/fangkuai.png);
         background-size:70px 10px;
         background-position: 60px 0px;
         /*background-color: pink;*/
         /*border: 1px solid red;*/
     }
     .done{
-        background: url(./Eimg/fangkuai.png);
+        background: url(../Eimg/fangkuai.png);
         background-size:70px 10px;
         background-position: 10px 0px;
 

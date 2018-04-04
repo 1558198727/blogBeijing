@@ -104,16 +104,16 @@
 
                         <div class=".col-xs-12 .col-sm-6 .col-md-6">
                             <div class="nextinfo">
-                                <p class="last">上一篇：<a href="#" id="<%=prevBlog.Id%>"><%=prevBlog.Title%></a></p>
-                                <p class="next">下一篇：<a href="#" id="<%=nextBlog.Id%>"><%=nextBlog.Title%></a></p>
+                                <p class="last">上一篇：<a href="#" id="<%=data.prevBlog.Id%>"><%=data.prevBlog.Title%></a></p>
+                                <p class="next">下一篇：<a href="#" id="<%=data.nextBlog.Id%>"><%=data.nextBlog.Title%></a></p>
                             </div>
                             <div class="panel panel-default  mb-20">
 
                                 <div class="panel-body pt-10 pb-10">
-                                    <h2 class="c_titile"><%=currBlog.Title%></h2>
-                                    <p class="box_c"><span class="d_time"><%=currBlog.Date%></span><span>编辑：<a href="">wilco</a></span><span>阅读（88646）</span></p>
+                                    <h2 class="c_titile"><%=data.currBlog.Title%></h2>
+                                    <p class="box_c"><span class="d_time"><%=data.currBlog.Date%></span><span>编辑：<a href="">wilco</a></span><span>阅读（88646）</span></p>
                                     <ul class="infos">
-                                       <%- currBlog.Content %>
+                                       <%- data.currBlog.Content %>
 
                                     </ul>
 
@@ -122,8 +122,8 @@
                                     </div>
 
                                     <div class="nextinfo">
-                                        <p class="last">上一篇：<a href="#" id="<%=prevBlog.Id%>"><%=prevBlog.Title%></a></p>
-                                        <p class="next">下一篇：<a href="#" id="<%=nextBlog.Id%>"><%=nextBlog.Title%></a></p>
+                                        <p class="last">上一篇：<a href="#" id="<%=data.prevBlog.Id%>"><%=data.prevBlog.Title%></a></p>
+                                        <p class="next">下一篇：<a href="#" id="<%=data.nextBlog.Id%>"><%=data.nextBlog.Title%></a></p>
                                     </div>
 
                                 </div>

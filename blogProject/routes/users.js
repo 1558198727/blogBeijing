@@ -6,6 +6,7 @@ var db = require("../model/mysql");
 var user = require("..//model/user");
 var blog = require("../model/blog");
 var fsWrite = require("../model/fsWrite");
+var QQuserseApi = require("../Api/QQusersApi");
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
 //   res.send('respond with a resource');
@@ -29,31 +30,15 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-    // nickname:"『莫理风尘』",
-    //     gender:"男",
-    //     province:"辽宁",
-    //     city:"大连",
-    //     figureurl:paras.figureurl,
-    //     figureurl_1:paras.figureurl_1,
-    //     figureurl_2:paras.figureurl_2,
-    //     figureurl_qq_1:paras.figureurl_qq_1,
-    //     figureurl_qq_2:paras.figureurl_qq_2,
-    //     openId:paras.openId,
-    //     accessToken:paras.accessToken
     var userInfo = req.body;
     console.log(JSON.stringify(userInfo));
-    req.session.isLogin = true;
-    req.session.nickname = userInfo.nickname;
-    req.session.gender = userInfo.gender;
-    req.session.province = userInfo.province;
-    req.session.city = userInfo.city;
-    req.session.figureurl = userInfo.figureurl;
-    req.session.figureurl_qq_2 = userInfo.figureurl_qq_2;
-    req.session.openId = userInfo.openId;
-    req.session.accessToken = userInfo.accessToken;
-    fsWrite.WriteUsersInfo(userInfo);
-    console.log("session:" + JSON.stringify(req.session));
-    res.send({data: 'ELuoSiDeFangKuai'});
+    QQuserseApi.createSession(req,userInfo);//创建用户session
+    QQuserseApi.creatUser(userInfo,function () {//检测没有登陆过就插入
+        fsWrite.WriteUsersInfo(userInfo);
+        console.log("session:" + JSON.stringify(req.session));
+        res.send({data: 'ELuoSiDeFangKuai'});
+    });
+
 });
 
 

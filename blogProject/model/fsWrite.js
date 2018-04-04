@@ -2,21 +2,20 @@ var fs = require('fs');
 
 // 文件读写
 
-var WriteBlogLog = function (page) {
+exports.WriteBlogLog = function (page) {
     var date = new Date();
     var file = "C:\\BlogLog.txt";
     var write_date = "当前访问的时间为" + date + '\r\n'+page +'\r\n';
-    console.log(write_date);
+    // console.log(write_date);
     fs.appendFile(file, write_date, function(err){
         if(err)
             console.log("fail " + err);
         else
-            console.log("写入文件ok");
+            console.log("写入文件访问记录成功");
     });
 };
-exports.WriteBlogLog=WriteBlogLog;
 
-var WriteUsersInfo = function (info) {
+exports.WriteUsersInfo = function (info) {
     var file = "C:\\UsersInfo.txt";
     var write_date = "用户信息"  + '\r\n';
     write_date += "openId:" + info.openId + '\r\n';
@@ -32,12 +31,11 @@ var WriteUsersInfo = function (info) {
     write_date += "figureurl_qq_2:" + info.figureurl_qq_2 + '\r\n';
     write_date += "==================================================================================" + '\r\n'+ '\r\n';
 
-    console.log(write_date);
     fs.appendFile(file, write_date, function(err){
         if(err)
             console.log("fail " + err);
         else
-            console.log("写入文件ok");
+            console.log("写入文件用户信息成功");
+            console.log(write_date);
     });
 };
-exports.WriteUsersInfo=WriteUsersInfo;

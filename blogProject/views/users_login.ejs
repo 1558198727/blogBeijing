@@ -76,7 +76,10 @@
 //                        alert(data);
 //                    $("#qqLoginBtn").innerHTML = data;
                         <!--alert("跳回登录之前的页面" + "=session.lastpage ");-->
-                        <!--location.href = "=session.lastpage>";-->
+                        setTimeout(function (args) {
+                            location.href = "<%=session.lastpage%>";
+                        },1000)
+
 //                        history.go(-2);
 //                        window.parent.reload();//刷新父页面，
 //                        top.window.close();//关闭ifraem

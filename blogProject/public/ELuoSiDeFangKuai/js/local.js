@@ -193,8 +193,8 @@ var Local = function (socket) {
         start();
     });
     socket.on("lose",function(){
-        stop();
         game.gameOver(true);
+        stop();
 
     });
     socket.on("leave",function(){

@@ -1,5 +1,8 @@
 var QQusers = require("../db/QQusersDB");
-exports.creatUser = function(userInfo,callback){
+var fsWrite = require("../model/fsWrite");
+
+exports.createUser = function(req,callback){
+    var userInfo = req.body;
     QQusers.findAll(
         {
             where: {
@@ -32,11 +35,14 @@ exports.creatUser = function(userInfo,callback){
         else {
             console.log("该用户已经存在 插入失败");
         }
+        fsWrite.WriteUsersInfo(userInfo);
+        console.log("session:" + JSON.stringify(req.session));
         callback();
     });
 
 };
-exports.createSession = function (req,userInfo) {
+exports.createSession = function (req) {
+    var userInfo = req.body;
     req.session.isLogin = true;
     req.session.nickname = userInfo.nickname;
     req.session.gender = userInfo.gender;
@@ -47,4 +53,6 @@ exports.createSession = function (req,userInfo) {
     req.session.openId = userInfo.openId;
     req.session.accessToken = userInfo.accessToken;
     console.log("创建session成功！");
+    console.log("session" + JSON.stringify(req.session));
+
 };

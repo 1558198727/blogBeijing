@@ -241,13 +241,19 @@
 <script>
 
     $(document).ready(function(){
+        var windowWidth = $(window).width();
         <!--alert("<%=session.isLogin%>");-->
         if("<%=session.isLogin%>" === "true"){
-            $('.qq-login').css('display','block').removeClass('mins');
-            $('.login-head').children("img").attr("src","<%=session.figureurl_qq_2 %>");
-            $('.login-txt').children("input")[0].value ="<%=session.nickname %>" ;
-            $('.login-txt').children("input")[1].value ="123456" ;
-            <!--alert("<%=session.nickname%>");-->
+            if(windowWidth < 640) {
+
+            }else{
+                $('.qq-login').css('display','block').removeClass('mins');
+                $('.login-head').children("img").attr("src","<%=session.figureurl_qq_2 %>");
+                $('.login-txt').children("input")[0].value ="<%=session.nickname %>" ;
+                $('.login-txt').children("input")[1].value ="123456" ;
+                <!--alert("<session.nickname>");-->
+            }
+
         }
 
         $('.qq-xuan li').click(function(){
@@ -262,7 +268,7 @@
         })
 
 
-        var windowWidth = $(window).width();
+
         if(windowWidth < 640) {
 
             $('.qq-hui li').click(function () {
@@ -276,12 +282,12 @@
                 $("#qq-chat-text").trigger("focus")
                 $('.my').remove()
             })
-            //QQ被双击
+            //QQ被单击
             $('.qq-exe img').click(function () {
 //            $('.qq-login').css('display','block').removeClass('mins')
                 location.href = "/users/qqLogin";
             })
-            //俄罗斯方块被双击
+            //俄罗斯方块被单击
             $('.ELuoSi-exe img').click(function () {
 //            $('.qq-login').css('display','block').removeClass('mins')
                 if ("<%= session.isLogin %>" === "true") {

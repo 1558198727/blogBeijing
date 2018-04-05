@@ -283,12 +283,12 @@ var Game = function () {
     var gameOver = function(win){
         if(win){
             // resultDiv.innerHTML = "你赢了";
-            alert("你赢了");
-            return;
+            // alert("你赢了");
+            // return;
         }else{
             // resultDiv.innerHTML = "你输了";
-            alert("你输了");
-            return;
+            // alert("你输了");
+            // return;
         }
     };
 

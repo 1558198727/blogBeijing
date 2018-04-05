@@ -152,46 +152,63 @@ $("#control-right").click(function () {
 
 <script type="text/javascript">
 
+    var socket;
+    //
+    var local;
+    var remote;
+    // remote.start(2,2);
+    // remote.bindEvents();
+
     var nickname = "<%=session.nickname%>";
     var isLogin = "<%=session.isLogin%>";
-    var headUrl = "<%=session.figureurl_qq_2%>" ;
+    var headUrl = "<%=session.figureurl_qq_2%>";
 
+    // alert("请登录！" + "islogin");
     if( isLogin === "true"){
+        socket = io("ws://localhost:80");
+        console.log("socket.isSocket : " + socket.isSocket);
 //        alert(nickname + "已经通过QQ登录");
-         socket.emit("ILoginByQQ");
+//          socket.emit("ILoginByQQ");
+        local = new Local(socket);
+        remote = new Romote(socket)
 //        {nickname:nickname,headUrl:headUrl}
-         console.log("已经发送登录消息ILoginByQQ");
-    }else{
-//        alert("请登录！" + "islogin" +isLogin);
-    }
-    socket.on("ILoginByQQ",function () {
-        console.log("收到ILoginByQQ");
-        socket.emit("ILoginByQQToo");
-    });
+//          console.log("已经发送登录消息ILoginByQQ");
+        socket.on("waiting",function (str) {
+            document.getElementById("waiting").innerHTML = str;
+        });
+        // alert("已经登录！");
+        socket.on("ILoginByQQ",function () {
+            console.log("收到ILoginByQQ");
+            socket.emit("ILoginByQQToo");
+        });
 
-    socket.on("ILoginByQQToo",function () {
-        console.log("收到ILoginByQQToo");
-        socket.emit("ISendMyInfo",{nickname:nickname,headUrl:headUrl});
-    });
+        socket.on("ILoginByQQToo",function () {
+            console.log("收到ILoginByQQToo");
+            socket.emit("ISendMyInfo",{nickname:nickname,headUrl:headUrl});
+        });
 
-    socket.on("ISendMyInfo",function (data) {
-        console.log("收到ISendMyInfo");
-        document.getElementById("remote_headPhoto").src = data.headUrl;
-        document.getElementById("remote_nickName").innerHTML = data.nickname;
-        socket.emit("ISendMyInfoToo",{nickname:nickname,headUrl:headUrl});
+        socket.on("ISendMyInfo",function (data) {
+            console.log("收到ISendMyInfo");
+            document.getElementById("remote_headPhoto").src = data.headUrl;
+            document.getElementById("remote_nickName").innerHTML = data.nickname;
+            socket.emit("ISendMyInfoToo",{nickname:nickname,headUrl:headUrl});
 //        socket = io("ws://liyunhao.cn:80");
 
-    });
-    socket.on("ISendMyInfoToo",function (data) {
-        console.log("收到ISendMyInfoToo");
-        document.getElementById("remote_headPhoto").src = data.headUrl;
-        document.getElementById("remote_nickName").innerHTML = data.nickname;
+        });
+        socket.on("ISendMyInfoToo",function (data) {
+            console.log("收到ISendMyInfoToo");
+            document.getElementById("remote_headPhoto").src = data.headUrl;
+            document.getElementById("remote_nickName").innerHTML = data.nickname;
 
-        socket.emit("allReady");
-        console.log("allReady We can start!");
+            // socket.emit("allReady");
+            // console.log("allReady We can start!");
 //        socket.emit("ISendMyInfoToo",{nickname:nickname,headUrl:headUrl});
-    });
-//    socket.on("allReady")
+        });
+//         socket.on("allReady");
+    }else{
+       // alert("请登录！" + "islogin" +isLogin);
+    }
+
 
 </script>
 </html>

@@ -1,6 +1,6 @@
 var Romote = function (socket) {
     // 游戏对象
-    var game = new Game();;
+    var game = new Game();
 
     //绑定按钮事件
     var bindEvents = function(){

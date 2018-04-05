@@ -1,23 +1,23 @@
 var socket_io = require("socket.io");
 var socketIo = {};
+var userIsLogin;
 
+//客户端计数
+var clientCount = 0;
+//存储客户端socket
+var socketMap = {};
+//获取用户的登陆状态
 
 socketIo.getWWWServer = function (server) {
     socketIo.SocketioStart(server);
 };
 
+socketIo.getUserReq = function (req) {
+    userIsLogin = req.session.isLogin;
+};
 
 socketIo.SocketioStart = function(server){ // http(s) server
     var  io = socket_io.listen(server);
-    // var io = socket_io.listen(wwwServer);
-
-    // var PORT = 3000;
-    //客户端计数
-    var clientCount = 0;
-    //存储客户端socket
-    var socketMap = {};
-
-    // app.listen(80);
 
     var bindListener = function(socket,event){
         socket.on(event,function(data){
@@ -35,25 +35,51 @@ socketIo.SocketioStart = function(server){ // http(s) server
 
     };
 
+    //
+
     io.on('connection',function (socket) {
+    // console.log(" socket.isSocket: " + socket.isSocket) ;//=== undefined
+    console.log("userIsLogin : " + userIsLogin);
+    if(userIsLogin === true && socket.isSocket === undefined){
         clientCount = clientCount + 1;
         socket.clientNum = clientCount;
         // socket.nickName = 'user ' + clientCount;
-        console.log("已经连接");
+        console.log("登陆后已经创建socket连接");
+        socket.isSocket = true;
         socketMap[clientCount] = socket;
-        if(clientCount % 2 === 1){
+
+        console.log("clientCount: " + clientCount);
+        console.log("socketMap[clientCount]: " + socketMap[clientCount]);
+        console.log("socket.clientNum: " + socket.clientNum);
+        if(socket.clientNum % 2 === 1){
             socket.emit("waiting","等待下一位玩家进入");
             console.log("等待下一位玩家进入");
         }else{
-            if(socketMap[clientCount-1]){
-                // socket.emit("start");
-                // socketMap[clientCount-1].emit('start');
-                console.log("两人都打开了游戏界面");
-            }else{
-                socket.emit("leave");
-            }
-
+            socket.emit("waiting","两位玩家已经上线！");
+            socketMap[clientCount -1].emit("waiting","两位玩家已经上线！");
+            socket.emit("ILoginByQQ","两位玩家已经上线！");
+            // socketMap[clientCount -1].emit("I","两位玩家已经上线！");
+            socketMap[clientCount].emit("start");
+            socketMap[clientCount -1].emit("start");
+            // socket.emit("ILoginByQQ");
         }
+    }//else{
+        //console.log("登陆后又回来了");
+        // console.log("socket.clientNum: " + socket.clientNum);
+        // if(socket.clientNum % 2 === 1){
+        //     socket.emit("waiting","等待下一位玩家进入");
+        //     console.log("等待下一位玩家进入");
+        // }else{
+        //     if(socketMap[clientCount-1]){
+        //         // socket.emit("start");
+        //         // socketMap[clientCount-1].emit('start');
+        //         console.log("两人都打开了游戏界面");
+        //     }else{
+        //         socket.emit("leave");
+        //     }
+        //
+        // }
+    // }
 
         bindListener(socket,"init");
 
@@ -75,25 +101,32 @@ socketIo.SocketioStart = function(server){ // http(s) server
         bindListener(socket,"ISendMyInfo");
         bindListener(socket,"ISendMyInfoToo");
 
-
-        socket.on("allReady",function(data){
-            console.log("wsServer: you two can start now!");
-            socket.emit("start");
-            socketMap[clientCount-1].emit('start');
-        });
+        // socket.on("allReady",function(data){
+        //     //     var socketMap = socketMap;
+        //     //     var clientCount = clientCount;
+        //     console.log("wsServer: you two can start now!");
+        //     console.log("clientCount emit start : " + socket.clientNum );
+        //     socket.emit("start");
+        //     console.log("socket.clientNum -1 emit start : "+ socket.clientNum-1);
+        //     // socketMap[socket.clientNum - 1].emit('start');
+        // });
         // io.emit('enter',socket.nickName + " comes in");
         socket.on('message',function (str) {
             io.emit('message',socket.nickName + 'says: ' +str);
         });
 
         socket.on('disconnect',function () {
+            console.log("disconnect");
+            console.log("clientCount : "+ clientCount);
             if(socket.clientNum % 2 === 0){
                 if(socketMap[socket.clientNum-1]){
+                    socketMap[socket.clientNum-1].emit("waiting","玩家离开！");
                     socketMap[socket.clientNum-1].emit("leave");
                 }
 
             }else{
                 if(socketMap[socket.clientNum+1]){
+                    socketMap[socket.clientNum+1].emit("waiting","玩家离开！");
                     socketMap[socket.clientNum+1].emit("leave");
                 }
             }

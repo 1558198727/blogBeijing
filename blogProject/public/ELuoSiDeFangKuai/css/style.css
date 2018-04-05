@@ -205,7 +205,7 @@
     .local-square{
         /*margin-left: 30px;*/
         width: 200px;
-        height: 350px;
+        height: 300px;
         float: left;
     }
 
@@ -278,7 +278,7 @@
     .remote-square{
         margin-left: 70px;
         width: 120px;
-        height: 350px;
+        height: 300px;
         float: left;
     }
     .remote-Title{

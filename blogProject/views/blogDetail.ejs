@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="../indexTwo/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../blogDetail/css/default.min.css">
-    <!--<script src="../blogDetail/js/highlight.min.js"></script>-->
+    <script src="../blogDetail/js/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <!--<link rel="stylesheet" href="/css/doc.css">-->
     <script src="../indexTwo/js/jquery.js"></script>
@@ -13,7 +14,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css'>
 
-    <link rel="shortcut icon" href="./img/HeadPhoto.jpg">
+    <link rel="shortcut icon" href="../img/HeadPhoto.ico">
     <link href="../indexTwo/css/indexTwostyle.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="../blogDetail/css/common.css" />
@@ -183,7 +184,8 @@
 
 </script><script type="text/javascript">
     window.onload = function () {
-        $("title").html("");
+
+        $("title").html("<%=title%>");
 
 //当前窗口得到焦点
         window.onfocus = function() {

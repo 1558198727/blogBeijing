@@ -164,23 +164,6 @@
                                        <% })%>
 
 
-                                        <!--<li class="index_arc_item">-->
-                                            <!--<a href="#" class="pic">-->
-                                                <!--<img class="lazyload" src="temp/art.jpg" alt="应该选" />-->
-                                            <!--</a>-->
-                                            <!--<h4 class="title"><a href="#">个人博客应该选择什么样的域名和域名后缀</a></h4>-->
-                                            <!--<div class="date_hits">-->
-                                                <!--<span>-&#45;&#45;</span>-->
-                                                <!--<span>2017-02-24</span>-->
-                                                <!--<span><a href="#">程序人生</a></span>-->
-                                                <!--<p class="hits"><i class="Hui-iconfont" title="点击量">&#xe6c1;</i> 276° </p>-->
-                                                <!--<p class="commonts"><i class="Hui-iconfont" title="点击量">&#xe622;</i> <span class="cy_cmt_count">20</span></p>-->
-                                            <!--</div>-->
-                                            <!--<div class="desc">不论搭建什么样的网站，选择一个好的域名都是很有必要的，选择一个好的域名对网站的意义也是不言而喻的。每一个网站都有之对应的域名，就像人的名字一样。每个人都想自己有个好听的名字，网站也是一样。一个网站可以有多个域名，但是一个域名只能对应一个网站。&nbsp;一、域名要好记，方便输入&nbsp; &nbsp; &nbsp; &nbsp;域名本身的意义就是为了人们方便记忆才使用的，不然都用IP地址就好了。所以，网站域名一定要选择好记忆的。因为域名是</div>-->
-                                        <!--</li>-->
-
-
-
                                     </ul>
                                 </div>
 
@@ -206,7 +189,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h2>All Articles</h2>
-                            <p>目前共计有XX篇文章.</p>
+                            <p>目前共计有<%=data.length%>篇文章.</p>
 
                         </div>
                     </div>
@@ -219,36 +202,9 @@
                 <!--<div class="row">-->
                 <!--<div class="col-xs-12">-->
 
-
-
                 <div class="container" >
                     <div class="row">
                         <div class="col-xs-12">
-
-                            <!--<div class="panel panel-info" style="">-->
-
-                            <!--<div class="panel-heading" style="background-color: #C053F9;border: none;">-->
-                            <!--<h4 class="panel-title" style="border: none;">-->
-                            <!--<a  data-toggle="collapse" data-parent="#accordion" style="border: none;text-decoration: none;color: black;" href="#collapseThree">-->
-                            <!--点击我进行展开，再次点击我进行折叠。第 3 部分-->
-                            <!--</a>-->
-                            <!--</h4>-->
-                            <!--</div>-->
-
-                            <!--<div id="collapseThree" class="panel-collapse collapse" style="background-color: #0c59e9;">-->
-                            <!--<div class="panel-body" style="color: black">-->
-                            <!--<ul>-->
-                            <!--<li>fdsafsadf</li>-->
-                            <!--<li>dsfsaf</li>-->
-                            <!--<li>asdfsadf</li>-->
-                            <!--</ul>-->
-                            <!--</div>-->
-                            <!--</div>-->
-                            <!--</div>-->
-
-
-
-
 
                             <div class="timeline animated">
                                 <%
@@ -278,71 +234,12 @@
                                     </div>
                                     <div class="panel timeline-content">
                                         <div class="panel-body">
-                                            <h2><%=data[i].blogTitle%></h2>
+                                            <h2 id="<%=data[i].blogId %>"><%=data[i].blogTitle%></h2>
                                             <p><%=data[i].blogAnnotation%>
                                         </div>
                                     </div>
                                 </div>
                                 <% }%>
-
-
-                                <!--<div class="timeline-row">-->
-                                    <!--<div class="timeline-time"><small>Oct 16</small>9:00 AM</div>-->
-                                    <!--<div class="timeline-icon">-->
-                                        <!--<div class="bg-info"><i class="fa fa-camera"></i></div>-->
-                                    <!--</div>-->
-                                    <!--<div class="panel timeline-content">-->
-                                        <!--<div class="panel-body">-->
-                                            <!--<h2>This is an image posted on my timeline</h2>-->
-                                            <!--<img class="img-responsive" src="img/001.png" />-->
-                                            <!--<p>不论搭建什么样的网站，选择一个好的域名都是很有必要的，选择一个好的域名对网站的意义也是不言而喻的。每一个网站都有之对应的域名，就像人的名字一样。每个人都想自己有个好听的名字，网站也是一样。一个网站可以有多个域名，但是一个域名只能对应一个网站。&nbsp;一、域名要好记，方便输入&nbsp; &nbsp; &nbsp; &nbsp;域名本身的意义就是为了人们方便记忆才使用的，不然都用IP地址就好了。所以，网站域名一定要选择好记忆的。因为域名是 </p>-->
-
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-
-                                <!--<div class="timeline-row">-->
-                                    <!--<div class="timeline-time"><small>Oct 12</small>1:14 PM</div>-->
-                                    <!--<div class="timeline-icon">-->
-                                        <!--<div class="bg-primary"><i class="fa fa-video-camera"></i></div>-->
-                                    <!--</div>-->
-                                    <!--<div class="panel timeline-content">-->
-                                        <!--<div class="panel-body">-->
-                                            <!--<h2>This is a title for this timeline post</h2>-->
-                                            <!--<div class="video-container"><iframe allowfullscreen="" frameborder="0" mozallowfullscreen="" src="https://player.vimeo.com/video/16202331?title=0&amp;byline=0&amp;portrait=0" webkitallowfullscreen=""></iframe></div>-->
-                                            <!--<p></p>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-
-                                <!--<div class="timeline-row">-->
-                                    <!--<div class="timeline-time"><small>Oct 10</small>4:53 PM</div>-->
-                                    <!--<div class="timeline-icon">-->
-                                        <!--<div class="bg-primary"><i class="fa fa-pencil"></i></div>-->
-                                    <!--</div>-->
-                                    <!--<div class="panel timeline-content">-->
-                                        <!--<div class="panel-body">-->
-                                            <!--<h2>个人博客应该选择什么样的域名和域名后缀</h2>-->
-                                            <!--<p>不论搭建什么样的网站，选择一个好的域名都是很有必要的，选择一个好的域名对网站的意义也是不言而喻的。每一个网站都有之对应的域名，就像人的名字一样。每个人都想自己有个好听的名字，网站也是一样。一个网站可以有多个域名，但是一个域名只能对应一个网站。&nbsp;一、域名要好记，方便输入&nbsp; &nbsp; &nbsp; &nbsp;域名本身的意义就是为了人们方便记忆才使用的，不然都用IP地址就好了。所以，网站域名一定要选择好记忆的。因为域名是 </p>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-
-                                <!---->
-
-                                <!--<div class="timeline-row">-->
-                                    <!--<div class="timeline-time"><small>Oct 2</small>1:14 PM</div>-->
-                                    <!--<div class="timeline-icon">-->
-                                        <!--<div class="bg-primary"><i class="fa fa-video-camera"></i></div>-->
-                                    <!--</div>-->
-                                    <!--<div class="panel timeline-content">-->
-                                        <!--<div class="panel-body">-->
-                                            <!--<h2>This is a title for this timeline post</h2>-->
-                                            <!--<div class="video-container"><iframe src="http://www.56.com/iframe/MTE0MTEwNjc2" width="320" height="270" frameborder="0" allowfullscreen=""></iframe></div>-->
-                                            <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
 
                             </div>
 
@@ -351,12 +248,6 @@
 
                 </div>
 
-
-
-
-                <!--</div>-->
-                <!---->
-                <!--</div>-->
             </div>
             <hr />
         </div>
@@ -379,33 +270,6 @@
                 <h3>Doms</h3>
                 <div class="bor hidden-xs"></div>
                 <div class="row">
-                    <!--<div class="col-md-4">-->
-                    <!--&lt;!&ndash; testimonial content &ndash;&gt;-->
-                    <!--<div class="testimonial-content animated">-->
-                    <!--&lt;!&ndash; User's image , name and designation &ndash;&gt;-->
-                    <!--<h4><img src="img/user-xs.jpg" alt="" class="img-responsive img-circle"/>美术设计师<span>, Mei Gong</span></h4>-->
-                    <!--&lt;!&ndash; User's comment &ndash;&gt;.-->
-                    <!--<blockquote>-->
-                    <!--<p>我们需要一个“全能”的美术设计师，不需要技术牛，在线时间比较多、能做个图片什么的足矣，我们需要一个热情有活力的设计师，当然如果是妹子想来也是极好的。</p>-->
-                    <!--</blockquote>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="col-md-4">-->
-                    <!--<div class="testimonial-content animated">-->
-                    <!--<h4><img src="img/user-xs.jpg" alt="" class="img-responsive img-circle"/>Web开发or网络安全<span>,Cheng Xu Yuan</span></h4>-->
-                    <!--<blockquote>-->
-                    <!--<p>人品好，技术其次，爱攻城、爱钻研。要求：具备和其他成员交流的能力，能够完成团队分配任务，技术要求，自己觉得屌就可以啦！</p>-->
-                    <!--</blockquote>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="col-md-4">-->
-                    <!--<div class="testimonial-content animated">-->
-                    <!--<h4><img src="img/user-xs.jpg" alt="" class="img-responsive img-circle"/>网站运维<span>, Diao Si</span></h4>-->
-                    <!--<blockquote>-->
-                    <!--<p>在线时间长，热爱团队，懂一点点技术，有许多资源，都可以来加入我们的呦。</p>-->
-                    <!--</blockquote>-->
-                    <!--</div>-->
-                    <!--</div>-->
 
                     <div class="st_tree" style="width:400px;margin:0 auto;">
 
@@ -417,7 +281,7 @@
 
                             <ul show="true">
                                 <% data.forEach(function (item) {   %>
-                                <li><a  ref="yhgl"><%=item.blogTitle %></a></li>
+                                <li><a  ref="yhgl" id="<%=item.blogId%>"><%=item.blogTitle %></a></li>
                                 <%})%>
                                 <li><a  ref="rzck">日志查看</a></li>
 
@@ -446,12 +310,6 @@
                         </ul>
 
                     </div>
-
-
-
-
-
-
 
                 </div>
             </div>
@@ -485,7 +343,6 @@
                             </i>
                             <h4></h4>
                             <h1></h1>
-                            <!--<p>想加入我们带上自身条件发送至:admin@cnit.pro如果想查水表依然联系:admin@cnit.pro</p>-->
                         </div>
                     </div>
                 </div>
@@ -496,7 +353,6 @@
                                 <img src="img/photos/code2.jpg" >
                             </i>
                             <h4></h4>
-                            <!--<p><a href="http://www.cnit.pro/about.html">关于我们</a>邀请码获取：微博、赞助、投稿都可以哦，怎么弄？自己看着办吧！</p>-->
                         </div>
                     </div>
                 </div>
@@ -517,9 +373,7 @@
                             <i class="fa fa-camera skyblue" ></i>
                         </i>
                         <h4></h4>
-                        <!--<p><a href="http://t.qq.com/cnitpro">CNIT信息安全团队(www.cnit.pro)官方微博。</a>-->
-                        <!--如有问(le)题(zi)请@CNIT信息安全团队,竭尽全力为您“服务”。-->
-                        <!--</p>-->
+
                     </div>
                 </div>
                 <!--</div>-->
@@ -543,45 +397,6 @@
                 <hr />
             </div>
 
-            <!--<div class="feature">-->
-            <!--<h3>Future</h3>-->
-            <!--<div class="bor hidden-xs"></div>-->
-            <!--<div class="row">-->
-            <!--<div class="col-md-3 col-xs-6">-->
-            <!--&lt;!&ndash; Feature item &ndash;&gt;-->
-            <!--<div class="feature-item animated">-->
-            <!--<i class="fa fa-gears"></i>-->
-            <!--&lt;!&ndash; Feature item heading and description &ndash;&gt;-->
-            <!--<h4>抬头望天</h4>-->
-            <!--<p>脚下踏的是坚实的土地.</p>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-md-3 col-xs-6">-->
-            <!--<div class="feature-item animated">-->
-            <!--<i class="fa fa-refresh"></i>-->
-            <!--<h4>直视远方</h4>-->
-            <!--<p>盼望的是遥远的未来.</p>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-md-3 col-xs-6">-->
-            <!--<div class="feature-item animated">-->
-            <!--<i class="fa fa-unlink"></i>-->
-            <!--<h4>回眸一望 </h4>-->
-            <!--<p>是逝去的记忆.</p>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-md-3 col-xs-6">-->
-            <!--<div class="feature-item animated">-->
-            <!--<i class="fa fa-puzzle-piece"></i>-->
-            <!--<h4>未来的路</h4>-->
-            <!--<p>梦在哪，路在哪！</p>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--<hr />-->
-
-
             <div class="feature">
                 <!--<h3>Future</h3>-->
                 <!--<div class="bor hidden-xs"></div>-->
@@ -604,12 +419,8 @@
             </div>
             <hr />
 
-
-
         </div>
         <!-- Features End -->
-
-
 
     </div>
 
@@ -657,6 +468,21 @@
 //        alert(Id);
         location.href = "/blogDetail/"+"?Id="+Id;
 //        $(this).children("h4").children("a").html()+
+    })
+
+    $(".panel-body").children("h2").click(function () {
+        var Id = $(this).attr("id");
+        location.href = "/blogDetail/"+"?Id="+Id;
+    });
+    $("ul").children("li").children("a").click(function () {
+        var Id = $(this).attr("id");
+        if(Id === undefined){
+            //打开文件夹
+        }else{
+            location.href = "/blogDetail/"+"?Id="+Id;
+        }
+
+
     })
 </script>
 </body>

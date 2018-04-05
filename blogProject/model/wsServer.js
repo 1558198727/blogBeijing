@@ -100,7 +100,7 @@ socketIo.SocketioStart = function(server){ // http(s) server
         bindListener(socket,"ILoginByQQToo");
         bindListener(socket,"ISendMyInfo");
         bindListener(socket,"ISendMyInfoToo");
-
+        // bindListener(socket,"win");
         // socket.on("allReady",function(data){
         //     //     var socketMap = socketMap;
         //     //     var clientCount = clientCount;

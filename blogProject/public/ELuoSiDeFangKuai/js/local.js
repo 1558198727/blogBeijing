@@ -95,7 +95,7 @@ var Local = function (socket) {
             if(gameOver){
                 game.gameOver(false);
                 console.log("emit(\"lose\")");
-                // document.getElementById("remote_gameOver").innerHTML = "你赢了";
+                document.getElementById("waiting").innerHTML = "你输了";
                 socket.emit("lose");
                 stop();
             }else{
@@ -193,10 +193,12 @@ var Local = function (socket) {
         start();
     });
     socket.on("lose",function(){
-        game.gameOver(true);
+
+        document.getElementById("waiting").innerHTML = "你赢了！";
         stop();
 
     });
+
     socket.on("leave",function(){
         document.getElementById("local_gameOver").innerHTML = "对方掉线";
         document.getElementById("remote_gameOver").innerHTML = "已掉线";

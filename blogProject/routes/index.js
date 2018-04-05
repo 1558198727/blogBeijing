@@ -53,7 +53,6 @@ router.get('/writeBlogByMarkDown', function(req, res, next) {
 });
 
 router.post('/writeBlogByMarkDown', function(req, res, next) {
-    fsWrite.WriteBlogLog("writeBlogByMarkDown");
 
     indexApi.postWriteBlogByMarkDown(req,function () {
         res.send({ title: '写博客 | 李云皓的博客' });

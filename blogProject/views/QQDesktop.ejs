@@ -13,6 +13,8 @@
 <body>
 <div class="qq-exe"><img src="../../QQDesktop/images/QQ-ICON.png"><input type="text" value="腾讯QQ" placeholder="腾讯QQ"></div>
 <div class="ELuoSi-exe"><img src="../../QQDesktop/images/ELuoSiDeFangKuaiExe.jpg"><input type="text" value="俄罗斯方块" placeholder="俄罗斯方块"></div>
+<div class="home-exe"><img src="../../QQDesktop/images/home.png"><input type="text" value="主页" placeholder="主页"></div>
+
 <div class="win-bg"><img src="../../QQDesktop/images/win-bg.png"></div>
 
 <div class="qq-login">
@@ -287,6 +289,10 @@
 //            $('.qq-login').css('display','block').removeClass('mins')
                 location.href = "/users/qqLogin";
             })
+            $('.home-exe img').click(function () {
+//            $('.qq-login').css('display','block').removeClass('mins')
+                location.href = "/indexTwo";
+            })
             //俄罗斯方块被单击
             $('.ELuoSi-exe img').click(function () {
 //            $('.qq-login').css('display','block').removeClass('mins')
@@ -323,6 +329,10 @@
                     alert("请先登录！");
                 }
 
+            })
+            $('.home-exe img').dblclick(function () {
+//            $('.qq-login').css('display','block').removeClass('mins')
+                location.href = "/indexTwo";
             })
         }
         // $('.qq-exe img').dblclick(function(){

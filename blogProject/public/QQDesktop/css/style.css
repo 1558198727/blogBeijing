@@ -40,6 +40,12 @@ a:hover,a:active,a:focus{text-decoration:none;}
 .ELuoSi-exe img{width:60px;height:60px;float:left;cursor:pointer;}
 .ELuoSi-exe input{float:left;text-align:center;height:20px;color:#fff;width:60px;margin:5px 0;background:none;}
 
+.home-exe{width:60px;height:90px;float:left;margin:20px;}
+.home-exe img{width:60px;height:60px;float:left;cursor:pointer;}
+.home-exe input{float:left;text-align:center;height:20px;color:#fff;width:60px;margin:5px 0;background:none;}
+
+
+
 .qq-login{width:430px;height:330px;margin:0 0 -165px -215px;bottom:50%;left:50%;position:fixed;z-index:9999;border-radius:3px;overflow:hidden;box-shadow:0 0 5px #333;background:#ebf2f9 url(../images/login/qq-login-bg.jpg) center top no-repeat;display:none;}
 .login-menu{width:90px;height:30px;top:0;right:0;position:absolute;}
 .login-menu span{float:left;width:30px;height:30px;background-image:url(../images/chat/wins.png);}

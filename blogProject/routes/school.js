@@ -1,40 +1,15 @@
 var express = require('express');
 var router = express.Router();
-
-var fsWrite = require("../model/fsWrite");
-var crawler = require("../model/crawler");
-// var QQUsersApi = require("../api/QQUsersApi");
-// var userApi = require("../api/usersApi");
-
-// router.get('/qqLogin', function(req, res, next) {
-//
-//     fsWrite.WriteBlogLog("qqLogin");
-//     res.render('qqLogin', { title: '首页 | 李云皓的博客' });
-// });
+var schoolApi = require("../api/schoolApi");
 
 router.get('/', function(req, res, next) {
-    var data = crawler.getReturnData();
-    console.log("crawler.returnData " + JSON.stringify(data));
-    // userApi.getLogin(function () {
+    schoolApi.getReturnData(function (data) {
+
+        console.log("爬取的数据为 " + JSON.stringify(data));
         res.render('studentKnow', { data:data,title: '学生周知 | 李云皓的博客'});
+    });
+
     // })
 });
 
-router.post('/login', function(req, res, next) {
-    // var userInfo = req.body;
-    QQUsersApi.createSession(req);//创建用户session
-    QQUsersApi.createUser(req,function () {//检测没有登陆过就插入
-        res.send({data: 'success'});
-    });
-
-});
-
-
-router.get('/qqLogin', function(req, res, next) {
-
-    userApi.getQQLogin(function () {
-        res.render('qqLogin', { title: '首页 | 李云皓的博客' });
-    })
-
-});
 module.exports = router;

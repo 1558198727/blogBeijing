@@ -9,14 +9,14 @@ var socketMap = {};
 //获取用户的登陆状态
 
 socketIo.getWWWServer = function (server) {
-    socketIo.SocketioStart(server);
+    socketIo.SocketIoStart(server);
 };
 
 socketIo.getUserReq = function (req) {
     userIsLogin = req.session.isLogin;
 };
 
-socketIo.SocketioStart = function(server){ // http(s) server
+socketIo.SocketIoStart = function(server){ // http(s) server
     var  io = socket_io.listen(server);
 
     var bindListener = function(socket,event){

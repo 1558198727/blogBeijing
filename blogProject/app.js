@@ -15,6 +15,7 @@ var users = require('./routes/users');
 //自定义路由
 var games = require('./routes/games');
 var blogDetail = require('./routes/blogDetail');
+var school = require('./routes/school');
 
 var app = express();
 
@@ -53,6 +54,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/games', games);
 app.use('/blogDetail', blogDetail);
+app.use('/school', school);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

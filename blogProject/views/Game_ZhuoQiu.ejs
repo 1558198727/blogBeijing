@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-
-    <meta http-equiv="content-type" content="text/html;charset=gb2312">
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+    <!--<meta http-equiv="content-type" content="text/html;charset=gb2312">-->
 
 
 
@@ -228,17 +228,17 @@
 
             balls.push(cueBall);
 
-            //Ìí¼ÓÄ¿±êÇò
+                //Ìí¼ÓÄ¿±êÇò
 
-            for(var i = 0; i < 5; i++) {
+                for(var i = 0; i < 5; i++) {
 
-                for(var j = 0; j <= i; j++) {
+                    for(var j = 0; j <= i; j++) {
 
-                    var ball = new Ball("target",520 + i*2*R, H/2 - R*i + j*2*R);
+                        var ball = new Ball("target",520 + i*2*R, H/2 - R*i + j*2*R);
 
-                    balls.push(ball);
+                        balls.push(ball);
 
-                }
+                    }
 
             }
 

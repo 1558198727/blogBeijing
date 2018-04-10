@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="shortcut icon" href="../../img/HeadPhoto.ico">
     <style>
         input{ font-size:16px; height:26px; margin-bottom:10px;}
         .mf{ width:300px; float:left; min-height:1px; margin-left:350px;}
@@ -63,4 +64,28 @@
     aInt2[5].onclick=function(){
         cube.back();
     };
+</script>
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+</script><script type="text/javascript">
+
+
+        $("title").html("<%=title%>");
+
+//当前窗口得到焦点
+        window.onfocus = function() {
+            $("title").html("诶，又好了");
+            setTimeout(function () {
+                $("title").html("<%=title%>");
+            },300)
+
+        };
+
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！！！");
+            //暂停动画或视频
+        };
+
+
+
 </script>

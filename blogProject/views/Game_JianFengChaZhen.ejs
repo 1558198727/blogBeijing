@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>CoreBall</title>
+    <title>见缝插针</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-
+    <link rel="shortcut icon" href="../../img/HeadPhoto.ico">
     <style type="text/css">
         body {
             background-color: #c8c8c8;
@@ -81,5 +81,28 @@
 </div>
 <script src="../../games/JianFengChaZhen/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="../../games/JianFengChaZhen/js/index.js"></script>
+
+</script><script type="text/javascript">
+
+        $("title").html("<%=title%>");
+
+//当前窗口得到焦点
+        window.onfocus = function() {
+            $("title").html("诶，又好了");
+            setTimeout(function () {
+                $("title").html("<%=title%>");
+            },300)
+
+        };
+
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！！！");
+            //暂停动画或视频
+        };
+
+
+
+</script>
 </body>
 </html>

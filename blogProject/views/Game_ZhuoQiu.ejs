@@ -7,7 +7,7 @@
     <!--<meta http-equiv="content-type" content="text/html;charset=gb2312">-->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
+    <link rel="shortcut icon" href="../../img/HeadPhoto.ico">
     <title>桌球游戏|李云皓的博客</title>
 
     <style type="text/css">
@@ -1083,5 +1083,25 @@
 </div>
 
 </body>
+</script><script type="text/javascript">
 
+        $("title").html("<%=title%>");
+
+//当前窗口得到焦点
+        window.onfocus = function() {
+            $("title").html("诶，又好了");
+            setTimeout(function () {
+                $("title").html("<%=title%>");
+            },300)
+
+        };
+
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！！！");
+            //暂停动画或视频
+        };
+
+
+</script>
 </html>

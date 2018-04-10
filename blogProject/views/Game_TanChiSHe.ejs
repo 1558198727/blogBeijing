@@ -258,6 +258,10 @@
 
 <!-- ++++++++++++++++++++++++++++++++++++++++贪吃蛇精简版，上面为较完善版++++++++++++++++++++++++++++++++++++++++  -->
 <html>
+<head>
+    <title></title>
+    <link rel="shortcut icon" href="../../img/HeadPhoto.ico">
+</head>
 <body>
 <canvas id="can" width="400" height="400" style="background:Black"></canvas>
 <script>
@@ -287,5 +291,30 @@
         location.reload();
     }
 </script>
+
+
+</script><script type="text/javascript">
+
+        $("title").html("<%=title%>");
+
+//当前窗口得到焦点
+        window.onfocus = function() {
+            $("title").html("诶，又好了");
+            setTimeout(function () {
+                $("title").html("<%=title%>");
+            },300)
+
+        };
+
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！！！");
+            //暂停动画或视频
+        };
+
+
+
+</script>
+
 </body>
 </html>

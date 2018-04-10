@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut icon" href="../../img/HeadPhoto.ico">
     <style>
         *{
             margin: 0;
@@ -212,4 +214,29 @@
         move(main);
     }
 </script>
+
+</script><script type="text/javascript">
+    window.onload = function () {
+
+        $("title").html("<%=title%>");
+
+//当前窗口得到焦点
+        window.onfocus = function() {
+            $("title").html("诶，又好了");
+            setTimeout(function () {
+                $("title").html("<%=title%>");
+            },300)
+
+        };
+
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！！！");
+            //暂停动画或视频
+        };
+
+    }
+
+</script>
+
 </html>

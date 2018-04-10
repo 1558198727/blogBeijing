@@ -4,7 +4,7 @@
 
 <head>
 
-    <title>0h h1</title>
+    <title>益智游戏</title>
 
     <meta name="description" content="A little logic game by Q42." />
 
@@ -14,9 +14,9 @@
 
 
 
-    <link rel="icon" type="image/png" href="../../games/YiZhiYouXiOne/img/icon-1024.png" />
+    <link rel="shortcut icon" href="../../img/HeadPhoto.ico">
 
-    <link rel="shortcut icon" href="../../games/YiZhiYouXiOne/img/icon-1024.png" />
+    <link rel="shortcut icon" href="../../img/HeadPhoto.ico">
 
     <link rel="apple-touch-icon-precomposed" href="../../games/YiZhiYouXiOne/img/icon-1024.png"/>
 
@@ -307,5 +307,25 @@
 <script type="text/javascript" src="../../games/YiZhiYouXiOne/js/backgroundservice.js"></script>
 
 </body>
+</script><script type="text/javascript">
 
+        $("title").html("<%=title%>");
+
+//当前窗口得到焦点
+        window.onfocus = function() {
+            $("title").html("诶，又好了");
+            setTimeout(function () {
+                $("title").html("<%=title%>");
+            },300)
+
+        };
+
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！！！");
+            //暂停动画或视频
+        };
+
+
+</script>
 </html>

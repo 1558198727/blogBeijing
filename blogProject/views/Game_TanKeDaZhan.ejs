@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh" class="no-js demo-1">
 <head>
+    <title></title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/HeadPhoto.ico">
     <script src="../../games/TanKeDaZhan/js/jquery.min.js"></script>
     <script src="../../games/TanKeDaZhan/js/Helper.js"></script>
     <script src="../../games/TanKeDaZhan/js/keyboard.js"></script>
@@ -40,4 +42,27 @@
 
 </div><!-- /container -->
 </body>
+
+
+</script><script type="text/javascript">
+
+        $("title").html("<%=title%>");
+
+//当前窗口得到焦点
+        window.onfocus = function() {
+            $("title").html("诶，又好了");
+            setTimeout(function () {
+                $("title").html("<%=title%>");
+            },300)
+
+        };
+
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！！！");
+            //暂停动画或视频
+        };
+
+
+</script>
 </html>

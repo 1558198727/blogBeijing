@@ -13,10 +13,26 @@
 
 <body>
 <div class="qq-exe"><img src="../../QQDesktop/images/QQ-ICON.png"><input type="text" value="腾讯QQ" placeholder="腾讯QQ"></div>
-<div class="ELuoSi-exe"><img src="../../QQDesktop/images/ELuoSiDeFangKuaiExe.jpg"><input type="text" value="俄罗斯方块" placeholder="俄罗斯方块"></div>
+<div class="ELuoSi-exe"><img src="../../QQDesktop/images/ELuoSiDeFangKuaiExe.jpg"><input type="text" value="俄块" placeholder="俄块"></div>
 <div class="home-exe"><img src="../../QQDesktop/images/home.png"><input type="text" value="主页" placeholder="主页"></div>
 
-<div class="win-bg"><img src="../../QQDesktop/images/win-bg.png"></div>
+<div class="common-exe" id="BieCaiBaiKuai"><img src="../../QQDesktop/images/gamesLogo/BieCaiBaiKuai.png"><input type="text" value="别踩白块" placeholder="别踩白块"></div>
+<div class="common-exe" id="HuaBan"><img src="../../QQDesktop/images/gamesLogo/HuaBan.jpg"><input type="text" value="画板" placeholder="画板"></div>
+<div class="common-exe" id="JianFengChaZhen"><img src="../../QQDesktop/images/gamesLogo/JianFengChaZhen.jpg"><input type="text" value="见缝插针" placeholder="见缝插针"></div>
+<div class="common-exe" id="MoFang"><img src="../../QQDesktop/images/gamesLogo/MoFang.jpg"><input type="text" value="魔方" placeholder="魔方"></div>
+<div class="common-exe" id="SheJiYouXiOne"><img src="../../QQDesktop/images/gamesLogo/SheJiYouXiOne.png"><input type="text" value="射击游戏" placeholder="射击游戏"></div>
+<div class="common-exe" id="ShuiGuoRenZhe"><img src="../../QQDesktop/images/gamesLogo/ShuiGuoRenZhe.jpg"><input type="text" value="水果忍者" placeholder="水果忍者"></div>
+<div class="common-exe" id="TanChiShe"><img src="../../QQDesktop/images/gamesLogo/TanChiShe.jpg"><input type="text" value="贪吃蛇" placeholder="贪吃蛇"></div>
+<div class="common-exe" id="TanKeDaZhan"><img src="../../QQDesktop/images/gamesLogo/TanKeDaZhan.png"><input type="text" value="坦克大战" placeholder="坦克大战"></div>
+<div class="common-exe" id="WuZiQi"><img src="../../QQDesktop/images/gamesLogo/WuZiQi.jpg"><input type="text" value="五子棋" placeholder="五子棋"></div>
+<div class="common-exe" id="XiaoXiaoLe"><img src="../../QQDesktop/images/gamesLogo/XiaoXiaoLe.jpg"><input type="text" value="消消乐（开发中）" placeholder="消消乐（开发中）"></div>
+<div class="common-exe" id="YiZhiYouXiOne"><img src="../../QQDesktop/images/gamesLogo/YiZhiYouXiOne.png"><input type="text" value="益智游戏" placeholder="益智游戏"></div>
+<div class="common-exe" id="ZhongGuoXiangQi"><img src="../../QQDesktop/images/gamesLogo/ZhongGuoXiangQi.jpg"><input type="text" value="象棋" placeholder="象棋"></div>
+<div class="common-exe" id="ZhuoQiu"><img src="../../QQDesktop/images/gamesLogo/ZhuoQiu.jpg"><input type="text" value="桌球" placeholder="桌球"></div>
+
+<div class="win-bg">
+    <img src="../../QQDesktop/images/win-bg.png" >
+</div>
 
 <div class="qq-login">
     <div class="login-menu">
@@ -273,9 +289,10 @@
 
 
         if(windowWidth < 640) {
-
+            // alert("beidiaji");
+            $('.win-bg').children("img").css("display","none");
             $('.qq-hui li').click(function () {
-//                alert("beidiaji");
+//
                 $('.qq-chat').css('display', 'block').removeClass('mins')
                 $('.qq-chat-t-name').html($(this).find('span').html())
                 $('.qq-chat-t-head img').attr('src', $(this).find('img').attr('src'))
@@ -304,6 +321,54 @@
                 }
 
             })
+
+
+            //跳转
+            $("#BieCaiBaiKuai").click(function(){
+                location.href = "/games/" + "BieCaiBaiKuai";
+            })
+            $("#HuaBan").click(function(){
+                location.href = "/games/" + "HuaBan";
+            })
+            $("#JianFengChaZhen").click(function(){
+                location.href = "/games/" + "JianFengChaZhen";
+            })
+            $("#MoFang").click(function(){
+                location.href = "/games/" + "MoFang";
+            })
+            $("#SheJiYouXiOne").click(function(){
+                location.href = "/games/" + "SheJiYouXiOne";
+            })
+            $("#ShuiGuoRenZhe").click(function(){
+                location.href = "/games/" + "ShuiGuoRenZhe";
+            })
+            $("#TanChiShe").click(function(){
+                location.href = "/games/" + "TanChiShe";
+            })
+            $("#TanKeDaZhan").click(function(){
+                location.href = "/games/" + "TanKeDaZhan";
+            })
+            $("#WuZiQi").click(function(){
+                location.href = "/games/" + "WuZiQi";
+            })
+            $("#XiaoXiaoLe").click(function(){
+                location.href = "/games/" + "XiaoXiaoLe";
+            })
+            $("#YiZhiYouXiOne").click(function(){
+                location.href = "/games/" + "YiZhiYouXiOne";
+            })
+            $("#ZhongGuoXiangQi").click(function(){
+                location.href = "/games/" + "ZhongGuoXiangQi";
+            })
+            $("#ZhuoQiu").click(function(){
+                location.href = "/games/" + "ZhuoQiu";
+            })
+
+
+
+
+
+
         }else {
 
             $('.qq-hui li').dblclick(function(){
@@ -334,6 +399,48 @@
             $('.home-exe img').dblclick(function () {
 //            $('.qq-login').css('display','block').removeClass('mins')
                 location.href = "/indexTwo";
+            })
+
+
+
+            $("#BieCaiBaiKuai").dblclick(function(){
+                location.href = "/games/" + "BieCaiBaiKuai";
+            })
+            $("#HuaBan").dblclick(function(){
+                location.href = "/games/" + "HuaBan";
+            })
+            $("#JianFengChaZhen").dblclick(function(){
+                location.href = "/games/" + "JianFengChaZhen";
+            })
+            $("#MoFang").dblclick(function(){
+                location.href = "/games/" + "MoFang";
+            })
+            $("#SheJiYouXiOne").dblclick(function(){
+                location.href = "/games/" + "SheJiYouXiOne";
+            })
+            $("#ShuiGuoRenZhe").dblclick(function(){
+                location.href = "/games/" + "ShuiGuoRenZhe";
+            })
+            $("#TanChiShe").dblclick(function(){
+                location.href = "/games/" + "TanChiShe";
+            })
+            $("#TanKeDaZhan").dblclick(function(){
+                location.href = "/games/" + "TanKeDaZhan";
+            })
+            $("#WuZiQi").dblclick(function(){
+                location.href = "/games/" + "WuZiQi";
+            })
+            $("#XiaoXiaoLe").dblclick(function(){
+                location.href = "/games/" + "XiaoXiaoLe";
+            })
+            $("#YiZhiYouXiOne").dblclick(function(){
+                location.href = "/games/" + "YiZhiYouXiOne";
+            })
+            $("#ZhongGuoXiangQi").dblclick(function(){
+                location.href = "/games/" + "ZhongGuoXiangQi";
+            })
+            $("#ZhuoQiu").dblclick(function(){
+                location.href = "/games/" + "ZhuoQiu";
             })
         }
         // $('.qq-exe img').dblclick(function(){

@@ -1339,6 +1339,12 @@ hr{
 	}
 
 	/* Sidebar Social Links  CSS */
+	.sidebar .list-unstyled li:nth-child(n+2){
+		/*只留下主页的返回按钮，太多很乱*/
+		display: none;
+
+	}
+
 	.sidebar .social {
 		/*display: none;*/
 		float: left;

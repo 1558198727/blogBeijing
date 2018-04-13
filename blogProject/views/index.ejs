@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="../index/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="../index/css/main.css" />
+    <link rel="stylesheet" href="../ku/fontawesome/css/fontawesome-all.min.css" />
     <link href="../index/css/bootstrap.popover.css" rel="stylesheet">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -31,11 +32,13 @@
             <nav>
                 <ul>
                     <li><a href="/indexTwo" class="fa fa-bars"><span>Index</span></a></li>
-                    <li><a href="https://github.com/1558198727" class="fa fa-github"><span>Github</span></a></li>
-                    <li><a href="http://blog.csdn.net/l1558198727" class="fa fa-pencil-square-o"><span>CSDN</span></a></li>
+                    <li><a href="https://github.com/1558198727" class="fab fa-github"><span>Github</span></a></li>
+                    <li><a href="http://blog.csdn.net/l1558198727" class="fa fa-keyboard"><span>CSDN</span></a></li>
 
-                    <li ><a id="QQ"   data-toggle="popover" data-placement="top"    href="#" class="fa fa-qq"><span>QQ</span></a></li>
-                    <li><a  id="weixin"   data-toggle="popover" data-placement="top" href="#" class="fa fa-weixin"><span>WeChat</span></a></li>
+                    <!--<li ><a id="QQ"   data-toggle="popover" data-placement="top"    href="#" class="fa fa-qq"><span>QQ</span></a></li>-->
+                    <!--<li><a  id="weixin"   data-toggle="popover" data-placement="top" href="#" class="fa fa-weixin"><span>WeChat</span></a></li>-->
+                    <li ><a   href="/LeavingAMessage" class="fa fa-edit"><span>QQ</span></a></li>
+                    <li><a   href="/games/" class="fa fa-gamepad"><span>WeChat</span></a></li>
 
                     <!--<a id="app" style="background-image:url('../index/img/HeadPhoto.jpg')" class="btn" data-toggle="popover" data-placement="top">ggggg</a>-->
 
@@ -65,17 +68,17 @@
     window.onorientationchange = function() { document.body.scrollTop = 0; }
     // window.onload = function () {
         $("title").html("<%=title%>");
-        $('#QQ').popover({
-            trigger:'hover',
-            html:true,
-            content:"<img src='../index/css/images/QQ.png' style='width: 7rem;height: 7rem' >"
-        });
-
-        $('#weixin').popover({
-            trigger : 'hover',
-            html:true,
-            content:"<img src='../index/css/images/weixin.png' style='width: 7rem;height: 7rem'>"
-        });
+        // $('#QQ').popover({
+        //     trigger:'hover',
+        //     html:true,
+        //     content:"<img src='../index/css/images/QQ.png' style='width: 7rem;height: 7rem' >"
+        // });
+        //
+        // $('#weixin').popover({
+        //     trigger : 'hover',
+        //     html:true,
+        //     content:"<img src='../index/css/images/weixin.png' style='width: 7rem;height: 7rem'>"
+        // });
 
 
 //当前窗口得到焦点

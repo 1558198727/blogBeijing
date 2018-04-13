@@ -4,6 +4,12 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="../LeavingAMessage/css/index.css">
+    <link rel="stylesheet" href="../KongJian/button.css">
+    <link href="../indexTwo/css/fontawesome.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css'>
+
     <script src="../indexTwo/js/jquery.js"></script>
     <script type="text/javascript">
 
@@ -324,7 +330,26 @@
 
 </head>
 <body>
-
+  <span class="button-wrap">
+    <a href="/indexTwo" class="button button-circle button-raised button-primary">
+      <!--<i class="fa fa-home"></i>-->
+    </a>
+  </span>
+  <span class="button-wrap">
+    <a class="button button-circle button-raised button-primary">
+      <!--<i class="fa fa-cloud"></i>-->
+    </a>
+  </span>
+  <span class="button-wrap">
+    <a class="button button-circle button-raised button-primary">
+      <!--<i class="fa fa-cloud"></i>-->
+    </a>
+  </span>
+  <span class="button-wrap">
+    <a class="button button-circle button-raised button-primary">
+      <!--<i class="fa fa-cloud"></i>-->
+    </a>
+  </span>
 <div id="msgBox">
     <form>
         <h2>来 , 说说你在做什么 , 想什么</h2>
@@ -412,10 +437,26 @@
 </div>
 
 
-
-
-
 </body>
+<script>
 
+        $("title").html("<%=title%>");
+
+//当前窗口得到焦点
+        window.onfocus = function() {
+            $("title").html("诶，又好了");
+            setTimeout(function () {
+                $("title").html("<%=title%>");
+            },300)
+
+        };
+
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！！！");
+            //暂停动画或视频
+        };
+
+</script>
 
 </html>

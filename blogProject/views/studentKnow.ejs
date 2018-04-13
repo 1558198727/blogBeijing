@@ -72,7 +72,7 @@
             <a href="/users/qqLogin" class="facebook"><i class="fa fa-qq"></i></a>
             <!--<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>-->
             <a href="#" class="twitter"><i class="fa fa-graduation-cap"></i></a>
-            <a href="#" class="google"><i class="fa fa-weibo"></i></a>
+            <a href="#" class="google"><i class="fa fa-edit"></i></a>
             <a href="/games/" class="linkedin"><i class="fa fa-gamepad"></i></a>
         </div>
     </div>
@@ -191,9 +191,9 @@
 
 //当前窗口得到焦点
         window.onfocus = function() {
-            $("title").html("诶，又好了");
+            $("title").html("<%=title%>");
             setTimeout(function () {
-                $("title").html("");
+                $("title").html("<%=title%>");
             },300)
 
         };
@@ -208,8 +208,5 @@
 
 </script>
 
-<script>
-
-</script>
 
 </html>

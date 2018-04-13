@@ -82,7 +82,7 @@
         window.onfocus = function() {
             $("title").html("诶，又好了");
             setTimeout(function () {
-                $("title").html("我的主页");
+                $("title").html("<%=title%>");
             },300)
 
         };

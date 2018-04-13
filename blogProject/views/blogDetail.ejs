@@ -73,7 +73,7 @@
             <a href="/users/qqLogin" class="facebook"><i class="fa fa-qq"></i></a>
             <!--<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>-->
             <a href="/school/" class="twitter"><i class="fa fa-graduation-cap"></i></a>
-            <a href="#" class="google"><i class="fa fa-weibo"></i></a>
+            <a href="#" class="google"><i class="fa fa-edit"></i></a>
             <a href="/games/" class="linkedin"><i class="fa fa-gamepad"></i></a>
         </div>
     </div>
@@ -156,19 +156,9 @@
 </div>
 
 
-
-</div>	<!-- This end div for main class -->
-</div>
-
 <div class="clearfix"></div>
 
 
-<!-- Scroll to top -->
-<!--<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>-->
-
-
-<!-- Javascript files -->
-<!-- jQuery -->
 
 </body>
 
@@ -191,7 +181,7 @@
         window.onfocus = function() {
             $("title").html("诶，又好了");
             setTimeout(function () {
-                $("title").html("");
+                $("title").html("<%=title%>");
             },300)
 
         };

@@ -20,6 +20,20 @@ router.get('/indexTwo', function(req, res, next) {
 
 });
 
+
+router.get('/LeavingAMessage', function(req, res, next) {
+    indexApi.getLeavingAMessage(req,function (data) {
+        res.render('LeavingAMessage', { title: '留言板 | 李云皓的博客',data:data});
+    });
+
+});
+
+router.post('/LeavingAMessage', function(req, res) {
+    indexApi.postLeavingAMessage(req,function (data) {
+    res.send({ status: true});
+    });
+
+});
 // 博文书写页面
 // router.get('/writeBlog', function(req, res, next) {
 //     indexApi.getWriteBlog(function () {

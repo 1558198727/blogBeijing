@@ -1,6 +1,6 @@
 var blogDB = require("../DB/blogDB");
 var fsWrite = require("../model/fsWrite");
-
+var LeavingAMessageDB = require("../DB/LeavingAMessageDB");
 /* GET login page. */
 
 exports.getIndex = function (req,callback) {
@@ -66,6 +66,33 @@ exports.postWriteBlogByMarkDown = function(req, callback) {
         blogContent:newBlog.content
     });
     console.log("写入的newBlog: " +JSON.stringify(newBlog));
+    callback();
+};
+
+//留言功能
+
+exports.getLeavingAMessage = function(req, callback) {
+    fsWrite.WriteBlogLog("getLeavingAMessage");
+
+    LeavingAMessageDB.findAll().then(function(result){
+        console.log("查找所有留言："+JSON.stringify(result));
+        callback(result);
+
+    });
+
+};
+
+exports.postLeavingAMessage = function(req, callback) {
+    fsWrite.WriteBlogLog("postLeavingAMessage");
+    var newLeavingMessage = req.body;
+    console.log("写入LeavingAMessageDB: " +JSON.stringify(newLeavingMessage));
+    LeavingAMessageDB.create({
+        nickName:newLeavingMessage.nickName,
+        content:newLeavingMessage.content,
+        headPhotoUrl:newLeavingMessage.headPhotoUrl,
+        date : newLeavingMessage.date
+    });
+
     callback();
 };
 

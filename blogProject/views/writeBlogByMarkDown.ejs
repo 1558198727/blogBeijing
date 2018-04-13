@@ -114,5 +114,23 @@
         })
     }
 </script>
+
+</script><script type="text/javascript">
+
+        $("title").html("<%=title%>");
+//当前窗口得到焦点
+
+            $("title").html("<%=title%>");
+            setTimeout(function () {
+                $("title").html("<%=title%>");
+            },300)
+
+        }
+        //当前窗口失去焦点
+        window.onblur = function() {
+            $("title").html("居然崩溃了！！！");
+            //暂停动画或视频
+        }
+</script>
 </body>
 </html>

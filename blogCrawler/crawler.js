@@ -22,7 +22,33 @@
 //
 // // }
 var request = require('request');
-var urls = ['https://blog.csdn.net/l1558198727/article/details/78752005','https://blog.csdn.net/l1558198727/article/details/79936135']; // 填写你需要刷的文章地址
+var urls = [
+    'https://blog.csdn.net/l1558198727/article/details/78752005',
+    'https://blog.csdn.net/l1558198727/article/details/79936135',
+    'https://blog.csdn.net/l1558198727/article/details/79919466',
+    'https://blog.csdn.net/l1558198727/article/details/79919466',
+    'https://blog.csdn.net/l1558198727/article/details/79917890',
+    'https://blog.csdn.net/l1558198727/article/details/79764924',
+    'https://blog.csdn.net/l1558198727/article/details/79342950',
+    'https://blog.csdn.net/l1558198727/article/details/79342912',
+    'https://blog.csdn.net/l1558198727/article/details/79312694',
+    'https://blog.csdn.net/l1558198727/article/details/78865336',
+    'https://blog.csdn.net/l1558198727/article/details/78865286',
+    'https://blog.csdn.net/l1558198727/article/details/78865209',
+    'https://blog.csdn.net/l1558198727/article/details/78767816',
+    'https://blog.csdn.net/l1558198727/article/details/78761615',
+    'https://blog.csdn.net/l1558198727/article/details/78690493',
+    'https://blog.csdn.net/l1558198727/article/details/78672950',
+    'https://blog.csdn.net/l1558198727/article/details/78672865',
+    'https://blog.csdn.net/l1558198727/article/details/78672762',
+    'https://blog.csdn.net/l1558198727/article/details/78639202',
+    'https://blog.csdn.net/l1558198727/article/details/78639129',
+    'https://blog.csdn.net/l1558198727/article/details/78608743',
+    'https://blog.csdn.net/l1558198727/article/details/78608713',
+    'https://blog.csdn.net/l1558198727/article/details/78608659',
+    'https://blog.csdn.net/l1558198727/article/details/78608633',
+    'https://blog.csdn.net/l1558198727/article/details/78608617'
+]; // 填写你需要刷的文章地址
 var count = 0; // 刷了多少次
 var len = urls.length; // 需要刷的文章篇数
 var co = 0; // 为了循环刷新
@@ -38,7 +64,7 @@ setInterval(function() {
     if (co == len) {
         co = 0;
     }
-}, 5000); // 这里的5000  代表的 5*1000ms执行一次
+}, 10000); // 这里的5000  代表的 5*1000ms执行一次
 
 
 

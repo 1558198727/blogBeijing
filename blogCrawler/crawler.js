@@ -1,26 +1,3 @@
-// var http = require('https')
-// var url ='https://blog.csdn.net/l1558198727/article/details/78752005'
-//
-//
-// // for(var i = 0 ;i < 100;i++){
-// //     console.log(i)
-//     http.get(url,function (res) {
-//         var html =''
-//
-//         res.on('data',function (data) {
-//             html += data
-//
-//         })
-//
-//         res.on('end',function () {
-//
-//
-//         })
-//     }).on('error',function () {
-//         console.log('获取博客出错')
-//     })
-//
-// // }
 var request = require('request');
 var urls = [
     'https://blog.csdn.net/l1558198727/article/details/78752005',
@@ -48,23 +25,80 @@ var urls = [
     'https://blog.csdn.net/l1558198727/article/details/78608659',
     'https://blog.csdn.net/l1558198727/article/details/78608633',
     'https://blog.csdn.net/l1558198727/article/details/78608617'
-]; // 填写你需要刷的文章地址
+];
+var SubUrls1 =[];
+var SubUrls2 =[];
+var SubUrls3 =[];
+
+var getABlog = function () {
+    var blogGroup =  getRandom(0,2);
+    console.log("获取的随机组数是： "+blogGroup);
+    var GroupLen;
+    var blogIndex;
+    GroupLen = urls.length;
+    blogIndex = getRandom(0,GroupLen);
+    console.log("blogIndex :"+ blogIndex);
+    return urls[blogIndex];
+    // if(blogGroup == 0){
+    //     GroupLen = SubUrls1.length;
+    //     blogIndex = getRandom(0,GroupLen);
+    //     console.log("blogIndex :"+ blogIndex);
+    //     return SubUrls1[blogIndex];
+    // }else if (blogGroup == 1){
+    //     GroupLen = SubUrls2.length;
+    //     blogIndex =getRandom(0,GroupLen) - 1;
+    //     return SubUrls2[blogIndex];
+    // }else{
+    //     GroupLen = SubUrls3.length;
+    //     blogIndex =getRandom(0,GroupLen) - 1;
+    //     return SubUrls3[blogIndex];
+    // }
+
+};
+var getRandom = function (a,b) {
+    var len = b - a;
+    var start = a;
+    var number =  Math.floor(Math.random()*len + start);
+    if(number>=a && number<=b){
+        return number;
+    }
+    else {
+        return a;
+    }
+};
 var count = 0; // 刷了多少次
 var len = urls.length; // 需要刷的文章篇数
 var co = 0; // 为了循环刷新
-setInterval(function() {
+function start() {
+
     count = count + 1;
-    request(urls[co], function (error, response, body) {
-        if (!error && response.statusCode == 200) {
+    var blogUrl = getABlog();
+    console.log('blogUrl: ' + blogUrl);
+    request(blogUrl, function (error, response, body) {
+        if (!error && response.statusCode === 200) {
             console.log('成功 ' + count);
-            // 每篇文章刷的次数=count/len
+            console.log("LogUrl :" +blogUrl);
         }
     })
     co = co + 1;
     if (co == len) {
         co = 0;
     }
-}, 45000); // 这里的5000  代表的 5*1000ms执行一次
+    var time = getRandom(5,40);
+    console.log("getRandom :" + time);
+    setTimeout(function () {
+        start()
+    },time * 1000);
+}
+urls.forEach(function (value,index) {
+    // console.log("index: " + index);
+    if(index % 3 ==0){
+        SubUrls1.push(value)
+    }else if(index % 3 ==0){
+        SubUrls2.push(value)
+    }else{
+        SubUrls3.push(value)
+    }
 
-
-
+});
+start();

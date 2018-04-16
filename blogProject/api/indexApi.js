@@ -1,11 +1,13 @@
 var blogDB = require("../DB/blogDB");
 var fsWrite = require("../model/fsWrite");
+var mail = require("../model/mail");
 var LeavingAMessageDB = require("../DB/LeavingAMessageDB");
 /* GET login page. */
 
 exports.getIndex = function (req,callback) {
     req.session.lastpage = "/";
     fsWrite.WriteBlogLog("index");
+    mail.sendMail('1558198727@qq.com','有客人来访主页', '有客人来访问主页');
     // console.log( getSession.getSession());
     req.session.lastpage = "/";
     callback();

@@ -84,7 +84,7 @@ function start() {
     if (co == len) {
         co = 0;
     }
-    var time = getRandom(5,40);
+    var time = getRandom(5,15);
     console.log("getRandom :" + time);
     setTimeout(function () {
         start()

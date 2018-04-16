@@ -24,7 +24,16 @@ var urls = [
     'https://blog.csdn.net/l1558198727/article/details/78608713',
     'https://blog.csdn.net/l1558198727/article/details/78608659',
     'https://blog.csdn.net/l1558198727/article/details/78608633',
-    'https://blog.csdn.net/l1558198727/article/details/78608617'
+    'https://blog.csdn.net/l1558198727/article/details/78608617',
+    'http://blog.csdn.net/qq_39511059/article/details/79966229',
+    'http://blog.csdn.net/qq_39511059/article/details/79966090',
+    'http://blog.csdn.net/qq_39511059/article/details/79886712',
+    'http://blog.csdn.net/qq_39511059/article/details/79658841',
+    'http://blog.csdn.net/qq_39511059/article/details/78812498',
+    'http://blog.csdn.net/qq_39511059/article/details/78807158',
+    'http://blog.csdn.net/qq_39511059/article/details/78795967',
+    'http://blog.csdn.net/qq_39511059/article/details/78690922',
+    'http://blog.csdn.net/qq_39511059/article/details/78127513'
 ];
 var SubUrls1 =[];
 var SubUrls2 =[];
@@ -84,7 +93,7 @@ function start() {
     if (co == len) {
         co = 0;
     }
-    var time = getRandom(5,15);
+    var time = getRandom(3,10);
     console.log("getRandom :" + time);
     setTimeout(function () {
         start()

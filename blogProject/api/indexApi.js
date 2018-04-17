@@ -58,7 +58,7 @@ exports.getWriteBlogByMarkDown = function(callback) {
 };
 
 exports.postWriteBlogByMarkDown = function(req, callback) {
-    fsWrite.WriteBlogLog("writeBlogByMarkDown");
+    fsWrite.WriteBlogLog("postWriteBlogByMarkDown");
     var newBlog = req.body;
     blogDB.create({
         // blogId: 1,

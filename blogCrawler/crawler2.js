@@ -25,14 +25,13 @@ var urls = [
     'https://blog.csdn.net/l1558198727/article/details/78608659',
     'https://blog.csdn.net/l1558198727/article/details/78608633',
     'https://blog.csdn.net/l1558198727/article/details/78608617',
-    'http://blog.csdn.net/qq_39511059/article/details/79966229',
-    'http://blog.csdn.net/qq_39511059/article/details/79966090',
-    'http://blog.csdn.net/qq_39511059/article/details/79886712',
-    'http://blog.csdn.net/qq_39511059/article/details/79658841',
-    'http://blog.csdn.net/qq_39511059/article/details/78812498',
-    'http://blog.csdn.net/qq_39511059/article/details/78807158',
-    'http://blog.csdn.net/qq_39511059/article/details/78795967',
-    'http://blog.csdn.net/qq_39511059/article/details/78690922',
+    'http://blog.csdn.net/thj19980720/article/details/78378154',
+    'http://blog.csdn.net/thj19980720/article/details/72783186',
+    'http://blog.csdn.net/thj19980720/article/details/72587968',
+    'http://blog.csdn.net/thj19980720/article/details/63262548',
+    'http://blog.csdn.net/thj19980720/article/details/63262548',
+    'http://blog.csdn.net/thj19980720/article/details/56368475',
+    'http://blog.csdn.net/thj19980720/article/details/56368475',
     'http://blog.csdn.net/qq_39511059/article/details/78127513'
 ];
 var SubUrls1 =[];

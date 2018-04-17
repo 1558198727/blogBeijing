@@ -1,10 +1,14 @@
 var request = require('request');
 var urls = [
     'https://blog.csdn.net/l1558198727/article/details/78752005',
+    'https://blog.csdn.net/l1558198727/article/details/79827287',
     'https://blog.csdn.net/l1558198727/article/details/79936135',
     'https://blog.csdn.net/l1558198727/article/details/79919466',
+    'https://blog.csdn.net/l1558198727/article/details/79827287',
     'https://blog.csdn.net/l1558198727/article/details/79919466',
+    'https://blog.csdn.net/l1558198727/article/details/79827287',
     'https://blog.csdn.net/l1558198727/article/details/79917890',
+    'https://blog.csdn.net/l1558198727/article/details/79827287',
     'https://blog.csdn.net/l1558198727/article/details/79764924',
     'https://blog.csdn.net/l1558198727/article/details/79342950',
     'https://blog.csdn.net/l1558198727/article/details/79342912',

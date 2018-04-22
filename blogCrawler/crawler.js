@@ -41,7 +41,21 @@ var urls = [
     'https://blog.csdn.net/l1558198727/article/details/78734620',
     'https://blog.csdn.net/l1558198727/article/details/78734620',
     'https://blog.csdn.net/l1558198727/article/details/78734620',
-    'https://blog.csdn.net/l1558198727/article/details/78734620'
+    'https://blog.csdn.net/l1558198727/article/details/78734620',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308',
+    'https://blog.csdn.net/l1558198727/article/details/80021308'
+
 ];
 var SubUrls1 =[];
 var SubUrls2 =[];

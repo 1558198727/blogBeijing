@@ -41,33 +41,6 @@ var sendMail = function (recipient, subject, html) {
         }
         console.log('发送成功')
     });
-}
+};
 
 exports.sendMail = sendMail;
-
-// var nodemailer = require('nodemailer');
-// var transporter = nodemailer.createTransport({
-//     service: 'qq',
-//     auth: {
-//         user: '1558198727@qq.com',
-//         pass: 'trkgosflazzfidbj' //授权码,通过QQ获取
-//
-//     }
-// });
-// var mailOptions = {
-//     from: '1558198727@qq.com', // 发送者
-//     to: '849405443@qq.com', // 接受者,可以同时发送多个,以逗号隔开
-//     subject: 'nodemailer2.5.0邮件发送', // 标题
-//     text: '江哥' // 文本
-//
-// };
-// exports.sendMail = function () {
-//     transporter.sendMail(mailOptions, function (err, info) {
-//         if (err) {
-//             console.log(err);
-//             return;
-//         }
-//
-//         console.log('发送成功');
-//     });
-// };

@@ -2,8 +2,8 @@ module.exports = {
     //邮件配置
     email: {
         service: 'QQ',
-        user: '1558198727@qq.com',
-        pass: 'trkgosflazzfidbj'
+        user: '1141946435@qq.com',
+        pass: 'ddhtchrkdvgnijgd'
     }
 };
 

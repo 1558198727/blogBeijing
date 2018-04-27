@@ -14,6 +14,7 @@ function filterChapters(html) {
 }
 
 exports.SearchIP =function (ip,callback) {
+    // ip="210.30.97.165";
     if(typeof(ip) === "undefined"  || ip === "172.0.0.1" ){
         callback('本机');
         return;
@@ -27,14 +28,14 @@ exports.SearchIP =function (ip,callback) {
         });
         res.on('end',function () {
             Data =  filterChapters(html);
-            console.log(Data);
+            console.log("Data "+Data);
              //printCourseInfo(Data);
             // setTimeout(function () {
             callback(Data);
             // },5000)
         });
     }).on('error',function () {
-        console.log('获取学生周知出错')
+        console.log('出错')
     });
 };
 

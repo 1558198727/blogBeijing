@@ -14,6 +14,10 @@ function filterChapters(html) {
 }
 
 exports.SearchIP =function (ip,callback) {
+    if(typeof(ip) === "undefined"  || ip === "172.0.0.1" ){
+        callback('本机');
+        return;
+    }
     url = url + ip;
     http.get(url,function (res) {
         var html ='';

@@ -21,11 +21,12 @@ exports.getIndex = function (req,callback) {
       // ip ="::ffff:139.199.13.238";
     console.log("ip " + ip) ;
     ip = ip.split('::ffff:')[1];
-    console.log("ip " + ip) ;
-
+    console.log("ip " + ip);
+    // console.log();
+    ip = "223.104.176.245";
     IpCrawler.SearchIP(ip,function (address) {
 
-        var message ="某人来访问主页 ,"+"ip :"+ip +",  addr ：" + address;
+        var message ="某人来访问主页 ,"+"ip "+ip +",  addr ：" + address;
         console.log("message "+message);
         mail.sendMail('1141946435@qq.com','某人来访问主页', message);
         req.session.lastpage = "/";

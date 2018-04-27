@@ -1,0 +1,37 @@
+var http = require('http');
+var url ='http://ip.chinaz.com/';
+var cheerio = require('cheerio');
+
+// 加载编码转换模块
+// var iconv = require('iconv-lite');
+function filterChapters(html) {
+    var $ = cheerio.load(html);
+    //console.log(html)
+    var biankuangp = $('.w50-0').eq(1);
+    itemsData = biankuangp.text();
+    // console.log("itemsData " + itemsData);
+    return itemsData;
+}
+
+exports.SearchIP =function (ip,callback) {
+    url = url + ip;
+    http.get(url,function (res) {
+        var html ='';
+
+        res.on('data',function (data) {
+            html += data
+        });
+        res.on('end',function () {
+            Data =  filterChapters(html);
+            console.log(Data);
+             //printCourseInfo(Data);
+            // setTimeout(function () {
+            callback(Data);
+            // },5000)
+        });
+    }).on('error',function () {
+        console.log('获取学生周知出错')
+    });
+};
+
+

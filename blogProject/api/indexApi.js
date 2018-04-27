@@ -1,6 +1,7 @@
 var blogDB = require("../DB/blogDB");
 var fsWrite = require("../model/fsWrite");
 var mail = require("../model/mail");
+var IpCrawler = require("../model/IpCrawler");
 var LeavingAMessageDB = require("../DB/LeavingAMessageDB");
 /* GET login page. */
 
@@ -16,9 +17,14 @@ exports.getIndex = function (req,callback) {
     if(ip.split(',').length>0){
         ip = ip.split(',')[0]
     }
-    console.log("ip :" + ip) ;
-    mail.sendMail('1141946435@qq.com','某人来访问主页', "某人来访问主页 ,"+"ip :"+ip);
-    req.session.lastpage = "/";
+    // ip =":::ffff:139.199.13.238";
+    IpCrawler.SearchIP(ip,function (address) {
+        ip = ip.split(':::ffff:')[1];
+        console.log("ip :" + ip) ;
+        var message ="某人来访问主页 ,"+"ip :"+ip +"addr" + address;
+        mail.sendMail('1141946435@qq.com','某人来访问主页', message);
+        req.session.lastpage = "/";
+    });
     callback();
 };
 

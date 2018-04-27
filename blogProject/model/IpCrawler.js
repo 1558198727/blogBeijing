@@ -21,6 +21,7 @@ exports.SearchIP =function (ip,callback) {
     }
 
     url = url + ip;
+    console.log("查询的url "+url);
     http.get(url,function (res) {
         var html ='';
 

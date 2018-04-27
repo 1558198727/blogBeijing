@@ -1,5 +1,4 @@
 var http = require('http');
-var url ='http://ip.chinaz.com/';
 var cheerio = require('cheerio');
 
 // 加载编码转换模块
@@ -19,7 +18,7 @@ exports.SearchIP =function (ip,callback) {
         callback('本机');
         return;
     }
-
+    var url ='http://ip.chinaz.com/';
     url = url + ip;
     console.log("查询的url "+url);
     http.get(url,function (res) {

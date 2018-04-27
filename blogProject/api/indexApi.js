@@ -23,8 +23,6 @@ exports.getIndex = function (req,callback) {
     ip = ip.split('::ffff:')[1];
     console.log("ip " + ip);
     // console.log();
-    ip ="";
-    ip = "223.104.176.245";
     IpCrawler.SearchIP(ip,function (address) {
 
         var message ="某人来访问主页 ,"+"ip "+ ip +",  addr ：" + address;

@@ -18,9 +18,8 @@ var getRandom = function (a,b) {
     }
 };
 var getAllUrls = function (a,b,callback) {
-    var html ='';
     var urlCounter = 1;//url 总数
-    var selectUrl = function () {
+    var selectUrl = function (html) {
 
         var $ = cheerio.load(html);
         //console.log(html)
@@ -35,33 +34,44 @@ var getAllUrls = function (a,b,callback) {
             //console.log("title :" + title);
             console.log(urlCounter++ +"  " + "blogurl :" + blogurl);
             urls.push(blogurl);
-        })
+        });
+
+
 
     };
 
-    for(var i=a;i<=b;i++){
-        var listUrl = url + "article/list/"+i;
-        https.get(listUrl,function (res) {
+    var listUrl = [];
+    var flagUrl = 0;
+    for(var i = a ; i <= b;i++){
+        listUrl.push(url + "article/list/"+i);
 
+    }
+
+    listUrl.forEach(function (item) {
+        var html ='';
+        https.get(item,function (res) {
 
             res.on('data',function (data) {
                 html += data;
             });
 
             res.on('end',function () {
+
                 //console.log(html);
                 selectUrl(html);
-                //这里开始刷了
-                callback();
-            })
+                flagUrl ++;//计算成功得到几个页面的url
+                if(flagUrl === listUrl.length ){
+                    callback();
+                }
+
+            });
         }).on('error',function () {
             console.log('获取课程数据出错')
         });
 
+    });
 
 
-
-    }
 
 
 };
@@ -96,4 +106,4 @@ function start() {
     },time * 1000);
 }
 
-getAllUrls(1,1,start);
+getAllUrls(1,2,start);

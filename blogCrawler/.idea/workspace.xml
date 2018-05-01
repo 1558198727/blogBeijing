@@ -34,21 +34,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crawlerAwe.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="crawlerAwe.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crawlerAwe.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+            <state relative-caret-position="-1281">
+              <caret line="42" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="108" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crawlerTang.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="crawlerTang.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crawlerTang.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="42" column="40" lean-forward="true" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -124,8 +124,8 @@
         <option value="$PROJECT_DIR$/crawler2.js" />
         <option value="$PROJECT_DIR$/crawler_temp.js" />
         <option value="$PROJECT_DIR$/clawlerTang.js" />
-        <option value="$PROJECT_DIR$/crawlerTang.js" />
         <option value="$PROJECT_DIR$/crawlerAwe.js" />
+        <option value="$PROJECT_DIR$/crawlerTang.js" />
       </list>
     </option>
   </component>
@@ -140,7 +140,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="width" value="1931" />
     <option name="height" value="1048" />
@@ -246,15 +246,15 @@
       <workItem from="1524746312706" duration="605000" />
       <workItem from="1524750437664" duration="1565000" />
       <workItem from="1524811817572" duration="61000" />
-      <workItem from="1525162450324" duration="6926000" />
+      <workItem from="1525162450324" duration="7044000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23766000" />
+    <option name="totallyTimeSpent" value="23884000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24895833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -690,18 +690,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crawlerTang.js">
+    <entry file="file://$PROJECT_DIR$/crawlerAwe.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="42" column="40" lean-forward="true" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+        <state relative-caret-position="-1281">
+          <caret line="42" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="108" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crawlerAwe.js">
+    <entry file="file://$PROJECT_DIR$/crawlerTang.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="42" column="21" lean-forward="true" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

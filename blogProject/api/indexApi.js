@@ -7,7 +7,7 @@ var LeavingAMessageDB = require("../DB/LeavingAMessageDB");
 
 exports.getIndex = function (req,callback) {
     req.session.lastpage = "/";
-    fsWrite.WriteBlogLog("index");
+
     // console.log( getSession.getSession());
     var ip = req.headers['x-forwarded-for'] ||
         req.ip ||
@@ -27,6 +27,8 @@ exports.getIndex = function (req,callback) {
 
         var message ="某人来访问主页 ,"+"ip "+ ip +",  addr ：" + address;
         console.log("message "+message);
+        fsWrite.WriteBlogLog("index");
+        fsWrite.WriteBlogLog("msg :" + message);
         mail.sendMail('1141946435@qq.com','某人来访问主页', message);
         req.session.lastpage = "/";
     });

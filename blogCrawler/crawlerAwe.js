@@ -106,4 +106,4 @@ function start() {
     },time * 1000);
 }
 
-getAllUrls(1,2,start);
+getAllUrls(1,3,start);

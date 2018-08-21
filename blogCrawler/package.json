@@ -13,7 +13,11 @@
   "license": "ISC",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "excel-export": "0.4.1",
+    "express": "~4.8.8",
     "iconv-lite": "^0.4.23",
+    "node-xlrd": "0.2.4",
+    "node-xlsx": "^0.12.1",
     "request": "^2.85.0"
   }
 }

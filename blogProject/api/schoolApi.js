@@ -5,3 +5,8 @@ exports.getReturnData = function (callback) {
     fsWrite.WriteBlogLog("getReturnData");
     crawler.getReturnData(callback);
 };
+
+exports.dreamArtsSignUp = function (callback) {
+    fsWrite.WriteBlogLog("getReturnData");
+    crawler.getReturnData(callback);
+};

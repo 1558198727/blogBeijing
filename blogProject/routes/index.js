@@ -9,7 +9,7 @@ var indexApi = require("../api/indexApi");
 router.get('/', function(req, res, next) {
     indexApi.getIndex(req,function () {
         res.render("index",{title:"首页 | 李云皓的博客"});
-});
+    });
 });
 
 // indexTwo

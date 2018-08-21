@@ -12,4 +12,11 @@ router.get('/', function(req, res, next) {
     // })
 });
 
+router.get('/dreamArtsSignUp', function(req, res, next) {
+
+        res.render('dreamArtsSignUp', {title: '梦创2018招新'});
+
+    // })
+});
+
 module.exports = router;

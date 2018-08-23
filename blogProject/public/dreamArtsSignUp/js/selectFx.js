@@ -294,6 +294,7 @@
 			}
 			else {
 				window.location = opt.getAttribute( 'data-link' );
+
 			}
 		}
 

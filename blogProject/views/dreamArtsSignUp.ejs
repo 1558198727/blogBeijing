@@ -5,31 +5,18 @@
 <head>
 
     <meta charset="UTF-8" />
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title><%=title%></title>
-
     <meta name="description" content="Fullscreen Form Interface: A distraction-free form concept with fancy animations" />
-
     <meta name="keywords" content="fullscreen form, css animations, distraction-free, web design" />
-
     <meta name="author" content="Codrops" />
-
     <link rel="shortcut icon" href="../../img/HeadPhoto.ico">
-
     <link rel="stylesheet" type="text/css" href="../../dreamArtsSignUp/css/normalize.css" />
-
     <link rel="stylesheet" type="text/css" href="../../dreamArtsSignUp/css/demo.css" />
-
     <link rel="stylesheet" type="text/css" href="../../dreamArtsSignUp/css/component.css" />
-
     <link rel="stylesheet" type="text/css" href="../../dreamArtsSignUp/css/cs-select.css" />
-
     <link rel="stylesheet" type="text/css" href="../../dreamArtsSignUp/css/cs-skin-boxes.css" />
-
     <script src="../../dreamArtsSignUp/js/modernizr.custom.js"></script>
 
 </head>
@@ -48,7 +35,7 @@
 
         </div>
 
-        <form id="myform" class="fs-form fs-form-full" autocomplete="off">
+        <form id="myform" class="fs-form fs-form-full" autocomplete="off" method="post">
 
             <ol class="fs-fields">
 
@@ -62,12 +49,27 @@
 
                 <li>
 
-                    <label class="fs-field-label fs-anim-upper" for="q2" data-info="We won't send you spam, we promise...">您的电子邮件地址是什么?</label>
+                    <label class="fs-field-label fs-anim-upper" for="q2">请输入您的学号</label>
 
-                    <input class="fs-anim-lower" id="q2" name="q2" type="email" placeholder="保证" required/>
+                    <input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="请输入学号" required/>
 
                 </li>
 
+                <li>
+
+                    <label class="fs-field-label fs-anim-upper" for="q3">请输入您的QQ号</label>
+
+                    <input class="fs-anim-lower" id="q3" name="q3" type="text" placeholder="请输入QQ号" required/>
+
+                </li>
+
+                <li>
+
+                    <label class="fs-field-label fs-anim-upper" for="q4">请输入您的手机号</label>
+
+                    <input class="fs-anim-lower" id="q4" name="q4" type="text" placeholder="请输入手机号" required/>
+
+                </li>
                 <!--<li data-input-trigger>-->
 
                     <!--<label class="fs-field-label fs-anim-upper" for="q3" data-info="This will help us know what kind of service you need">What's your priority for your new website?</label>-->
@@ -138,23 +140,23 @@
 
                 <li>
 
-                    <label class="fs-field-label fs-anim-upper" for="q4">请简单描述一下兴趣爱好</label>
+                    <label class="fs-field-label fs-anim-upper" for="q5">简单描述一下特长</label>
 
-                    <textarea class="fs-anim-lower" id="q4" name="q4" placeholder="Describe here"></textarea>
-
-                </li>
-
-                <li>
-
-                    <label class="fs-field-label fs-anim-upper" for="q5">What's your budget?</label>
-
-                    <input class="fs-mark fs-anim-lower" id="q5" name="q5" type="number" placeholder="1000" step="100" min="100"/>
+                    <textarea class="fs-anim-lower" id="q5" name="q5" placeholder="Describe here"></textarea>
 
                 </li>
+
+                <!--<li>-->
+
+                    <!--<label class="fs-field-label fs-anim-upper" for="q5">What's your budget?</label>-->
+
+                    <!--<input class="fs-mark fs-anim-lower" id="q5" name="q5" type="number" placeholder="1000" step="100" min="100"/>-->
+
+                <!--</li>-->
 
             </ol><!-- /fs-fields -->
 
-            <button class="fs-submit" type="submit">提交</button>
+            <button class="fs-submit" type="button" id="submit">提交</button>
 
         </form><!-- /fs-form -->
 
@@ -213,7 +215,32 @@
     })();
 
 </script>
+<script src="../indexTwo/js/jquery.js"></script>
+<script type="text/javascript">
+    $("#submit").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/school/dreamArtsSignUp",
+            dataType: "json",
+            data: {
+                name:$("#q1").val(),
+                stuId:$("#q2").val(),
+                qqNum:$("#q3").val(),
+                phoneNum:$("#q4").val(),
+                intro:$("#q5").val()
+            },
+            success: function (data){
+//
+                alert(data.status);
 
+            }
+            ,error:function(xhr){
+//
+                console.log(xhr.responseText);
+            }
+        })
+    })
+</script>
 </body>
 
 </html>

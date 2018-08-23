@@ -13,10 +13,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/dreamArtsSignUp', function(req, res, next) {
-
+    schoolApi.getDreamArtsSignUp(function () {
         res.render('dreamArtsSignUp', {title: '梦创2018招新'});
+    })
 
-    // })
 });
 
+router.post('/dreamArtsSignUp', function(req, res, next) {
+    schoolApi.postDreamArtsSignUp(req,function (data) {
+        res.send(data);
+    })
+
+});
 module.exports = router;

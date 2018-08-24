@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href="../../dreamArtsSignUp/css/component.css" />
     <link rel="stylesheet" type="text/css" href="../../dreamArtsSignUp/css/cs-select.css" />
     <link rel="stylesheet" type="text/css" href="../../dreamArtsSignUp/css/cs-skin-boxes.css" />
+
+    <script src="../indexTwo/js/jquery.js"></script>
     <script src="../../dreamArtsSignUp/js/modernizr.custom.js"></script>
 
 </head>
@@ -43,7 +45,11 @@
 
                     <label class="fs-field-label fs-anim-upper" for="q1">请输入您的名字?</label>
 
-                    <input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="您的名字" required/>
+                    <input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="您的名字"
+                           onkeyup="value=value.replace(/[\d]/g,'') "
+                           onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))"
+                           maxlength="10" name="Numbers"
+                           required/>
 
                 </li>
 
@@ -51,7 +57,11 @@
 
                     <label class="fs-field-label fs-anim-upper" for="q2">请输入您的学号</label>
 
-                    <input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="请输入学号" required/>
+                    <input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="请输入学号"
+                           onkeyup="this.value=this.value.replace(/\D/g,'')"
+                           onafterpaste="this.value=this.value.replace(/\D/g,'')"
+                           maxlength="9" minlength="9"
+                           required/>
 
                 </li>
 
@@ -59,7 +69,11 @@
 
                     <label class="fs-field-label fs-anim-upper" for="q3">请输入您的QQ号</label>
 
-                    <input class="fs-anim-lower" id="q3" name="q3" type="text" placeholder="请输入QQ号" required/>
+                    <input class="fs-anim-lower" id="q3" name="q3" type="text" placeholder="请输入QQ号"
+                           onkeyup="this.value=this.value.replace(/\D/g,'')"
+                           onafterpaste="this.value=this.value.replace(/\D/g,'')"
+                           maxlength="11" minlength="6"
+                           required/>
 
                 </li>
 
@@ -67,9 +81,15 @@
 
                     <label class="fs-field-label fs-anim-upper" for="q4">请输入您的手机号</label>
 
-                    <input class="fs-anim-lower" id="q4" name="q4" type="text" placeholder="请输入手机号" required/>
+                    <input class="fs-anim-lower" id="q4" name="q4" type="text" placeholder="请输入手机号"
+                           onkeyup="this.value=this.value.replace(/\D/g,'')"
+                           onafterpaste="this.value=this.value.replace(/\D/g,'')"
+                           maxlength="11" minlength="11"
+                           required/>
 
                 </li>
+
+
                 <!--<li data-input-trigger>-->
 
                     <!--<label class="fs-field-label fs-anim-upper" for="q3" data-info="This will help us know what kind of service you need">What's your priority for your new website?</label>-->
@@ -145,7 +165,17 @@
                     <textarea class="fs-anim-lower" id="q5" name="q5" placeholder="Describe here"></textarea>
 
                 </li>
+                <li>
 
+                    <label class="fs-field-label fs-anim-upper" for="code">请输入验证码</label>
+
+                    <input class="fs-anim-lower" id="code" name="code" type="text" placeholder="已发送验证码"
+                           onkeyup="this.value=this.value.replace(/\D/g,'')"
+                           onafterpaste="this.value=this.value.replace(/\D/g,'')"
+                           maxlength="4" minlength="4"
+                           required/>
+
+                </li>
                 <!--<li>-->
 
                     <!--<label class="fs-field-label fs-anim-upper" for="q5">What's your budget?</label>-->
@@ -215,8 +245,43 @@
     })();
 
 </script>
-<script src="../indexTwo/js/jquery.js"></script>
+<!--<script src="../indexTwo/js/jquery.js"></script>-->
 <script type="text/javascript">
+
+    $().ready(function() {
+        $("#myform").validate();
+    });
+    var isSent = false;
+    $(".fs-continue").click(function () {
+        if($("#q4").val()!=="" && isSent===false){
+            isSent = true;
+            $.ajax({
+                type: "POST",
+                url: "/school/dreamArtsSignUpSendCode",
+                dataType: "json",
+                data: {
+                    phoneNum:$("#q4").val()
+                },
+                success: function (data){
+//
+                    console.log(JSON.stringify(data));
+                    if(!data.status){
+                        alert(data.msg+"请重新注册！");
+                        location.reload();
+
+                    }
+                }
+                ,error:function(xhr){
+//
+                    console.log(xhr.responseText);
+                }
+            })
+        }
+
+    })
+    // $("#q1").blur(function(){
+    //     console.log("dfdas");
+    // });
     $("#submit").click(function () {
         $.ajax({
             type: "POST",
@@ -227,7 +292,8 @@
                 stuId:$("#q2").val(),
                 qqNum:$("#q3").val(),
                 phoneNum:$("#q4").val(),
-                intro:$("#q5").val()
+                intro:$("#q5").val(),
+                code:$("#code").val()
             },
             success: function (data){
 //
@@ -241,6 +307,8 @@
         })
     })
 </script>
+
+
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 var Sequelize = require("sequelize");
 var mysql = require("./mysql");
 var sequelize = mysql.sequelize;
-var LeavingAMessage = sequelize.define('dreamArtsSignUp', {
+var DreamArtsSignUp = sequelize.define('dreamArtsSignUp', {
 
         stuId:{ //自增长学生的学号,主键
             type:Sequelize.INTEGER,
@@ -28,4 +28,4 @@ var LeavingAMessage = sequelize.define('dreamArtsSignUp', {
     }
 );
 
-module.exports =LeavingAMessage;
+module.exports =DreamArtsSignUp;

@@ -25,4 +25,11 @@ router.post('/dreamArtsSignUp', function(req, res, next) {
     })
 
 });
+
+router.post('/dreamArtsSignUpSendCode', function(req, res, next) {
+    schoolApi.postDreamArtsSignUpSendCode(req,function (data) {
+        res.send(data);
+    })
+
+});
 module.exports = router;

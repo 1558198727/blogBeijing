@@ -4,7 +4,7 @@
 var fs = require('fs');
 var xlsx = require('node-xlsx');
 
-var list = xlsx.parse("test.xlsx"); //读取excel
+var list = xlsx.parse("test1.xlsx"); //读取excel
 
 console.log(JSON.stringify(list));
 

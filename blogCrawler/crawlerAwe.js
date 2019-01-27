@@ -2,7 +2,7 @@ var request = require('request');
 var https = require('https');
 var cheerio = require('cheerio');
 
-var url =  "https://blog.csdn.net/l1558198727/";
+var url =  "https://blog.csdn.net/qq_40070622/";
 var count = 0; // 刷了多少次
 var urls = [];//存放url的数组
 

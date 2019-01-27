@@ -54,7 +54,7 @@ var getAllUrls = function (a,b,callback) {
     var flagUrl = 0;
     for(var i = a ; i <= b;i++){
 
-        listUrl.push(url + "article/month/2018/08/"+i);
+        listUrl.push(url + "article/month/2018/10/"+i);
 
     }
 
